@@ -32,7 +32,7 @@ window.__PWA__ = false;
 var BRAND = {
   name: 'Tumbletail',
   game: 'Rapids',
-  version: '0.8',           // each build is saved as dist/versions/TumbletailRapids-v<version>.html – bump it for every new build
+  version: '1.0',           // each build is saved as dist/versions/TumbletailRapids-v<version>.html – bump it for every new build
   tagline: 'Paddle the great rivers of the world',
   storageKey: 'tumbletail.rapids.v2',
   testMode: true,            // shows the TEST button on the title screen (turn off for release)
@@ -319,7 +319,9 @@ var FLAGS = {
   cn: { t: 'star', c: ['#DE2910', '#FFDE00'] }, in: { t: 'h', c: ['#FF9933', '#FFFFFF', '#138808'] }, th: { t: 'th', c: ['#A51931', '#F4F5F8', '#2D2A4A'] },
   jp: { t: 'jp', c: ['#FFFFFF', '#BC002D'] }, zm: { t: 'h', c: ['#198A00', '#EF7D00', '#DE2010'] }, eg: { t: 'h', c: ['#CE1126', '#FFFFFF', '#000000'] },
   br: { t: 'br', c: ['#009C3B', '#FFDF00', '#002776'] }, ve: { t: 'h', c: ['#FFCC00', '#00247D', '#CF142B'] }, ar: { t: 'h', c: ['#74ACDF', '#FFFFFF', '#74ACDF'] },
-  tx: { t: 'tx', c: ['#002868', '#FFFFFF', '#BF0A30'] }
+  tx: { t: 'tx', c: ['#002868', '#FFFFFF', '#BF0A30'] },
+  no: { t: 'nordic', c: ['#BA0C2F', '#FFFFFF', '#00205B'] }, se: { t: 'nordic', c: ['#006AA7', '#FECC02'] }, kr: { t: 'kr', c: ['#CD2E3A', '#0047A0'] },
+  za: { t: 'za', c: ['#E03C31', '#001489', '#007749'] }, nz: { t: 'au', c: ['#012169', '#FFFFFF', '#C8102E'], star: '#C8102E' }, gt: { t: 'v', c: ['#4997D0', '#FFFFFF', '#4997D0'] }
 };
 
 var REGIONS = [
@@ -433,7 +435,43 @@ var REGIONS = [
   { id: 'yellowstone', cont: 'NA', pop: 44, river: 'Yellowstone River', place: 'Wyoming & Montana, USA', biome: 'forest', landmark: 'oldfaithful', lname: 'Old Faithful', flag: 'us', props: ['flag', 'steam', 'cabin', 'canoe'], music: 'frontier',
     sights: [SG('Roosevelt Arch', 'arch', 'b', { kind: 'roosevelt' }), SG('Bison Herd', 'animals', 'b', { kind: 'bison' }), SG('Mammoth Hot Springs', 'hotspring', 'b', { kind: 'terraces' }), SG('Fishing Bridge', 'bridge', 'r', { style: 'wood' }),
       SG('Grand Canyon of the Yellowstone', 'rock', 'b', { kind: 'cliff', col: '#D9A84A' }), SG('Lower Falls', 'falls', 'b', { w: 34, h: 160 }), SG('Yellowstone Lake Isle', 'grove', 'i'), SG('Grand Prismatic Spring', 'hotspring', 'b', { kind: 'prismatic' }), SG('Old Faithful Inn', 'houses', 'b', { style: 'lodge' })],
-    water: { mover: ['raft', 'kayak'], moored: ['raft'], rocks: ['bison', 'hotpool', 'rocks'], drifter: ['log'], bridge: 'wood' } }
+    water: { mover: ['raft', 'kayak'], moored: ['raft'], rocks: ['bison', 'hotpool', 'rocks'], drifter: ['log'], bridge: 'wood' } },
+  // ---------- v1.0: Chapters 2–4 ----------
+  { id: 'orange', cont: 'AF', pop: 20, river: 'Orange River', place: 'Northern Cape, South Africa', biome: 'desert', landmark: 'augrabies', lname: 'Augrabies Falls', flag: 'za', props: ['flag', 'quiverProp', 'grassHut', 'drum'], music: 'kalahari',
+    sights: [SG('Quiver Tree Forest', 'grove', 'b', { quiver: true }), SG('Kalahari Dunes', 'rock', 'b', { kind: 'dunes' }), SG('Springbok Herd', 'animals', 'b', { herd: [['springbok', 6, 1.5, 1, -30], ['springbok', -80, 2.1, 1], ['springbok', 78, 2, -1]] }),
+      SG('Orange River Vineyards', 'vineyard', 'b'), SG('Upington Bridge', 'bridge', 'r', { style: 'truss' }), SG('Richtersveld Mountains', 'rock', 'b', { kind: 'cliff', col: '#B8664A' }),
+      SG('Gorge Isle', 'grove', 'i', { quiver: true }), SG('Kgalagadi Lions', 'animals', 'b', { kind: 'lion' }), SG('Desert Giraffes', 'animals', 'b', { kind: 'giraffe' })],
+    water: { mover: ['raft', 'kayak'], moored: ['raft'], rocks: ['rocks', 'hippos'], drifter: ['log'], bridge: 'truss' } },
+  { id: 'waikato', cont: 'OC', pop: 26, river: 'Waikato River', place: 'North Island, New Zealand', biome: 'alpine', landmark: 'huka', lname: 'Huka Falls', flag: 'nz', props: ['flag', 'fern', 'huia', 'canoe'], music: 'pacific',
+    sights: [SG('Hobbiton', 'hobbit', 'b'), SG('Sheep Station', 'animals', 'b', { herd: [['sheep', 0, 1.6, -1, -34], ['sheep', -78, 2.1, 1], ['sheep', 76, 2, -1]], fence: true }), SG('Marae Meeting House', 'marae', 'b'),
+      SG('Kiwi Sanctuary', 'animals', 'b', { herd: [['kiwi', -70, 3.6, 1], ['kiwi', 66, 3.3, -1], ['kiwi', -4, 2.6, 1, -20]] }), SG('Lake Taupō Isle', 'grove', 'i'), SG('Orakei Korako Terraces', 'hotspring', 'b', { kind: 'terraces' }),
+      SG('Arapuni Dam', 'dam', 'b'), SG('Mount Ruapehu', 'rock', 'b', { kind: 'volcano', snow: true, col: '#6E7A6A' }), SG('Waikato River Bridge', 'bridge', 'r', { style: 'suspension' })],
+    water: { mover: ['jetboat', 'kayak'], moored: ['yachts'], rocks: ['ducks', 'rocks'], drifter: ['log'], bridge: 'suspension' } },
+  { id: 'oslofjord', cont: 'EU', pop: 40, river: 'Oslofjord', place: 'Oslo, Norway', biome: 'alpine', landmark: 'osloopera', lname: 'Oslo Opera House', flag: 'no', props: ['flag', 'rorbu', 'sled', 'canoe'], music: 'nordic',
+    sights: [SG('Heddal Stave Church', 'stave', 'b'), SG('Viking Ship', 'ship', 'b', { kind: 'viking' }), SG('Holmenkollen Ski Jump', 'skijump', 'b'), SG('Akershus Fortress', 'castle', 'b', { col: '#E8E2D4', roof: '#5E6A6E', towers: 3 }),
+      SG('Fishing Huts', 'houses', 'b', { style: 'rorbu' }), SG('Reindeer', 'animals', 'b', { herd: [['reindeer', 4, 1.5, 1, -30], ['reindeer', -80, 2, 1], ['reindeer', 78, 1.9, -1]] }),
+      SG('Royal Palace', 'palace', 'b', { col: '#F2E6C8', roof: '#7A8A8A', style: 'classic' }), SG('Bygdøy Isle', 'grove', 'i'), SG('Fjord Cliffs', 'rock', 'b', { kind: 'cliff', col: '#7A8A8A' })],
+    water: { mover: ['ferry', 'yacht'], moored: ['fishing'], rocks: ['buoys', 'rocks'], drifter: ['crate'], bridge: 'steelarch' } },
+  { id: 'han', cont: 'AS', pop: 48, river: 'Han River', place: 'Seoul, South Korea', biome: 'city', landmark: 'nseoul', lname: 'N Seoul Tower', flag: 'kr', props: ['flag', 'kimchi', 'cherry', 'lantern'], music: 'seoul',
+    sights: [SG('Gyeongbokgung Palace', 'hanok', 'b'), SG('Bukchon Hanok Village', 'houses', 'b', { style: 'hanok' }), SG('Lotte World Tower', 'tower', 'b', { kind: 'lotte' }), SG('Namdaemun Gate', 'hanok', 'b', { gate: true }),
+      SG('Yeouido Cherry Blossoms', 'grove', 'i', { sakura: true }), SG('Bongeunsa Buddha', 'statue', 'b', { kind: 'buddha' }), SG('Banpo Bridge', 'bridge', 'r', { style: 'truss' }),
+      SG('63 Building', 'tower', 'b', { kind: 'glass' }), SG('Seoul by Night', 'skyline', 'b', { neon: true })],
+    water: { mover: ['waterbus', 'ferry'], moored: ['yachts'], rocks: ['ducks', 'buoys'], drifter: ['crate'], bridge: 'truss' } },
+  { id: 'stockholm', cont: 'EU', pop: 50, river: 'Stockholm Waterways', place: 'Stockholm, Sweden', biome: 'city', landmark: 'stadshuset', lname: 'Stockholm City Hall', flag: 'se', props: ['flag', 'rorbu', 'cafe', 'tram'], music: 'nordic',
+    sights: [SG('Gamla Stan', 'houses', 'b', { style: 'gamla' }), SG('Vasa Ship', 'ship', 'b', { kind: 'galleon' }), SG('Royal Palace', 'palace', 'b', { col: '#E8D8B0', roof: '#6E7A7A', style: 'classic' }),
+      SG('Riddarholmen Church', 'cathedral', 'b', { col: '#B8574A', spireCol: '#3A3A42' }), SG('Skansen Elk', 'animals', 'b', { kind: 'moose' }), SG('Gröna Lund', 'wheel', 'b'),
+      SG('Archipelago Cottages', 'houses', 'b', { style: 'falu' }), SG('Djurgården Isle', 'grove', 'i'), SG('Skeppsholm Bridge', 'bridge', 'r', { style: 'stone' })],
+    water: { mover: ['steamer', 'ferry'], moored: ['yachts'], rocks: ['swans', 'buoys'], drifter: ['crate'], bridge: 'stone' } },
+  { id: 'potomac', cont: 'NA', pop: 70, river: 'Potomac', place: 'Washington, D.C., USA', biome: 'city', landmark: 'capitol', lname: 'US Capitol', flag: 'us', props: ['flagUS', 'hotdog', 'cherry', 'bus'], music: 'capital',
+    sights: [SG('Washington Monument', 'obelisk', 'b', { dc: true }), SG('Lincoln Memorial', 'columns', 'b'), SG('Jefferson Memorial', 'dome', 'b', { col: '#F4F1E8' }), SG('The White House', 'palace', 'b', { col: '#FFFFFF', roof: '#9AA6B6', style: 'classic' }),
+      SG('Tidal Basin Blossoms', 'grove', 'i', { sakura: true }), SG('Great Falls', 'falls', 'b', { w: 70, h: 90 }), SG('Georgetown', 'houses', 'b', { style: 'canal' }),
+      SG('Mount Vernon', 'palace', 'b', { col: '#F2EEE2', roof: '#B83A2A', style: 'classic' }), SG('Memorial Bridge', 'bridge', 'r', { style: 'stone' })],
+    water: { mover: ['tourboat', 'kayak'], moored: ['rowboat'], rocks: ['ducks', 'buoys'], drifter: ['log'], bridge: 'stone' } },
+  { id: 'riodulce', cont: 'NA', pop: 22, river: 'Río Dulce', place: 'Guatemala', biome: 'rainforest', landmark: 'sanfelipe', lname: 'Castillo de San Felipe', flag: 'gt', props: ['flag', 'hammock', 'macaw', 'mayaStone'], music: 'garifuna',
+    sights: [SG('Tikal Temple', 'maya', 'b'), SG('Howler Monkeys', 'animals', 'b', { herd: [['howler', -70, 2.1, 1], ['howler', 56, 1.9, -1]] }), SG('Hot Springs Waterfall', 'falls', 'b', { w: 40, h: 110 }),
+      SG('Livingston Village', 'houses', 'b', { style: 'stilt' }), SG('Mangrove Isle', 'grove', 'i', { mangrove: true }), SG('Volcán de Agua', 'rock', 'b', { kind: 'volcano' }),
+      SG('Toucans', 'animals', 'b', { kind: 'toucan' }), SG('Río Dulce Bridge', 'bridge', 'r', { style: 'steelarch' }), SG('Lake Izabal Isle', 'grove', 'i', { palm: true })],
+    water: { mover: ['dugout', 'riverboat'], moored: ['dugout'], rocks: ['lilyPads', 'heron'], drifter: ['hyacinth'], bridge: 'steelarch' } }
 ];
 var REGION_BY_ID = {}; REGIONS.forEach(function (r) { REGION_BY_ID[r.id] = r; });
 /* ---------- World Tour chapters: 14 themes × 5 stages (the agreed 70-stage plan), mixing continents and scenery,
@@ -457,10 +495,7 @@ var CHAPTERS = [
   { name: 'Wonders of the World', col: '#B08A2E', stages: ['plata', 'larive', 'singapore', 'iguazu', 'nile'] }
 ];
 /* stages planned but not built yet: river, place */
-var COMING_SOON = {
-  orange: ['Orange River', 'South Africa'], waikato: ['Waikato', 'New Zealand'], oslofjord: ['Oslofjord', 'Oslo, Norway'],
-  han: ['Han River', 'Seoul, South Korea'], stockholm: ['Stockholm Waterways', 'Stockholm, Sweden'], potomac: ['Potomac', 'Washington, D.C.'],
-  riodulce: ['Río Dulce', 'Guatemala'], shotover: ['Shotover', 'Queenstown, New Zealand'], snake: ['Snake River', 'Grand Teton, USA'],
+var COMING_SOON = { shotover: ['Shotover', 'Queenstown, New Zealand'], snake: ['Snake River', 'Grand Teton, USA'],
   murray: ['Murray', 'South Australia'], alula: ['AlUla Oasis', 'AlUla'], yangtze: ['Yangtze', 'Three Gorges, China'], merced: ['Merced', 'Yosemite, USA'],
   daintree: ['Daintree', 'Queensland, Australia'], mara: ['Mara River', 'Kenya & Tanzania'], everglades: ['Everglades', 'Florida, USA'],
   wailua: ['Wailua', 'Kauaʻi, Hawaii'], seattle: ['Puget Sound', 'Seattle, USA'], copenhagen: ['Nyhavn', 'Copenhagen, Denmark'], panama: ['Panama Canal', 'Panama'], sanfrancisco: ['San Francisco Bay', 'California, USA'],
@@ -526,7 +561,7 @@ function sightsOfLevel(reg, sub) { var n = reg.sights.length; return reg.sights.
 /* ---------- level generation ---------- */
 /* Layouts that a near-perfect bot couldn't clear are re-rolled: FAIR_FIX maps 'river|level' to a layout variant.
    Regenerate it with __tt.fairCheck() in the browser console after changing the generator. */
-var FAIR_FIX = { 'sanantonio|5': 1, 'mekong|5': 1, 'niagara|5': 1, 'colorado|5': 1, 'churun|1': 1, 'chaophraya|1': 1, 'yamuna|1': 1, 'amazon|5': 1, 'hudson|4': 2, 'loire|1': 1, 'iguazu|5': 2, 'nile|1': 1, 'nile|3': 3, 'nile|4': 3 }, FAIR_OVERRIDE = null;
+var FAIR_FIX = { 'niagara|1': 1, 'rhine|5': 1, 'li|5': 1, 'fuji|5': 1, 'amstel|5': 1, 'venice|2': 1, 'venice|5': 1, 'churun|5': 1, 'mississippi|5': 1, 'chaophraya|3': 1, 'chaophraya|5': 1, 'bosphorus|5': 1, 'ganges|3': 1, 'yamuna|2': 1, 'huangpu|5': 2, 'hudson|5': 1, 'sumida|1': 1, 'sumida|3': 2, 'sumida|5': 1, 'seine|4': 1, 'iguazu|3': 1, 'iguazu|4': 2, 'nile|1': 1, 'nile|5': 1 }, FAIR_OVERRIDE = null;
 function buildStage(ri, sub, d, variant) {
   if (variant === undefined) variant = FAIR_OVERRIDE !== null ? FAIR_OVERRIDE : FAIR_FIX[REGIONS[ri].id + '|' + sub] || 0;
   var reg = REGIONS[ri], biome = BIOMES[reg.biome], rng = RNG(ri * 7919 + sub * 131 + Math.round(d * 1000) * 7 + 17 + variant * 7777);
@@ -604,37 +639,48 @@ function buildStage(ri, sub, d, variant) {
     }
     lastGap = st.gap * (boss ? rng.range(0.8, 0.95) : rng.range(0.85, 1.2)); y += len + lastGap;
   }
-  coinTrail(st, rng, d);
+  coinTrail(st, rng, d, function (l, ty) { st.obs.push(mk('rocks', l, l, ty, ty + 70, { skin: skin('rocks') || 'rocks', trap: true })); });
+  st.obs.sort(function (a, b) { return a.y0 - b.y0; });
   st.bend = riverBends(st, st.sights.map(function (q) { return q.wy; }), RNG(ri * 131 + sub * 17 + 5));
   if (!finale) st.marks.push({ k: 'post', wy: st.length * 0.5, km: st.toGo * 12 + 6 });
   st.totalCoins = st.coins.length;
   st.maxScore = st.totalCoins * COIN_VALUE;
   return st;
 }
-/* Coins follow one continuous trail – the trail IS the difficulty. It is built from short shapes:
-   straight runs, gentle drifts (one lane every few coins), snakes (side to side) and, when hard, hops of two lanes.
-   Easy levels use long runs and slow drifts; hard levels change lane more often. Always reachable. */
-function coinTrail(st, rng, d) {
-  var step = lerp(62, 78, d), lane = 3, target = 3, queue = [];
+/* Coins come in short groups with breaks between them (about half as many coins as one in every row): a short row (never more
+   than 3 in one lane), a diagonal, a zigzag or, when hard, a two-lane hop. Each group starts in a new lane.
+   After a group a trap rock often sits in its lane, so following the coins blindly runs into it. Always reachable. */
+function coinTrail(st, rng, d, trapAt) {
+  var step = lerp(62, 78, d), lane = 3, trapP = lerp(0.3, 0.75, d), noTrapBefore = d < DIFF_START + 0.005 ? 2200 : 900;
   function blockedAt(l, y, pad) { for (var i = 0; i < st.obs.length; i++) { var o = st.obs[i]; if (l >= o.l0 && l <= o.l1 && o.y1 + pad > y && o.y0 - pad < y) return true; } return false; }
-  function plan() {   // queue of lane targets, one per coin
-    var r = rng(), n, dir = rng.chance(0.5) ? -1 : 1, k;
-    if (lane <= 1) dir = 1; else if (lane >= LANES - 2) dir = -1;
-    if (r < lerp(0.4, 0.25, d)) { n = rng.int(Math.round(lerp(5, 3, d)), Math.round(lerp(9, 5, d))); for (k = 0; k < n; k++) queue.push(lane); }
-    else if (r < 0.7) { var every = Math.round(lerp(3, 1, d)), steps = rng.int(1, d < 0.3 ? 2 : 3), l = lane; for (var s2 = 0; s2 < steps; s2++) { l = clamp(l + dir, 0, LANES - 1); for (k = 0; k < every; k++) queue.push(l); } }
-    else if (r < 0.9 || d < 0.5) { var hold = Math.round(lerp(3, 2, d)), l2 = clamp(lane + dir, 0, LANES - 1); for (var w = 0; w < 2; w++) { for (k = 0; k < hold; k++) queue.push(l2); for (k = 0; k < hold; k++) queue.push(lane); } }
-    else { var l3 = clamp(lane + dir * 2, 0, LANES - 1); for (k = 0; k < 4; k++) queue.push(l3); }
+  function laneClear(l, y0, y1) { return l < 0 || l >= LANES || !st.obs.some(function (o) { return l >= o.l0 && l <= o.l1 && o.y1 > y0 && o.y0 < y1; }); }
+  function openLanes(y0, y1) { var n = 0; for (var l = 0; l < LANES; l++) if (laneClear(l, y0, y1)) n++; return n; }
+  function shape(l0) {   // lane per coin, starting at l0
+    var r = rng(), dir = l0 <= 1 ? 1 : l0 >= LANES - 2 ? -1 : rng.chance(0.5) ? -1 : 1, out = [], k;
+    if (r < 0.3) for (k = 0; k < 3; k++) out.push(l0);
+    else if (r < 0.65) { var every = d < 0.35 ? 2 : 1, n = rng.int(3, 5); for (k = 0; k < n; k++) out.push(clamp(l0 + dir * Math.floor(k / every), 0, LANES - 1)); }
+    else if (r < 0.88 || d < 0.45) for (k = 0; k < 4; k++) out.push(k % 2 ? clamp(l0 + dir, 0, LANES - 1) : l0);
+    else { for (k = 0; k < 2; k++) out.push(l0); for (k = 0; k < 2; k++) out.push(clamp(l0 + dir * 2, 0, LANES - 1)); }
+    return out;
   }
-  for (var y = 520; y < st.length - 320; y += step) {
-    if (!queue.length) plan();
-    target = queue.shift();
-    // steer the trail out of the way of anything just ahead
-    if (blockedAt(target, y + 140, 30) || blockedAt(target, y, 30) || blockedAt(lane, y + 140, 30)) {
-      var best = -1, bd = 99; for (var l = 0; l < LANES; l++) if (!blockedAt(l, y + 140, 30) && !blockedAt(l, y, 30) && Math.abs(l - lane) < bd) { bd = Math.abs(l - lane); best = l; }
-      if (best >= 0) { target = best; queue = []; }
+  var y = 520;
+  while (y < st.length - 320) {
+    // pick a start lane 1-2 lanes from the last group where the whole group is clear of obstacles
+    var tries = [], placed = null;
+    [1, -1, 2, -2, 0, 3, -3].forEach(function (dl) { var l = lane + dl; if (l >= 0 && l < LANES) tries.push(l); });
+    if (rng.chance(0.5)) { var t0 = tries[0]; tries[0] = tries[1]; tries[1] = t0; }
+    for (var ti = 0; ti < tries.length && !placed; ti++) {
+      var sh = shape(tries[ti]), ok = true;
+      for (var k = 0; k < sh.length && ok; k++) if (blockedAt(sh[k], y + k * step, 40) || blockedAt(sh[k], y + k * step + 110, 20)) ok = false;
+      if (ok) placed = sh;
     }
-    if (target !== lane) lane += Math.sign(target - lane);
-    if (!blockedAt(lane, y, 28)) st.coins.push({ lane: lane, wy: y });
+    if (!placed) { y += step; continue; }
+    placed.forEach(function (l, k) { if (y + k * step < st.length - 320) st.coins.push({ lane: l, wy: y + k * step }); });
+    var lastY = y + (placed.length - 1) * step; lane = placed[placed.length - 1];
+    // trap: a rock in the group's lane just after it ends, only where the river is otherwise open
+    var ty = lastY + lerp(200, 140, d);
+    if (trapAt && ty > noTrapBefore && ty < st.length - 500 && rng.chance(trapP) && laneClear(lane, ty - 200, ty + 240) && laneClear(lane - 1, ty - 160, ty + 200) && laneClear(lane + 1, ty - 160, ty + 200) && openLanes(ty - 120, ty + 190) >= 5) trapAt(lane, ty);
+    y = lastY + step * rng.range(3.6, 5.2);
   }
 }
 /* ---------- bends: the river twists and turns on screen ----------
@@ -642,7 +688,7 @@ function coinTrail(st, rng, d) {
    shifted sideways by bendAt(wy). Each river's MEANDER (0 = straight, 1 = very twisty) follows the real
    river, and every level picks its own mix of straights, bends and meanders. The start, the end and the
    stretches beside named sights stay straight. */
-var MEANDER = { kerala: 0.55, sanantonio: 0.7, yellowstone: 0.6, yukon: 0.8, stlawrence: 0.3, mississippi: 0.95, colorado: 0.9, niagara: 0.35, hudson: 0.12, rhine: 0.7, loire: 0.65, vltava: 0.55, danube: 0.45,
+var MEANDER = { orange: 0.6, waikato: 0.7, oslofjord: 0.25, han: 0.3, stockholm: 0.2, potomac: 0.5, riodulce: 0.75, kerala: 0.55, sanantonio: 0.7, yellowstone: 0.6, yukon: 0.8, stlawrence: 0.3, mississippi: 0.95, colorado: 0.9, niagara: 0.35, hudson: 0.12, rhine: 0.7, loire: 0.65, vltava: 0.55, danube: 0.45,
   amstel: 0.12, bosphorus: 0.5, venice: 0.7, tiber: 0.75, thames: 0.7, seine: 0.6, sydney: 0.4, mekong: 0.85, li: 0.9, ganges: 0.55, chaophraya: 0.85,
   huangpu: 0.6, sumida: 0.4, fuji: 0.6, yamuna: 0.6, zambezi: 0.75, nile: 0.35, amazon: 1, churun: 0.9, iguazu: 0.8 };
 var BEND_STEP = 100, BEND_MAX = 80, BEND_SLOPE = 0.16;
@@ -1368,7 +1414,7 @@ var Scenery = (function () {
     var col = f.c;
     if (f.t === 'v') col.forEach(function (k, i) { c.fillStyle = k; c.fillRect(fx + i * fw / 3, fy, fw / 3 + 1, fh); });
     else if (f.t === 'h') col.forEach(function (k, i) { c.fillStyle = k; c.fillRect(fx, fy + i * fh / 3, fw, fh / 3 + 1); });
-    else if (f.t === 'uk' || f.t === 'au') { c.fillStyle = col[0]; c.fillRect(fx, fy, fw, fh); c.strokeStyle = col[1]; c.lineWidth = 4; c.beginPath(); c.moveTo(fx, fy); c.lineTo(fx + (f.t === 'au' ? 13 : fw), fy + (f.t === 'au' ? 8 : fh)); c.moveTo(fx + (f.t === 'au' ? 13 : fw), fy); c.lineTo(fx, fy + (f.t === 'au' ? 8 : fh)); c.stroke(); c.fillStyle = col[1]; c.fillRect(fx + (f.t === 'au' ? 4 : 10), fy, 5, f.t === 'au' ? 8 : fh); c.fillRect(fx, fy + (f.t === 'au' ? 2 : 6), f.t === 'au' ? 13 : fw, 5); c.fillStyle = col[2]; c.fillRect(fx + (f.t === 'au' ? 5 : 11), fy, 3, f.t === 'au' ? 8 : fh); c.fillRect(fx, fy + (f.t === 'au' ? 3 : 7), f.t === 'au' ? 13 : fw, 3); if (f.t === 'au') { c.fillStyle = '#FFFFFF'; star(fx + 19, fy + 11, 3, c); c.fill(); } }
+    else if (f.t === 'uk' || f.t === 'au') { c.fillStyle = col[0]; c.fillRect(fx, fy, fw, fh); c.strokeStyle = col[1]; c.lineWidth = 4; c.beginPath(); c.moveTo(fx, fy); c.lineTo(fx + (f.t === 'au' ? 13 : fw), fy + (f.t === 'au' ? 8 : fh)); c.moveTo(fx + (f.t === 'au' ? 13 : fw), fy); c.lineTo(fx, fy + (f.t === 'au' ? 8 : fh)); c.stroke(); c.fillStyle = col[1]; c.fillRect(fx + (f.t === 'au' ? 4 : 10), fy, 5, f.t === 'au' ? 8 : fh); c.fillRect(fx, fy + (f.t === 'au' ? 2 : 6), f.t === 'au' ? 13 : fw, 5); c.fillStyle = col[2]; c.fillRect(fx + (f.t === 'au' ? 5 : 11), fy, 3, f.t === 'au' ? 8 : fh); c.fillRect(fx, fy + (f.t === 'au' ? 3 : 7), f.t === 'au' ? 13 : fw, 3); if (f.t === 'au') { c.fillStyle = f.star || '#FFFFFF'; star(fx + 19, fy + 11, 3, c); c.fill(); if (f.star) { star(fx + 22, fy + 5, 2.2, c); c.fill(); } } }
     else if (f.t === 'us') { for (var i = 0; i < 7; i++) { c.fillStyle = i % 2 ? col[1] : col[0]; c.fillRect(fx, fy + i * fh / 7, fw, fh / 7 + 1); } c.fillStyle = col[2]; c.fillRect(fx, fy, 11, 9); }
     else if (f.t === 'ca') { c.fillStyle = col[0]; c.fillRect(fx, fy, fw, fh); c.fillStyle = col[1]; c.fillRect(fx + 7, fy, 12, fh); c.fillStyle = col[0]; star(fx + 13, fy + 8, 4.5, c); c.fill(); }
     else if (f.t === 'jp') { c.fillStyle = col[0]; c.fillRect(fx, fy, fw, fh); ell(fx + 13, fy + 8.5, 5, 5, 0, c); c.fillStyle = col[1]; c.fill(); }
@@ -1376,6 +1422,9 @@ var Scenery = (function () {
     else if (f.t === 'br') { c.fillStyle = col[0]; c.fillRect(fx, fy, fw, fh); poly([fx + 13, fy + 2, fx + 24, fy + 8.5, fx + 13, fy + 15, fx + 2, fy + 8.5], c); c.fillStyle = col[1]; c.fill(); ell(fx + 13, fy + 8.5, 4, 4, 0, c); c.fillStyle = col[2]; c.fill(); }
     else if (f.t === 'cz') { c.fillStyle = col[0]; c.fillRect(fx, fy, fw, fh / 2); c.fillStyle = col[1]; c.fillRect(fx, fy + fh / 2, fw, fh / 2); poly([fx, fy, fx + 12, fy + fh / 2, fx, fy + fh], c); c.fillStyle = col[2]; c.fill(); }
     else if (f.t === 'tx') { c.fillStyle = col[0]; c.fillRect(fx, fy, 9, fh); c.fillStyle = col[1]; c.fillRect(fx + 9, fy, fw - 9, fh / 2); c.fillStyle = col[2]; c.fillRect(fx + 9, fy + fh / 2, fw - 9, fh / 2); c.fillStyle = '#FFFFFF'; star(fx + 4.5, fy + 8.5, 3.6, c); c.fill(); }
+    else if (f.t === 'nordic') { c.fillStyle = col[0]; c.fillRect(fx, fy, fw, fh); c.fillStyle = col[1]; c.fillRect(fx + 7, fy, 5, fh); c.fillRect(fx, fy + 6, fw, 5); if (col[2]) { c.fillStyle = col[2]; c.fillRect(fx + 8.5, fy, 2, fh); c.fillRect(fx, fy + 7.5, fw, 2); } }
+    else if (f.t === 'kr') { c.fillStyle = '#FFFFFF'; c.fillRect(fx, fy, fw, fh); ell(fx + 13, fy + 8.5, 4.5, 4.5, 0, c); c.fillStyle = col[1]; c.fill(); c.beginPath(); c.ellipse(fx + 13, fy + 8.5, 4.5, 4.5, 0, Math.PI, TAU); c.fillStyle = col[0]; c.fill(); c.fillStyle = '#1E1E22'; [[4, 3], [20, 3], [4, 12], [20, 12]].forEach(function (q) { c.fillRect(fx + q[0], fy + q[1], 3, 3); }); }
+    else if (f.t === 'za') { c.fillStyle = col[0]; c.fillRect(fx, fy, fw, fh / 2); c.fillStyle = col[1]; c.fillRect(fx, fy + fh / 2, fw, fh / 2); c.fillStyle = '#FFFFFF'; poly([fx, fy, fx + 11, fy + 6, fw + fx, fy + 6, fw + fx, fy + 11, fx + 11, fy + 11, fx, fy + fh], c); c.fill(); c.fillStyle = col[2]; poly([fx, fy + 1.5, fx + 10, fy + 7.5, fw + fx, fy + 7.5, fw + fx, fy + 9.5, fx + 10, fy + 9.5, fx, fy + fh - 1.5], c); c.fill(); c.fillStyle = '#FFB81C'; poly([fx, fy + 3, fx + 7, fy + 8.5, fx, fy + 14], c); c.fill(); c.fillStyle = '#1E1E22'; poly([fx, fy + 4.5, fx + 5, fy + 8.5, fx, fy + 12.5], c); c.fill(); }
     else if (f.t === 'th') { [0, 1, 2, 2, 1, 0].forEach(function (k, i) { c.fillStyle = col[k === 2 ? 2 : k]; c.fillRect(fx, fy + i * fh / 6, fw, fh / 6 + 1); }); }
     c.restore(); c.strokeStyle = 'rgba(0,0,0,0.25)'; c.lineWidth = 1; c.strokeRect(fx, fy, fw, fh);
   }
@@ -1499,7 +1548,15 @@ var ANIMAL_DEFS = {
   longhorn: { t: 'quad', col: '#C9783A', size: 1.3, neck: 0.15, patches: '#FFF4E2', horns: 'longhorn' },
   armadillo: { t: 'quad', col: '#B0A08E', size: 0.6, neck: 0, bands: '#7A6A5A' },
   wolf: { t: 'sit', fur: '#8A8E96', belly: '#E9ECF2', ear: 'point', tail: 'bushy', muzzle: '#E9ECF2', size: 1.05 },
-  kingfisher: { t: 'bird', col: '#1E8AD0', size: 0.65, wing: '#22B5C9', neck: '#F28A2A', beak: '#2A2A2A' }
+  kingfisher: { t: 'bird', col: '#1E8AD0', size: 0.65, wing: '#22B5C9', neck: '#F28A2A', beak: '#2A2A2A' },
+  // v1.0 (Chapters 2–4)
+  springbok: { t: 'quad', col: '#C98A4A', size: 0.95, neck: 0.4, horns: 'goat', rump: '#FFFFFF' },
+  meerkat: { t: 'sit', fur: '#C9A878', belly: '#EADBB8', ear: 'round', tail: 'rat', mask: '#5E4A3A', size: 0.7 },
+  sheep: { t: 'quad', col: '#F4F0E6', size: 0.95, neck: 0.15, shag: '#FFFFFF' },
+  reindeer: { t: 'quad', col: '#8A6A4E', size: 1.15, neck: 0.35, antlers: 'deer', rump: '#E8DCC8' },
+  kiwi: { t: 'bird', col: '#7A5A3A', size: 0.6, beak: '#E8D8B8' },
+  magpie: { t: 'bird', col: '#22222A', size: 0.65, wing: '#FFFFFF', beak: '#2A2A2A' },
+  howler: { t: 'sit', fur: '#3A2A22', belly: '#5E4A3A', ear: 'monkey', tail: 'long', muzzle: '#2A1E18', size: 0.9 }
 };
 var REGION_ANIMALS = {
   yukon: ['bear', 'moose', 'fox', 'polar'], stlawrence: ['beaver', 'moose', 'raccoon', 'squirrel'], mississippi: ['raccoon', 'straydog', 'croc', 'squirrel'],
@@ -1513,6 +1570,9 @@ var REGION_ANIMALS = {
   yamuna: ['tiger', 'cow', 'monkey', 'peacock', 'elephant'], zambezi: ['lion', 'elephant', 'giraffe', 'hippo'], nile: ['camel', 'croc', 'cow', 'straycat'],
   kerala: ['elephant', 'monkey', 'kingfisher', 'buffalo', 'peacock'], sanantonio: ['armadillo', 'longhorn', 'pigeon', 'straydog', 'raccoon'],
   yellowstone: ['bison', 'elk', 'bear', 'wolf', 'fox'],
+  orange: ['springbok', 'meerkat', 'giraffe', 'lion', 'goat'], waikato: ['sheep', 'kiwi', 'cow', 'sheep'], oslofjord: ['reindeer', 'moose', 'fox', 'pigeon'],
+  han: ['magpie', 'straycat', 'pigeon', 'spotdog'], stockholm: ['moose', 'pigeon', 'fox', 'straycat'], potomac: ['squirrel', 'deer', 'raccoon', 'pigeon'],
+  riodulce: ['howler', 'toucan', 'jaguar', 'macaw', 'croc'],
   amazon: ['jaguar', 'capybara', 'monkey', 'toucan', 'macaw'], churun: ['capybara', 'toucan', 'jaguar', 'monkey'], iguazu: ['raccoon', 'toucan', 'capybara', 'macaw']
 };
 
@@ -3003,6 +3063,356 @@ LANDMARKS.fishnets = function (t) {
 })();
 
 /* =====================================================================
+   CHAPTERS 2–4 ART – stages added in v1.0: Orange River, Waikato, Oslofjord,
+   Han River, Stockholm, Potomac and Río Dulce. Landmarks (≈300 units tall),
+   sight kits and wraps (≈200 tall, base centred at (0,0), lit from the left)
+   and bank props. Same conventions as 06_zstages1.js. Fills are opaque
+   (translucent ones show the BOLD sticker outline as grey).
+   ===================================================================== */
+
+/* ---------- landmarks ---------- */
+LANDMARKS.augrabies = function (t) {
+  // Augrabies Falls: the Orange River pours over pink granite into a deep gorge, quiver trees on the rim
+  ctx.beginPath(); ctx.moveTo(-180, 0); ctx.lineTo(-180, -170); ctx.quadraticCurveTo(-120, -186, -64, -176); ctx.lineTo(-40, -150); ctx.lineTo(-30, 0); ctx.closePath(); fs(vgrad(-186, 0, ['#D9A48A', '#9A6A5A']), '#5E3A30', 2.5);
+  ctx.beginPath(); ctx.moveTo(180, 0); ctx.lineTo(180, -160); ctx.quadraticCurveTo(120, -178, 64, -172); ctx.lineTo(40, -146); ctx.lineTo(30, 0); ctx.closePath(); fs(vgrad(-178, 0, ['#C99480', '#8A5A4A']), '#5E3A30', 2.5);
+  ctx.strokeStyle = 'rgba(94,58,48,0.45)'; ctx.lineWidth = 2;
+  [[-150, -150, -120, -60], [-100, -160, -80, -40], [120, -140, 100, -50], [150, -120, 140, -20]].forEach(function (c) { ctx.beginPath(); ctx.moveTo(c[0], c[1]); ctx.quadraticCurveTo(c[0] + 14, (c[1] + c[3]) / 2, c[2], c[3]); ctx.stroke(); });
+  // the falls: river over the lip, white water down the slot
+  ctx.beginPath(); ctx.moveTo(-64, -176); ctx.lineTo(64, -172); ctx.lineTo(40, -146); ctx.lineTo(30, 0); ctx.lineTo(-30, 0); ctx.lineTo(-40, -150); ctx.closePath();
+  fs(hgrad(-64, 64, ['#BFE6F2', '#FFFFFF', '#CFEFFA', '#FFFFFF', '#BFE6F2']), '#6EA6BE', 2);
+  ctx.save(); ctx.clip(); ctx.strokeStyle = '#8CC8DE'; ctx.lineWidth = 2;
+  for (var s = -50; s <= 50; s += 9) { var o = (t * 90 + s * 7) % 40; ctx.beginPath(); ctx.moveTo(s, -170 + o); ctx.lineTo(s * 0.6, -120 + o); ctx.stroke(); ctx.beginPath(); ctx.moveTo(s * 0.55, -80 + o); ctx.lineTo(s * 0.5, -40 + o); ctx.stroke(); }
+  ctx.restore();
+  rrect(-90, -184, 180, 14, 7); fs(hgrad(-90, 90, ['#B8A27A', '#D8C49C', '#B8A27A']), '#7A6A48', 2); ctx.fillStyle = '#FFFFFF'; for (var w2 = -76; w2 < 80; w2 += 22) ctx.fillRect(w2 + (t * 30) % 22, -179, 9, 2.5);   // river on the lip
+  for (var m = 0; m < 6; m++) cloudPuff(-50 + m * 20 + Math.sin(t * 1.5 + m) * 4, -6 - (m % 2) * 10, 0.75, 1);   // spray at the foot
+  function quiver(x, y, s) {
+    ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
+    poly([-7, 0, -4, -50, 4, -50, 7, 0]); fs('#E8D27A', '#8A7A3A', 1.5);
+    [[-1, -50, -22, -74], [1, -50, 20, -78], [0, -54, 0, -84]].forEach(function (b) { ctx.strokeStyle = '#8A7A3A'; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(b[0], b[1]); ctx.lineTo(b[2], b[3]); ctx.stroke(); ctx.strokeStyle = '#E8D27A'; ctx.lineWidth = 3; ctx.stroke(); ell(b[2], b[3] - 4, 11, 8); fs('#7A9A6A', '#3E5A34', 1.5); });
+    ctx.restore();
+  }
+  quiver(-150, -176, 1); quiver(-106, -182, 0.8); quiver(140, -168, 1.1);
+  drawAnimal('springbok', 100, -174, 1.3, t, { look: -1, phase: 1 });
+};
+LANDMARKS.huka = function (t) {
+  // Huka Falls: the Waikato squeezes through a narrow chute and leaps out, bright blue-white, into a pool
+  [[-156, -214, 34], [-104, -240, 28], [-176, -176, 26], [150, -210, 34], [104, -238, 28], [178, -170, 26]].forEach(function (p) { lmTree(p[0], p[1], p[2], '#3E7A3A'); });
+  ctx.beginPath(); ctx.moveTo(-180, 0); ctx.lineTo(-180, -196); ctx.lineTo(-110, -226); ctx.lineTo(-24, -236); ctx.lineTo(-36, -110); ctx.lineTo(-50, 0); ctx.closePath(); fs(vgrad(-236, 0, ['#E8E2CC', '#A89E82']), '#7A7058', 2.5);
+  ctx.beginPath(); ctx.moveTo(180, 0); ctx.lineTo(180, -192); ctx.lineTo(110, -224); ctx.lineTo(24, -236); ctx.lineTo(36, -110); ctx.lineTo(50, 0); ctx.closePath(); fs(vgrad(-236, 0, ['#DAD2B8', '#9A907A']), '#7A7058', 2.5);
+  ctx.strokeStyle = 'rgba(122,112,88,0.45)'; ctx.lineWidth = 2; [[-150, -180, -120, -40], [-90, -210, -70, -60], [140, -170, 110, -40], [80, -206, 70, -70]].forEach(function (c) { ctx.beginPath(); ctx.moveTo(c[0], c[1]); ctx.quadraticCurveTo(c[0] + 12, (c[1] + c[3]) / 2, c[2], c[3]); ctx.stroke(); });
+  // the chute running down from the top and the leap
+  ctx.beginPath(); ctx.moveTo(-22, -238); ctx.lineTo(22, -238); ctx.lineTo(34, -110); ctx.lineTo(-34, -110); ctx.closePath(); fs(hgrad(-34, 34, ['#3FB6D8', '#9AE6F2', '#3FB6D8']), '#1E7A9A', 2);
+  ctx.save(); ctx.clip(); ctx.fillStyle = '#FFFFFF'; for (var f = 0; f < 10; f++) { var fy = -238 + ((t * 160 + f * 22) % 140); ell(Math.sin(f * 2.3) * 14, fy, 6, 3); ctx.fill(); } ctx.restore();
+  ctx.beginPath(); ctx.moveTo(-34, -110); ctx.quadraticCurveTo(-46, -60, -50, 0); ctx.lineTo(50, 0); ctx.quadraticCurveTo(46, -60, 34, -110); ctx.closePath(); fs(hgrad(-50, 50, ['#7FD8EE', '#FFFFFF', '#CFF4FA', '#FFFFFF', '#7FD8EE']), '#3E9ABE', 2);
+  for (var m = 0; m < 7; m++) cloudPuff(-60 + m * 20 + Math.sin(t * 1.7 + m) * 4, -8 - (m % 2) * 12, 0.7, 1);
+  // footbridge across the top of the chute
+  box(-70, -232, 140, 8, '#7A8A9A', '#3E4A5A', 1.5); ctx.strokeStyle = '#3E4A5A'; ctx.lineWidth = 1.5; for (var r = -66; r <= 66; r += 12) { ctx.beginPath(); ctx.moveTo(r, -232); ctx.lineTo(r, -246); ctx.stroke(); } ctx.beginPath(); ctx.moveTo(-70, -246); ctx.lineTo(70, -246); ctx.stroke();
+  ell(-30, -254, 5, 5); fs('#F2D9B8', '#7A5A3A', 1); rrect(-35, -250, 10, 12, 3); fs('#E2364A', '#7A1E2A', 1);
+  // a red jet boat spinning in the pool
+  ctx.save(); ctx.translate(110, -8); ctx.rotate(Math.sin(t * 2) * 0.15); ctx.beginPath(); ctx.moveTo(-34, -8); ctx.lineTo(30, -8); ctx.quadraticCurveTo(40, -4, 34, 4); ctx.lineTo(-30, 4); ctx.closePath(); fs('#D8302A', '#6E1A10', 2); box(-14, -18, 22, 10, '#2B3440', '#111', 1); ctx.restore();
+};
+LANDMARKS.osloopera = function (t) {
+  // Oslo Opera House: white marble planes sloping into the fjord, a glass foyer and the tall fly tower
+  ctx.beginPath(); ctx.moveTo(-180, -40); ctx.quadraticCurveTo(-110, -120, -30, -96); ctx.quadraticCurveTo(60, -150, 180, -60); ctx.lineTo(180, 0); ctx.lineTo(-180, 0); ctx.closePath(); fs('#7A9AA6', '#4E6A76', 2);   // hills
+  [[-150, -70], [-120, -84], [150, -76], [126, -90]].forEach(function (p) { ctx.save(); ctx.translate(p[0], p[1]); ctx.scale(1.4, 1.4); Scenery.pine(ctx, 0, 0, 0.6); ctx.restore(); });
+  box(-30, -230, 96, 120, '#E8E4DA', '#8A8A84', 2);                                     // fly tower clad in white aluminium
+  ctx.strokeStyle = 'rgba(138,138,132,0.5)'; ctx.lineWidth = 1; for (var v = -22; v < 66; v += 10) { ctx.beginPath(); ctx.moveTo(v, -228); ctx.lineTo(v, -112); ctx.stroke(); }
+  poly([-110, -110, -10, -150, 110, -110, 110, -60, -110, -60]); fs(vgrad(-150, -60, ['#2E4A5E', '#5E8AA6']), '#1E2E3A', 2);   // glass foyer
+  ctx.strokeStyle = 'rgba(200,230,245,0.6)'; ctx.lineWidth = 1.5; for (var g = -100; g < 110; g += 18) { ctx.beginPath(); ctx.moveTo(g, -60); ctx.lineTo(g, -130 + Math.abs(g + 10) * 0.18); ctx.stroke(); }
+  poly([-176, -8, -110, -66, 40, -96, 176, -66, 176, -40, 60, -70, -110, -40, -150, -8]); fs(lit(-176, 176, '#FBFAF6'), '#9A9A94', 2.5);   // the walkable roof
+  poly([-150, -8, -110, -40, 60, -70, 176, -40, 176, -10, -140, -2]); fs(vgrad(-70, 0, ['#F2F0EA', '#D8D6CE']), '#9A9A94', 2);
+  water(-180, -8, 360, 14);
+  [[-90, '#E2364A', 0], [-20, '#2F6FD1', 1.3], [70, '#FFD23F', 2.4]].forEach(function (p) { var x = p[0] + Math.sin(t * 0.4 + p[2]) * 8, y = -60 - (x + 110) * 0.2; ell(x, y - 12, 4, 4); fs('#F2D9B8', '#7A5A3A', 1); rrect(x - 4, y - 8, 8, 10, 3); fs(p[1], shade(p[1], -0.4), 1); });
+  Scenery.drawFlag(ctx, 150, -96, FLAGS.no, t);
+};
+LANDMARKS.nseoul = function (t) {
+  // N Seoul Tower on Namsan: a green hill, the slim tower with its round observation pods, cherry trees at the foot
+  ctx.beginPath(); ctx.moveTo(-180, 0); ctx.quadraticCurveTo(-110, -90, -20, -104); ctx.quadraticCurveTo(70, -110, 180, 0); ctx.closePath(); fs(vgrad(-110, 0, ['#6FB65A', '#4E8E3E']), '#2E5A2A', 2.5);
+  [[-130, -40, 22], [-90, -66, 24], [80, -70, 22], [126, -40, 24], [-40, -86, 20]].forEach(function (p) { lmTree(p[0], p[1], p[2], '#3E7A3A'); });
+  [[-150, -14, '#F8C6D6'], [-110, -24, '#FBD8E2'], [140, -16, '#F8C6D6']].forEach(function (p) { lmTree(p[0], p[1], 20, p[2]); });
+  box(-26, -118, 52, 18, '#D8D2C4', '#7A766A', 2);
+  poly([-10, -118, -7, -226, 7, -226, 10, -118]); fs(lit(-10, 10, '#F2F0EA'), '#8A8A84', 2);   // shaft
+  ell(0, -232, 30, 8); fs('#E8E6E0', '#8A8A84', 2); box(-24, -262, 48, 30, '#DAD8D2', '#8A8A84', 2);   // pods
+  ctx.fillStyle = '#2E4A6A'; ctx.fillRect(-22, -256, 44, 8); ctx.fillStyle = '#FFD86A'; for (var w = -18; w < 22; w += 8) ctx.fillRect(w, -255, 4, 6);
+  ell(0, -264, 26, 7); fs('#F2F0EA', '#8A8A84', 2); ell(0, -278, 14, 10); fs('#E8E6E0', '#8A8A84', 2);
+  ctx.strokeStyle = '#8A8A84'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(0, -288); ctx.lineTo(0, -332); ctx.stroke();
+  ctx.strokeStyle = '#E2364A'; ctx.lineWidth = 3; [-300, -314].forEach(function (y) { ctx.beginPath(); ctx.moveTo(-5, y); ctx.lineTo(5, y); ctx.stroke(); });
+  ell(0, -334, 3, 3); ctx.fillStyle = Math.sin(t * 3) > 0 ? '#FF4A4A' : '#8A2A2A'; ctx.fill();
+  ctx.strokeStyle = '#C9302C'; ctx.lineWidth = 1.5; for (var l = -1; l <= 1; l += 2) { ctx.beginPath(); ctx.moveTo(l * 26, -112); ctx.quadraticCurveTo(l * 60, -60, l * 120, -30); ctx.stroke(); }   // love-lock fences
+};
+LANDMARKS.stadshuset = function (t) {
+  // Stockholm City Hall: dark red brick on the water, a long arcade and the square tower crowned with three gold crowns
+  box(-176, -100, 230, 100, '#A4473A', '#5E2218', 2);
+  ctx.strokeStyle = 'rgba(70,26,18,0.35)'; ctx.lineWidth = 1; for (var r = 1; r < 10; r++) { ctx.beginPath(); ctx.moveTo(-176, -r * 10); ctx.lineTo(54, -r * 10); ctx.stroke(); }
+  for (var a = 0; a < 7; a++) archWin(-166 + a * 30, -44, 20, 40, '#3A1E18');                      // waterfront arcade
+  windows(-164, -88, 8, 1, 28, 0, 12, 18, '#E8D8A8');
+  poly([-180, -100, -170, -120, 50, -120, 58, -100]); fs('#3E7A6A', '#1E4A3E', 2);                 // green copper roof
+  box(40, -230, 76, 230, '#9A4034', '#5E2218', 2);                                                   // tower
+  for (var k = 0; k < 4; k++) windows(52, -214 + k * 46, 3, 1, 20, 0, 10, 24, '#3A1E18');
+  box(34, -238, 88, 10, '#B8574A', '#5E2218', 1.5);
+  ctx.beginPath(); ctx.moveTo(46, -238); ctx.lineTo(56, -262); ctx.lineTo(100, -262); ctx.lineTo(110, -238); ctx.closePath(); fs(lit(46, 110, '#4E8E7A'), '#1E4A3E', 2);   // copper lantern
+  box(66, -292, 24, 30, '#4E8E7A', '#1E4A3E', 1.5); archWin(72, -286, 12, 18, '#2E5A4E');
+  ctx.beginPath(); ctx.moveTo(64, -292); ctx.quadraticCurveTo(78, -322, 92, -292); ctx.closePath(); fs(lit(64, 92, '#4E8E7A'), '#1E4A3E', 1.5);
+  ctx.fillStyle = '#6E7A8A'; ctx.fillRect(77, -340, 2, 26);
+  [[78, -344], [70, -330], [86, -330]].forEach(function (c) { poly([c[0] - 6, c[1] + 4, c[0] - 6, c[1] - 3, c[0] - 3, c[1], c[0], c[1] - 5, c[0] + 3, c[1], c[0] + 6, c[1] - 3, c[0] + 6, c[1] + 4]); fs('#F2C230', '#8A6A1A', 1.2); });   // three crowns
+  box(116, -70, 64, 70, '#A4473A', '#5E2218', 2); poly([112, -70, 148, -96, 184, -70]); fs('#3E7A6A', '#1E4A3E', 2); windows(124, -58, 3, 2, 18, 26, 10, 14, '#E8D8A8');
+  water(-180, -8, 360, 14);
+  Scenery.drawFlag(ctx, -160, -120, FLAGS.se, t);
+};
+LANDMARKS.capitol = function (t) {
+  // the US Capitol: long white wings, a columned front and the great cast-iron dome with Freedom on top
+  ell(0, 0, 182, 14); fs('#7FB86A', '#4E8A3E', 2);
+  box(-176, -76, 352, 76, '#F4F1E8', '#9A968A', 2);
+  for (var c = -168; c <= 168; c += 14) { if (Math.abs(c) < 60) continue; box(c - 3, -70, 6, 64, '#FFFFFF', '#B8B4A8', 1); }
+  [-1, 1].forEach(function (sd) { poly([sd * 110 - 46, -76, sd * 110, -100, sd * 110 + 46, -76]); fs('#FBF9F2', '#9A968A', 2); });
+  box(-62, -110, 124, 110, '#F8F6EE', '#9A968A', 2);                                              // central portico
+  for (var p = -54; p <= 54; p += 18) box(p - 4, -98, 8, 86, '#FFFFFF', '#B8B4A8', 1);
+  poly([-68, -110, 0, -138, 68, -110]); fs('#FBF9F2', '#9A968A', 2);
+  for (var s = 0; s < 5; s++) box(-70 - s * 6, -10 + s * 2, 140 + s * 12, 4, '#E8E4DA', '#9A968A', 1);   // steps
+  box(-70, -170, 140, 40, '#F4F1E8', '#9A968A', 2);                                               // drum with its colonnade
+  for (var d = -64; d <= 64; d += 10) box(d - 2.5, -166, 5, 32, '#FFFFFF', '#B8B4A8', 1);
+  box(-58, -186, 116, 16, '#EDEAE0', '#9A968A', 1.5);
+  ctx.beginPath(); ctx.moveTo(-58, -186); ctx.bezierCurveTo(-58, -260, 58, -260, 58, -186); ctx.closePath(); fs(lit(-58, 58, '#F8F6EE'), '#9A968A', 2.5);
+  ctx.strokeStyle = 'rgba(154,150,138,0.6)'; ctx.lineWidth = 1.2; for (var r = -40; r <= 40; r += 16) { ctx.beginPath(); ctx.moveTo(r, -186); ctx.quadraticCurveTo(r * 0.7, -236, 0, -242); ctx.stroke(); }
+  windows(-46, -206, 6, 1, 18, 0, 8, 10, '#8A96A6');
+  box(-12, -270, 24, 26, '#F4F1E8', '#9A968A', 1.5); for (var l = -8; l <= 8; l += 8) box(l - 1.5, -266, 3, 18, '#FFFFFF', '#B8B4A8', 0.5);
+  ctx.beginPath(); ctx.moveTo(-14, -270); ctx.quadraticCurveTo(0, -284, 14, -270); ctx.closePath(); fs('#EDEAE0', '#9A968A', 1.5);
+  ctx.fillStyle = '#5E6A6A'; ctx.fillRect(-3, -300, 6, 18); ell(0, -302, 4, 4); ctx.fill(); poly([-5, -304, 0, -312, 5, -304]); ctx.fill();   // Statue of Freedom
+  [-1, 1].forEach(function (sd) { ctx.fillStyle = '#6E7A8A'; ctx.fillRect(sd * 110 - 1, -140, 2, 40); Scenery.drawFlag(ctx, sd * 110, -100, FLAGS.us, t); });
+  [[-160, -26, 24], [160, -26, 24], [-130, -18, 18]].forEach(function (q) { lmTree(q[0], q[1], q[2], '#4E8A3E'); });
+};
+LANDMARKS.sanfelipe = function (t) {
+  // Castillo de San Felipe de Lara: a grey stone Spanish fort at the mouth of Lake Izabal, round bastions, cannons, palms
+  lmPalm(-168, -6, 170, 1); lmPalm(170, -4, 150, 0.9);
+  box(-140, -100, 280, 100, '#A8A296', '#5E5A50', 2);
+  ctx.strokeStyle = 'rgba(70,66,58,0.4)'; ctx.lineWidth = 1; for (var r = 1; r < 10; r++) for (var q = 0; q < 14; q++) ctx.strokeRect(-140 + q * 20 + (r % 2) * 10, -r * 10, 20, 10);
+  for (var m = -136; m < 136; m += 22) box(m, -112, 14, 12, '#B8B2A6', '#5E5A50', 1.5);              // merlons
+  [-1, 1].forEach(function (sd) {                                                                      // round bastions
+    var x = sd * 120; box(x - 36, -140, 72, 140, '#B0AA9E', '#5E5A50', 2);
+    ell(x, -140, 36, 10); fs('#C2BCB0', '#5E5A50', 2);
+    for (var k = -2; k <= 2; k++) box(x + k * 14 - 5, -156, 10, 12, '#C2BCB0', '#5E5A50', 1.2);
+    ctx.save(); ctx.translate(x - sd * 30, -96); ctx.rotate(sd * -0.15); rrect(sd < 0 ? -30 : 0, -5, 30, 10, 4); fs('#3A3A3E', '#111', 1.5); ctx.restore();   // cannon
+  });
+  box(-40, -200, 80, 100, '#B0AA9E', '#5E5A50', 2);                                                   // keep
+  for (var k2 = -36; k2 < 36; k2 += 16) box(k2, -212, 10, 12, '#C2BCB0', '#5E5A50', 1.2);
+  archWin(-12, -180, 24, 34, '#3A342C'); ell(0, -126, 5, 5); ctx.fillStyle = '#3A342C'; ctx.fill();
+  box(-22, -54, 44, 54, '#6E4A2A', '#3A2416', 2); ctx.strokeStyle = '#3A2416'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(0, -54); ctx.lineTo(0, 0); ctx.stroke();   // gate
+  ctx.beginPath(); ctx.moveTo(-26, -54); ctx.arc(0, -54, 26, Math.PI, 0); fs(null, '#5E5A50', 3);
+  ctx.fillStyle = '#6E7A8A'; ctx.fillRect(-1.5, -250, 3, 40); Scenery.drawFlag(ctx, 0, -212, FLAGS.gt, t);
+  water(-180, -8, 360, 14);
+};
+
+/* ---------- sight kits ---------- */
+(function () {
+  var K = SIGHT_KITS;
+  function wrap(name, fn) { var base = K[name]; K[name] = function (p, t) { if (fn(p || {}, t) !== false) return; base(p || {}, t); }; }
+  function hill(x0, x1, h, col) { ctx.beginPath(); ctx.moveTo(x0, 0); ctx.quadraticCurveTo((x0 + x1) / 2, -h * 2, x1, 0); ctx.closePath(); fs(vgrad(-h, 0, [shade(col, 0.15), col]), shade(col, -0.4), 2); }
+
+  /* Hobbiton: round doors in green hillsides, a fence and the party tree */
+  K.hobbit = function (p, t) {
+    lmTree(80, -120, 54, '#4E8E3E'); ctx.fillStyle = '#6E4A2A'; ctx.fillRect(74, -76, 12, 70);
+    hill(-130, 40, 70, '#7FC459'); hill(-10, 130, 50, '#8ACB64');
+    [[-80, -46, '#E2364A'], [-30, -38, '#FFD23F'], [60, -30, '#2F6FD1']].forEach(function (d) {
+      ell(d[0], d[1], 17, 17); fs('#E8DCC0', '#8A7A5A', 2); ell(d[0], d[1], 13, 13); fs(d[2], shade(d[2], -0.45), 2);
+      ell(d[0], d[1], 2.5, 2.5); fs('#F2C230'); ell(d[0] - 26, d[1] - 4, 7, 7); fs('#9AD3EE', '#5E4A3A', 1.5);
+      ctx.fillStyle = '#8A7A5A'; ctx.fillRect(d[0] - 12, d[1] + 16, 24, 4);
+    });
+    ctx.fillStyle = '#B9B2A2'; ctx.fillRect(-60, -94, 8, 22);   // chimney
+    for (var s = 0; s < 3; s++) { var ph = (t * 0.3 + s / 3) % 1; cloudPuff(-56 + ph * 20, -104 - ph * 40, 0.3 * (1 - ph) + 0.1, 1); }
+    ctx.strokeStyle = '#8A6A42'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(-124, -8); ctx.lineTo(124, -8); ctx.moveTo(-124, -16); ctx.lineTo(124, -16); ctx.stroke();
+    for (var f = -120; f <= 120; f += 24) { ctx.fillStyle = '#6E4A2A'; ctx.fillRect(f - 2, -22, 4, 22); }
+  };
+  /* Māori wharenui (meeting house): red carved bargeboards, a figure on the gable, carved posts */
+  K.marae = function (p, t) {
+    ell(0, -2, 130, 8); fs('#7FC459', '#4E8E3E', 1.5);
+    box(-90, -90, 180, 90, '#8A3A26', '#3A160E', 2);
+    poly([-110, -80, 0, -170, 110, -80, 96, -76, 0, -150, -96, -76]); fs('#B83A26', '#3A160E', 2);   // maihi bargeboards
+    ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2; for (var i = 1; i < 6; i++) { var u = i / 6; [-1, 1].forEach(function (sd) { var x = sd * 110 * (1 - u), y = -80 - 90 * u; ctx.beginPath(); ctx.arc(x - sd * 4, y + 4, 4, 0, TAU); ctx.stroke(); }); }
+    poly([-80, -80, 0, -146, 80, -80]); fs('#5E2A1E', '#3A160E', 1.5);
+    ctx.save(); ctx.translate(0, -170); rrect(-10, -34, 20, 34, 6); fs('#B83A26', '#3A160E', 2); ell(0, -40, 10, 10); fs('#B83A26', '#3A160E', 2); [-4, 4].forEach(function (x) { ell(x, -42, 3, 3); fs('#FFFFFF', '#3A160E', 1); }); ctx.restore();   // tekoteko
+    [-90, 90].forEach(function (x) { box(x - 8, -90, 16, 90, '#B83A26', '#3A160E', 2); for (var y = -80; y < -6; y += 18) { ell(x, y, 5, 6); fs('#5E2A1E', '#3A160E', 1); ell(x - 2, y - 2, 1.5, 1.5); fs('#FFFFFF'); } });   // carved posts
+    box(-20, -64, 40, 64, '#3A160E', '#1E0A06', 2); box(40, -60, 24, 22, '#3A160E', '#1E0A06', 1.5);
+    ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 1.5; for (var k = 0; k < 5; k++) { ctx.beginPath(); ctx.moveTo(-60 + k * 6, -80); ctx.quadraticCurveTo(-50, -60, -60 + k * 6, -40); ctx.stroke(); }   // kōwhaiwhai scroll
+  };
+  /* Norwegian stave church: dark tarred wood, stacked roofs, dragon heads on the gables */
+  K.stave = function (p, t) {
+    var wood = '#4A3022', line = '#1E120A';
+    box(-80, -60, 160, 60, '#5E3A26', line, 2);
+    for (var v = -76; v < 80; v += 8) { ctx.strokeStyle = 'rgba(30,18,10,0.5)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(v, -58); ctx.lineTo(v, -2); ctx.stroke(); }
+    archWin(-12, -48, 24, 48, '#1E120A');
+    [[-100, -60, 100, -90], [-74, -96, 74, -128], [-48, -128, 48, -156], [-28, -156, 28, -180]].forEach(function (r, i) {
+      poly([r[0], r[1], r[0] + 20, r[3], r[2] - 20, r[3], r[2], r[1]]); fs(lit(r[0], r[2], wood), line, 2);
+      ctx.strokeStyle = 'rgba(120,80,50,0.5)'; ctx.lineWidth = 1; for (var s = r[0] + 8; s < r[2] - 6; s += 7) { ctx.beginPath(); ctx.moveTo(s, r[1] - 2); ctx.lineTo(s + (s < 0 ? 4 : -4), r[3] + 4); ctx.stroke(); }
+      if (i < 3) box(r[0] + 26, r[3] - 8, r[2] - r[0] - 52, 8, '#5E3A26', line, 1.2);
+      if (i > 0) [-1, 1].forEach(function (sd) { var x = sd * (r[2] - 22); ctx.strokeStyle = wood; ctx.lineWidth = 4; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x, r[3]); ctx.quadraticCurveTo(x + sd * 14, r[3] - 18, x + sd * 22, r[3] - 12); ctx.stroke(); });   // dragon heads
+    });
+    poly([-12, -180, 0, -226, 12, -180]); fs(lit(-12, 12, wood), line, 2);
+    ctx.strokeStyle = '#C9A04A'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(0, -226); ctx.lineTo(0, -240); ctx.moveTo(-5, -234); ctx.lineTo(5, -234); ctx.stroke();
+    [[-120, -40], [120, -40]].forEach(function (q) { ctx.save(); ctx.translate(q[0], q[1] + 40); ctx.scale(1.6, 1.6); Scenery.pine(ctx, 0, 0, 0.6); ctx.restore(); });
+  };
+  /* Holmenkollen ski jump: a long sweeping ramp on a steel tower above the forest */
+  K.skijump = function (p, t) {
+    [[-110, -20], [-70, -10], [100, -14]].forEach(function (q) { ctx.save(); ctx.translate(q[0], q[1] + 20); ctx.scale(1.4, 1.4); Scenery.pine(ctx, 0, 0, 0.6); ctx.restore(); });
+    ctx.beginPath(); ctx.moveTo(-120, 0); ctx.quadraticCurveTo(-30, -10, 20, -60); ctx.lineTo(60, -200); ctx.lineTo(84, -200); ctx.lineTo(44, -50); ctx.quadraticCurveTo(0, 0, -120, 10); ctx.closePath(); fs(lit(-120, 84, '#F2F4F8'), '#8A96A6', 2);
+    ctx.strokeStyle = '#8A96A6'; ctx.lineWidth = 2; for (var s = 0; s < 6; s++) { var y = -60 - s * 24; ctx.beginPath(); ctx.moveTo(30 + s * 7, y); ctx.lineTo(56 + s * 6, y + 10); ctx.stroke(); }
+    box(60, -232, 30, 32, '#C9D2DE', '#5E6A7A', 2); ctx.fillStyle = '#5E6A7A'; ctx.fillRect(74, -260, 2, 28);
+    var u = (t * 0.25) % 1, jx = 70 - u * 140, jy = u < 0.5 ? -200 + u * 300 : -50 - Math.sin((u - 0.5) * 2 * Math.PI) * 50;   // a jumper flying down
+    ctx.save(); ctx.translate(jx, jy); ctx.rotate(-0.5); rrect(-10, -3, 20, 6, 3); fs('#E2364A', '#7A1E2A', 1); ctx.strokeStyle = '#2B3440'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(-14, 4); ctx.lineTo(10, 8); ctx.moveTo(-12, 7); ctx.lineTo(12, 11); ctx.stroke(); ctx.restore();
+  };
+  /* Korean palace hall (Gyeongbokgung) on a stone terrace, or with gate: Sungnyemun-style gate */
+  K.hanok = function (p, t) {
+    var col = '#C9302C', tile = '#4A4E58';
+    if (p.gate) {
+      box(-110, -70, 220, 70, '#B9B2A2', '#6E685E', 2); ctx.strokeStyle = 'rgba(80,76,66,0.4)'; ctx.lineWidth = 1; for (var r = 1; r < 7; r++) for (var q = 0; q < 11; q++) ctx.strokeRect(-110 + q * 20 + (r % 2) * 10, -r * 10, 20, 10);
+      archWin(-24, -60, 48, 60, '#3A342C');
+    } else { box(-120, -22, 240, 22, '#D8D2C4', '#7A766A', 2); for (var st = 0; st < 3; st++) box(-20 - st * 6, -22 + st * 7, 40 + st * 12, 7, '#E2DCCE', '#7A766A', 1); }
+    var base = p.gate ? -70 : -22;
+    box(-90, base - 60, 180, 60, col, '#6E1A10', 2);
+    for (var c = -84; c <= 84; c += 28) box(c - 4, base - 60, 8, 60, '#A8281E', '#6E1A10', 1);
+    ctx.fillStyle = '#2E8A6A'; ctx.fillRect(-92, base - 66, 184, 8); ctx.fillStyle = '#F2C230'; for (var d = -88; d < 90; d += 12) ctx.fillRect(d, base - 64, 5, 4);   // dancheong
+    function roof(y, w, h) { ctx.beginPath(); ctx.moveTo(-w - 18, y - 4); ctx.quadraticCurveTo(-w + 10, y, -w + 30, y - h * 0.4); ctx.lineTo(-w * 0.45, y - h); ctx.lineTo(w * 0.45, y - h); ctx.lineTo(w - 30, y - h * 0.4); ctx.quadraticCurveTo(w - 10, y, w + 18, y - 4); ctx.closePath(); fs(lit(-w, w, tile), '#1E2026', 2); ctx.strokeStyle = 'rgba(200,205,215,0.35)'; ctx.lineWidth = 1; for (var s = -w + 20; s < w - 10; s += 9) { ctx.beginPath(); ctx.moveTo(s, y - 4); ctx.lineTo(s * 0.5, y - h + 2); ctx.stroke(); } }
+    roof(base - 64, 130, 40);
+    if (p.gate || p.tall) { box(-60, base - 140, 120, 36, col, '#6E1A10', 2); ctx.fillStyle = '#2E8A6A'; ctx.fillRect(-62, base - 146, 124, 8); roof(base - 144, 96, 34); }
+    else box(-14, base - 100, 28, 10, '#2E3440', '#111', 1);
+    if (!p.gate) [-140, 140].forEach(function (x) { lmTree(x, -40, 22, '#4E8A3E'); });
+  };
+  /* Tikal temple: a steep stepped pyramid with a roof-comb temple on top, jungle around */
+  K.maya = function (p, t) {
+    [[-130, -40, 34], [130, -44, 36], [-104, -18, 26], [110, -20, 28]].forEach(function (q) { lmTree(q[0], q[1], q[2], '#2E7A3A'); });
+    for (var i = 0; i < 6; i++) { var w = 180 - i * 22, y = -i * 24; box(-w / 2, y - 24, w, 24, i % 2 ? '#BDB29A' : '#B0A58C', '#5E5440', 1.8); }
+    box(-12, -144, 24, 144, '#C9BEA6', '#5E5440', 1.5); ctx.strokeStyle = 'rgba(94,84,64,0.5)'; ctx.lineWidth = 1; for (var s = -140; s < 0; s += 8) { ctx.beginPath(); ctx.moveTo(-12, s); ctx.lineTo(12, s); ctx.stroke(); }   // stair
+    box(-34, -190, 68, 46, '#B0A58C', '#5E5440', 2); archWin(-9, -180, 18, 36, '#2E2A22');
+    box(-22, -232, 44, 42, '#A89C82', '#5E5440', 2); windows(-14, -224, 3, 2, 12, 14, 6, 8, '#6E6450');   // roof comb
+    lmTree(-60, -110, 14, '#3E8A3A'); lmTree(54, -86, 12, '#3E8A3A');                               // jungle creeping up
+  };
+  /* Washington Monument-style obelisk is the obelisk kit; this is Lincoln's temple when it gets columns: see columns kit */
+
+  wrap('tower', function (p, t) {
+    if (p.kind !== 'lotte') return false;   // Lotte World Tower: a tall, smooth, tapering glass spire
+    ctx.beginPath(); ctx.moveTo(-40, 0); ctx.quadraticCurveTo(-34, -120, -10, -230); ctx.lineTo(-4, -250); ctx.lineTo(4, -250); ctx.lineTo(10, -230); ctx.quadraticCurveTo(34, -120, 40, 0); ctx.closePath(); fs(hgrad(-40, 40, ['#E8F2FA', '#B8CCDC', '#8AA2B8']), '#5E6E82', 2);
+    ctx.strokeStyle = 'rgba(94,110,130,0.5)'; ctx.lineWidth = 1; for (var y = -20; y > -230; y -= 14) { var w = 40 - (-y / 250) * 34; ctx.beginPath(); ctx.moveTo(-w, y); ctx.lineTo(w, y); ctx.stroke(); }
+    ctx.beginPath(); ctx.moveTo(0, -250); ctx.lineTo(0, 0); ctx.strokeStyle = 'rgba(255,255,255,0.6)'; ctx.lineWidth = 2; ctx.stroke();
+    box(-90, -40, 50, 40, '#C9D2DE', '#5E6A7A', 2); box(40, -30, 60, 30, '#C9D2DE', '#5E6A7A', 2); windows(-84, -32, 3, 2, 15, 14, 9, 8, '#5E7A9A'); windows(46, -24, 4, 1, 14, 0, 8, 10, '#5E7A9A');
+  });
+  wrap('rock', function (p, t) {
+    if (p.kind === 'volcano') {   // a symmetric volcano with a smoking top (Volcán de Agua / Ruapehu)
+      ctx.beginPath(); ctx.moveTo(-130, 0); ctx.quadraticCurveTo(-50, -120, -22, -190); ctx.lineTo(22, -190); ctx.quadraticCurveTo(50, -120, 130, 0); ctx.closePath(); fs(vgrad(-190, 0, [p.snow ? '#8A96A6' : '#6E8A5A', p.col || '#4E7A3E']), '#2E4A2A', 2.5);
+      if (p.snow) { ctx.beginPath(); ctx.moveTo(-22, -190); ctx.lineTo(22, -190); ctx.quadraticCurveTo(34, -160, 46, -140); ctx.lineTo(30, -146); ctx.lineTo(16, -132); ctx.lineTo(0, -148); ctx.lineTo(-14, -134); ctx.lineTo(-30, -148); ctx.lineTo(-46, -140); ctx.quadraticCurveTo(-34, -160, -22, -190); ctx.closePath(); fs('#FFFFFF', '#9AA6B6', 1.5); }
+      for (var s = 0; s < 4; s++) { var ph = (t * 0.2 + s / 4) % 1; cloudPuff(ph * 40, -196 - ph * 60, 0.5 * (1 - ph) + 0.2, 1); }
+      return;
+    }
+    if (p.kind === 'dunes') {   // Kalahari red dunes
+      [['#E8925A', -130, 60, 110], ['#D8763E', -20, 80, 150], ['#E8A06A', 60, 70, 110]].forEach(function (d) { ctx.beginPath(); ctx.moveTo(d[1] - d[3] / 2, 0); ctx.quadraticCurveTo(d[1] - 10, -d[2] * 1.6, d[1] + d[3] / 2 + 30, 0); ctx.closePath(); fs(lit(d[1] - d[3] / 2, d[1] + d[3] / 2, d[0]), shade(d[0], -0.4), 2); });
+      ctx.strokeStyle = 'rgba(160,80,40,0.4)'; ctx.lineWidth = 1.5; for (var r = 0; r < 4; r++) { ctx.beginPath(); ctx.moveTo(-60 + r * 14, -20 - r * 14); ctx.quadraticCurveTo(-20 + r * 10, -30 - r * 16, 20 + r * 6, -10 - r * 10); ctx.stroke(); }
+      drawAnimal('meerkat', 96, -6, 1.4, t, { look: -1 }); drawAnimal('meerkat', 116, -4, 1.2, t, { look: -1, phase: 2 });
+      return;
+    }
+    return false;
+  });
+  wrap('grove', function (p, t) {
+    if (!p.quiver && !p.mangrove) return false;
+    if (p.quiver) {   // quiver trees (kokerboom) on red rocks
+      [[-120, 30], [-40, 50], [70, 34], [110, 26]].forEach(function (b) { ell(b[0], -8, b[1], b[1] * 0.45); fs('#B8664A', '#6E3A2A', 2); });
+      [[-80, -10, 1.2], [10, -16, 1.5], [96, -12, 1.1]].forEach(function (q) {
+        ctx.save(); ctx.translate(q[0], q[1]); ctx.scale(q[2], q[2]);
+        poly([-8, 0, -4, -56, 4, -56, 8, 0]); fs('#E8D27A', '#8A7A3A', 1.5);
+        [[-24, -78], [22, -82], [0, -90], [-12, -70]].forEach(function (e) { ctx.strokeStyle = '#8A7A3A'; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(0, -54); ctx.lineTo(e[0], e[1]); ctx.stroke(); ctx.strokeStyle = '#E8D27A'; ctx.lineWidth = 3; ctx.stroke(); ell(e[0], e[1] - 4, 12, 8); fs('#8AA67A', '#3E5A34', 1.5); });
+        ctx.restore();
+      });
+      return;
+    }
+    // mangroves: arching stilt roots over the water
+    for (var i = 0; i < 4; i++) {
+      var x = -96 + i * 64, h = 90 + (i % 2) * 30;
+      ctx.strokeStyle = '#6E5A3A'; ctx.lineWidth = 3; for (var r = -2; r <= 2; r++) { ctx.beginPath(); ctx.moveTo(x, -40); ctx.quadraticCurveTo(x + r * 12, -26, x + r * 18, 0); ctx.stroke(); }
+      ctx.fillStyle = '#6E5A3A'; ctx.fillRect(x - 3, -h + 20, 6, h - 60);
+      lmTree(x, -h, 34, ['#3E8A3A', '#2E7A32', '#4E9A44'][i % 3]);
+    }
+  });
+  wrap('houses', function (p, t) {
+    if (p.style === 'rorbu' || p.style === 'falu') {   // red Nordic cottages with white trim (rorbu = fishermen's huts on stilts)
+      var stilt = p.style === 'rorbu';
+      [[-110, 70, 60], [-30, 80, 74], [56, 70, 62]].forEach(function (h, i) {
+        var y = stilt ? -24 : 0; if (stilt) { ctx.fillStyle = '#4A3A2A'; [8, h[1] / 2, h[1] - 8].forEach(function (d) { ctx.fillRect(h[0] + d - 2, -24, 4, 24); }); }
+        box(h[0], y - h[2], h[1], h[2], i === 1 && !stilt ? '#E8C24A' : '#B83A2A', '#5E1A10', 2);
+        ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 3; ctx.strokeRect(h[0] + 2, y - h[2] + 2, h[1] - 4, h[2] - 4);
+        poly([h[0] - 6, y - h[2], h[0] + h[1] / 2, y - h[2] - 34, h[0] + h[1] + 6, y - h[2]]); fs(stilt ? '#4A6A3A' : '#3A3A42', '#1E1E22', 2);
+        box(h[0] + 10, y - h[2] + 16, 16, 16, '#DCEEFA', '#FFFFFF', 1.5); box(h[0] + h[1] - 26, y - 34, 16, 34, '#5E3A26', '#2E1A10', 1.5);
+      });
+      if (stilt) { ctx.fillStyle = '#E8E2D4'; for (var f = 0; f < 6; f++) ctx.fillRect(-120 + f * 10, -60, 4, 18); }   // drying fish
+      else lmTree(126, -30, 24, '#4E8A3E');
+      return;
+    }
+    if (p.style === 'hanok') {   // Bukchon: tiled hanok roofs climbing a lane, Seoul towers behind
+      box(70, -170, 34, 170, '#B8CCDC', '#5E6E82', 2); windows(76, -160, 2, 9, 12, 18, 7, 10, '#5E7A9A');
+      [[-120, -10], [-60, -30], [0, -50], [-100, -70]].forEach(function (h) {
+        box(h[0], h[1] - 34, 80, 34, '#EFE6D2', '#8A7A5A', 1.5); ctx.fillStyle = '#6E4A2A'; for (var b = 6; b < 80; b += 18) ctx.fillRect(h[0] + b, h[1] - 34, 4, 34);
+        ctx.beginPath(); ctx.moveTo(h[0] - 14, h[1] - 32); ctx.quadraticCurveTo(h[0] + 6, h[1] - 36, h[0] + 14, h[1] - 54); ctx.lineTo(h[0] + 66, h[1] - 54); ctx.quadraticCurveTo(h[0] + 74, h[1] - 36, h[0] + 94, h[1] - 32); ctx.closePath(); fs(lit(h[0], h[0] + 80, '#4A4E58'), '#1E2026', 2);
+      });
+      return;
+    }
+    if (p.style === 'gamla') {   // Gamla Stan: tall narrow ochre, red and yellow houses with stepped gables
+      ['#E8A23A', '#C9502E', '#F2D25A', '#B8783A', '#E86A4A'].forEach(function (c, i) {
+        var x = -120 + i * 48, h = 130 + (i % 2) * 24; box(x, -h, 46, h, c, shade(c, -0.45), 1.5);
+        for (var s = 0; s < 3; s++) box(x + s * 7, -h - (s + 1) * 10, 46 - s * 14, 10, c, shade(c, -0.45), 1.2);
+        windows(x + 8, -h + 14, 2, Math.floor(h / 30), 18, 28, 10, 16, '#FFF6DE');
+      });
+      return;
+    }
+    return false;
+  });
+  wrap('ship', function (p, t) {
+    if (p.kind !== 'viking') return false;   // a Viking longship: dragon prow, striped square sail, shields along the side
+    ctx.beginPath(); ctx.moveTo(-130, -70); ctx.quadraticCurveTo(-120, -10, -80, 0); ctx.lineTo(80, 0); ctx.quadraticCurveTo(120, -10, 130, -70); ctx.quadraticCurveTo(110, -40, 90, -28); ctx.lineTo(-90, -28); ctx.quadraticCurveTo(-110, -40, -130, -70); ctx.closePath(); fs(lit(-130, 130, '#8A5A32'), '#3A2416', 2.5);
+    ctx.strokeStyle = 'rgba(58,36,22,0.5)'; ctx.lineWidth = 1.2; [-18, -10].forEach(function (y) { ctx.beginPath(); ctx.moveTo(-96, y); ctx.lineTo(96, y); ctx.stroke(); });
+    ell(-130, -76, 8, 7); fs('#8A5A32', '#3A2416', 2); ell(-134, -78, 2, 2); fs('#F2C230');           // dragon head
+    ctx.fillStyle = '#5E3A20'; ctx.fillRect(-3, -170, 6, 142);
+    ctx.save(); ctx.translate(0, -160); ctx.transform(1, 0, Math.sin(t) * 0.04, 1, 0, 0);
+    rrect(-60, 0, 120, 92, 6); ctx.save(); ctx.clip(); for (var s = 0; s < 6; s++) { ctx.fillStyle = s % 2 ? '#FFFFFF' : '#C9302C'; ctx.fillRect(-60 + s * 20, 0, 20, 92); } ctx.restore(); rrect(-60, 0, 120, 92, 6); fs(null, '#6E1A10', 2);
+    ctx.restore();
+    for (var i = 0; i < 8; i++) { var x = -84 + i * 24; ell(x, -32, 10, 10); fs(['#F2C230', '#2F6FD1', '#C9302C', '#FFFFFF'][i % 4], '#3A2416', 1.5); ell(x, -32, 3, 3); fs('#8A8A84'); }
+  });
+  wrap('ship', function (p, t) {
+    if (p.kind !== 'galleon') return false;   // the Vasa: a tall 1628 warship, gilded stern, three masts with furled sails
+    ctx.beginPath(); ctx.moveTo(-130, -60); ctx.lineTo(-110, -14); ctx.quadraticCurveTo(-60, 4, 60, 0); ctx.lineTo(96, -40); ctx.lineTo(110, -110); ctx.lineTo(70, -110); ctx.lineTo(60, -64); ctx.lineTo(-100, -64); ctx.closePath(); fs(lit(-130, 110, '#6E4A2A'), '#2E1A0E', 2.5);
+    ctx.fillStyle = '#C9A04A'; ctx.fillRect(-104, -50, 160, 4); ctx.fillRect(-100, -30, 150, 3);
+    for (var g = -90; g < 50; g += 20) { box(g, -44, 9, 9, '#C9302C', '#2E1A0E', 1); }   // red gun ports
+    box(70, -110, 40, 50, '#8A5A32', '#2E1A0E', 2); ctx.fillStyle = '#F2C230'; ctx.fillRect(74, -104, 32, 6); ctx.fillRect(74, -86, 32, 4); ell(90, -70, 8, 6); fs('#F2C230', '#8A6A1A', 1.2);   // gilded stern
+    [[-60, 180], [0, 200], [60, 150]].forEach(function (m) { ctx.fillStyle = '#4A2E18'; ctx.fillRect(m[0] - 3, -64 - m[1], 6, m[1]); for (var y = 1; y <= 3; y++) { var yy = -64 - m[1] * y / 3.4; rrect(m[0] - 26 + y * 3, yy, 52 - y * 6, 8, 4); fs('#F2EEE2', '#9A9484', 1.2); } });
+    ctx.strokeStyle = '#4A2E18'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(-130, -60); ctx.lineTo(-60, -244); ctx.lineTo(0, -264); ctx.lineTo(60, -214); ctx.lineTo(110, -110); ctx.stroke();
+    ctx.save(); ctx.translate(0, -264); ctx.transform(1, Math.sin(t * 3) * 0.05, 0, 1, 0, 0); ctx.fillStyle = '#006AA7'; ctx.fillRect(0, -2, 26, 12); ctx.fillStyle = '#FECC02'; ctx.fillRect(7, -2, 4, 12); ctx.fillRect(0, 2, 26, 4); ctx.restore();
+  });
+  wrap('obelisk', function (p, t) {
+    if (!p.dc) return false;   // the Washington Monument: plain white marble, ringed with US flags on the grass
+    ell(0, -4, 130, 12); fs('#7FB86A', '#4E8A3E', 2);
+    poly([-18, -6, -13, -228, 13, -228, 18, -6]); fs(lit(-18, 18, '#F4F1E8'), '#8A867A', 2);
+    poly([-13, -228, 0, -252, 13, -228]); fs(lit(-13, 13, '#FBF9F2'), '#8A867A', 2);
+    ctx.fillStyle = 'rgba(200,190,170,0.6)'; ctx.fillRect(-15, -84, 30, 3);   // where the marble colour changes
+    windows(-6, -220, 2, 1, 8, 0, 4, 6, '#5E6A7A');
+    [-110, -80, -50, 50, 80, 110].forEach(function (x, i) { ctx.fillStyle = '#6E7A8A'; ctx.fillRect(x - 1, -50, 2, 44); Scenery.drawFlag(ctx, x, -6, FLAGS.us, t + i); });
+  });
+  wrap('animals', function (p, t) {
+    if (!p.herd) return false;   // a little group of any ANIMAL_DEFS animal: [kind, x, scale, look]
+    (p.herd === true ? [[p.kind, -80, 2, 1], [p.kind, 70, 1.8, -1], [p.kind, 0, 2.3, 1]] : p.herd).forEach(function (h, i) { drawAnimal(h[0], h[1], h[4] || 0, h[2], t, { look: h[3], phase: i * 1.7 }); });
+    if (p.fence) { ctx.strokeStyle = '#8A6A42'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(-124, -30); ctx.lineTo(124, -30); ctx.stroke(); for (var f = -120; f <= 120; f += 40) { ctx.fillStyle = '#6E4A2A'; ctx.fillRect(f - 2, -40, 4, 40); } }
+  });
+})();
+
+/* ---------- bank props ---------- */
+(function () {
+  var P = Scenery.PROPS();
+  function shadowAt(c, x, y, r) { ell(x + 2, y + 2, r, r * 0.35, 0, c); c.fillStyle = 'rgba(20,40,20,0.25)'; c.fill(); }
+  P.rorbu = function (c, x, y) { shadowAt(c, x, y, 14); rrect(x - 12, y - 18, 24, 18, 1, c); fs('#B83A2A', '#5E1A10', 1.5, c); poly([x - 14, y - 18, x, y - 30, x + 14, y - 18], c); fs('#3A3A42', '#1E1E22', 1.5, c); c.fillStyle = '#FFFFFF'; c.fillRect(x - 4, y - 14, 7, 7); };
+  P.kimchi = function (c, x, y) { shadowAt(c, x, y, 13); [[-7, 0], [6, 1], [0, -4]].forEach(function (q) { ell(x + q[0], y - 8 + q[1], 7, 8, 0, c); fs('#8A4A2A', '#4A2416', 1.2, c); ell(x + q[0], y - 15 + q[1], 5, 2, 0, c); fs('#5E2E1A', null, 0, c); }); };   // onggi jars
+  P.cherry = function (c, x, y) { c.fillStyle = '#6E4A3A'; c.fillRect(x - 2, y - 22, 4, 22); ell(x, y - 28, 14, 11, 0, c); fs('#F8C6D6', '#C98AA0', 1.2, c); };
+  P.huia = function (c, x, y) { shadowAt(c, x, y, 10); c.fillStyle = '#8A3A26'; c.fillRect(x - 3, y - 34, 6, 34); ell(x, y - 38, 6, 6, 0, c); fs('#B83A26', '#3A160E', 1.2, c); };   // carved pou post
+  P.fern = function (c, x, y) { for (var i = -2; i <= 2; i++) { c.strokeStyle = '#3E8A3A'; c.lineWidth = 2.5; c.beginPath(); c.moveTo(x, y); c.quadraticCurveTo(x + i * 8, y - 24, x + i * 14, y - 20 + Math.abs(i) * 4); c.stroke(); } ell(x + 6, y - 22, 3, 3, 0, c); fs('#C9E8B8', '#3E8A3A', 1, c); };   // silver fern
+  P.quiverProp = function (c, x, y) { c.fillStyle = '#C9B46A'; c.fillRect(x - 2, y - 22, 4, 22); [[-8, -30], [8, -32], [0, -36]].forEach(function (q) { ell(x + q[0], y + q[1], 6, 4, 0, c); fs('#8AA67A', '#3E5A34', 1, c); }); };
+  P.cherrytree = P.cherry;
+  P.mayaStone = function (c, x, y) { shadowAt(c, x, y, 9); rrect(x - 7, y - 30, 14, 30, 3, c); fs('#B0A58C', '#5E5440', 1.5, c); c.fillStyle = '#7A6E56'; c.fillRect(x - 4, y - 24, 8, 3); c.fillRect(x - 4, y - 16, 8, 3); };   // stela
+})();
+
+/* =====================================================================
    BOLD – makes landmarks and sights read better on a phone: each one is
    drawn to an offscreen canvas, then stamped with a dark sticker outline,
    a soft drop shadow and top-down lighting. It is redrawn every frame,
@@ -3054,6 +3464,8 @@ var Audio2 = (function () {
     menu: ['major', 'marimba', 120],
     // per-river flavours (REGIONS[].music): Tex-Mex fiesta, Kerala temple-boat song, Wild West frontier
     fiesta: ['major', 'sawtooth', 132], kerala: ['hijaz', 'marimba', 104], frontier: ['major', 'triangle', 108],
+    // v1.0: Kalahari (Orange), Polynesian (Waikato), Nordic folk (Oslo, Stockholm), Korean pentatonic (Han), Americana march (Potomac), Garífuna (Río Dulce)
+    kalahari: ['penta', 'marimba', 120], pacific: ['penta', 'triangle', 100], nordic: ['dorian', 'bell', 112], seoul: ['penta', 'square', 118], capital: ['major', 'square', 120], garifuna: ['penta', 'marimba', 128],
     forest: ['dorian', 'triangle', 116], alpine: ['penta', 'triangle', 110], arctic: ['lydian', 'bell', 100], karst: ['penta', 'bell', 104], plains: ['major', 'square', 120]
   };
   function init() {
@@ -3156,6 +3568,8 @@ var R = null;   // the stage in progress (or the title-screen demo)
 function bendAt(wy) { var b = R && R.st && R.st.bend; if (!b) return 0; var f = wy / BEND_STEP; if (f <= 0) return b[0]; var i = Math.floor(f); if (i >= b.length - 1) return 0; return b[i] + (b[i + 1] - b[i]) * (f - i); }
 function bendSlope(wy) { return (bendAt(wy + 60) - bendAt(wy - 60)) / 120; }
 /* draw something that spans wy0..wy1 along the bend: short things just shift, long ones lean with the river */
+/* moving boats only start once they are this close (world units), just above the top of the screen */
+var MOVER_WAKE = 1100;
 function withBend(wy0, wy1, fn, keepUpright) {
   var b0 = bendAt(wy0), b1 = bendAt(wy1);
   if (!b0 && !b1) { fn(); return; }
@@ -3277,7 +3691,7 @@ function updateRun(dt) {
   if (!R.demo && R.wy >= st.length) { R.mode = 'finish'; R.modeT = 0; Audio2.sfx('finish'); return; }
 
   R.obs.forEach(function (o) {
-    if (o.k === 'mover') { o.y0 -= o.v * gdt; o.y1 -= o.v * gdt; }
+    if (o.k === 'mover' && o.y0 - R.wy < MOVER_WAKE) { o.y0 -= o.v * gdt; o.y1 -= o.v * gdt; }   // boats set off when they come into view, so they never drift back over earlier land
     if (o.k === 'drifter') { var cx = (o.x0 + o.x1) / 2 + o.vx * gdt; if (cx - o.w / 2 < o.xMin || cx + o.w / 2 > o.xMax) o.vx = -o.vx; o.x0 = cx - o.w / 2; o.x1 = cx + o.w / 2; o.l0 = clamp(Math.floor((o.x0 - RX0) / LW), 0, LANES - 1); o.l1 = clamp(Math.floor((o.x1 - RX0) / LW), 0, LANES - 1); }
   });
 
@@ -3502,11 +3916,11 @@ function fairCheck(from, to) {
      • an assisted clear ends in a celebration and bonus coins
    ===================================================================== */
 var HELPERS = {
-  shield:   { name: 'Shield',     desc: 'Absorbs one crash',                         coins: 300 },
-  magnet:   { name: 'Coin Magnet', desc: 'Grabs coins in the lanes next to you too', coins: 300 },
-  slow:     { name: 'Slow River', desc: 'The river runs 20% slower',                 coins: 400 },
-  guide:    { name: 'Lane Guide', desc: 'A glow shows the safe lane',                coins: 500 },
-  lifebuoy: { name: 'Lifebuoy',   desc: 'Crash as often as you like – you bounce back and keep your coins', coins: 2000 }
+  shield:   { name: 'Shield',     desc: 'Absorbs one crash',                         short: 'Shield', coins: 300 },
+  magnet:   { name: 'Coin Magnet', desc: 'Grabs coins in the lanes next to you too', short: 'Magnet', coins: 300 },
+  slow:     { name: 'Slow River', desc: 'The river runs 20% slower',                 short: 'Slow River', coins: 400 },
+  guide:    { name: 'Lane Guide', desc: 'A glow shows the safe lane',                short: 'Lane Guide', coins: 500 },
+  lifebuoy: { name: 'Lifebuoy',   desc: 'Crash as often as you like – you bounce back and keep your coins', short: 'Lifebuoy', coins: 2000 }
 };
 var HELPER_ORDER = ['shield', 'magnet', 'slow', 'guide', 'lifebuoy'];
 var ASSIST_EASE = 0.1;            // how much easier the layout is when any helper is used
@@ -3982,12 +4396,13 @@ var Screens = (function () {
 
   /* ---------- World Tour map: one stop per stage, with its landmark, local animals and flag, grouped into chapters.
      Stages not built yet show as "coming soon" stops (see COMING_SOON in 02_worlds.js). ---------- */
-  var NODE = 250, MAP_TOP = 170, CH_GAP = 60;   // CH_GAP: room between chapters for the chapter banner
-  function mapH() { return MAP_TOP + tourSlots().length * NODE + CHAPTERS.length * CH_GAP + 260; }
-  function nodeY(i) { var sl = tourSlots()[i]; return mapH() - 230 - CH_GAP - i * NODE - (sl ? sl.ch : 0) * CH_GAP; }
+  // the tour runs top to bottom: Stage 1 at the top, scroll down to go further
+  var NODE = 250, MAP_TOP = 110, CH_GAP = 60;   // CH_GAP: room above each chapter for its banner
+  function mapH() { return MAP_TOP + tourSlots().length * NODE + CHAPTERS.length * CH_GAP + 200; }
+  function nodeY(i) { var sl = tourSlots()[i]; return MAP_TOP + NODE / 2 + i * NODE + ((sl ? sl.ch : 0) + 1) * CH_GAP; }
   function nodeX(i) { return W / 2 + Math.sin(i * 1.3) * 95; }
   function slotOfPos(pos) { var sl = tourSlots(); for (var k = 0; k < sl.length; k++) if (sl[k].pos === pos) return k; return 0; }
-  function scrollToNode(i) { S.mapScroll = clamp(nodeY(i) - H * 0.58, 0, mapH() - H); S.mapVel = 0; }
+  function scrollToNode(i) { S.mapScroll = clamp(nodeY(i) - H * 0.45, 0, mapH() - H); S.mapVel = 0; }
   function map(t, dt) {
     var slots = tourSlots(), cur = Progress.current().pos;
     if (S.mapScroll === null) scrollToNode(slotOfPos(cur));
@@ -3997,7 +4412,7 @@ var Screens = (function () {
     ctx.fillStyle = '#1D5E86'; ctx.fillRect(0, 0, W, H);
     slots.forEach(function (sl, i) {
       var y = nodeY(i) - off, first = i === 0 || slots[i - 1].ch !== sl.ch;
-      if (first) heads.push({ y: y + NODE / 2 + CH_GAP / 2, ch: sl.ch });
+      if (first) heads.push({ y: y - NODE / 2 - CH_GAP / 2, ch: sl.ch });
       if (y < -NODE || y > H + NODE) return;
       if (sl.soon) { ctx.fillStyle = vgrad(y - NODE / 2, y + NODE / 2, ['#5E7E96', '#4E6E86']); ctx.fillRect(0, y - NODE / 2, W, NODE + 1); return; }
       var reg = sl.reg, B = BIOMES[reg.biome];
@@ -4008,8 +4423,8 @@ var Screens = (function () {
     ctx.beginPath(); slots.forEach(function (r, i) { var y = nodeY(i) - off; i ? ctx.lineTo(nodeX(i), y) : ctx.moveTo(nodeX(i), y); });
     ctx.strokeStyle = '#2B88BC'; ctx.lineWidth = 36; ctx.stroke(); ctx.strokeStyle = '#5EC4E8'; ctx.lineWidth = 26; ctx.stroke();
     ctx.setLineDash([10, 14]); ctx.lineDashOffset = -t * 20; ctx.strokeStyle = 'rgba(255,255,255,0.6)'; ctx.lineWidth = 3; ctx.stroke(); ctx.setLineDash([]);
-    slots.forEach(function (sl, k) {
-      var x = nodeX(k), y = nodeY(k) - off; if (y < -200 || y > H + 140) return;
+    slots.map(function (sl, k) { return [sl, k]; }).reverse().forEach(function (e) {   // bottom-up: a stop's landmark reaches into the stop above, so draw it first
+      var sl = e[0], k = e[1], x = nodeX(k), y = nodeY(k) - off; if (y < -200 || y > H + 140) return;
       if (sl.soon) {
         // a stage still being built: a cloud-covered stop with its river and place
         for (var m = 0; m < 4; m++) cloudPuff(x - 54 + m * 36, y - 34 + (m % 2) * 10, 0.9, 0.75);
@@ -4060,7 +4475,7 @@ var Screens = (function () {
 
   /* ---------- a run through one river (5 stages, one life) ---------- */
   /* open a stage's level select, with a level chosen (default: the first one not cleared yet) */
-  function startRiver(pos, sub) { var reg = seq()[pos]; S.run = { mode: 'tour', pos: pos, ri: reg.idx, sub: sub || Progress.firstOpenLevel(pos), coins: 0 }; S.flash = null; go('route'); }
+  function startRiver(pos, sub) { var reg = seq()[pos]; S.helperInfo = null; S.run = { mode: 'tour', pos: pos, ri: reg.idx, sub: sub || Progress.firstOpenLevel(pos), coins: 0 }; S.flash = null; go('route'); }
   function playStage() {
     var r = S.run; r.revAd = 0; r.revCoinN = 0;
     r.used = r.event ? {} : Helpers.take(); var assist = false; for (var k in r.used) assist = true;
@@ -4147,14 +4562,14 @@ var Screens = (function () {
     rrect(20, 18, W - 40, 92, 22); fs('rgba(255,247,236,0.96)', BRAND.colors.dark, 3);
     text('Stage ' + (r.pos + 1) + ': ' + reg.river, W / 2, 48, 30, { color: BRAND.colors.dark, maxW: W - 80 });
     text(reg.place + '  •  Ch. ' + (chapterOf(reg.id) + 1) + ' ' + CHAPTERS[chapterOf(reg.id)].name + '  •  ★ ' + Progress.stageStars(r.pos) + '/15', W / 2, 82, 15, { body: true, color: '#5E6A7A', maxW: W - 80 });
-    var top = H < 1000 ? 200 : 268, bot = H - 400, pts = [];
+    var top = H < 1000 ? 252 : 290, bot = H - 400, pts = [];   // levels alternate sides, so they can sit close together
     for (var s = 0; s < 5; s++) pts.push({ x: s === 4 ? W / 2 : W / 2 + (s % 2 ? 70 : -70), y: bot - s * (bot - top) / 4 });
     ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(W / 2, H - 300); pts.forEach(function (p) { ctx.lineTo(p.x, p.y); });
     ctx.strokeStyle = shade(B.water[1], -0.15); ctx.lineWidth = 40; ctx.stroke(); ctx.strokeStyle = B.water[0]; ctx.lineWidth = 30; ctx.stroke();
     ctx.setLineDash([10, 14]); ctx.lineDashOffset = -t * 30; ctx.strokeStyle = 'rgba(255,255,255,0.6)'; ctx.lineWidth = 3; ctx.stroke(); ctx.setLineDash([]);
     var kinds = REGION_ANIMALS[reg.id] || ['pigeon'];
     drawAnimal(kinds[2 % kinds.length], 60, top + 30, 1.0, t, { phase: 1, look: 1 }); drawAnimal(kinds[0], W - 70, bot + 40, 1.0, t, { phase: 4, look: -1 });
-    drawLandmark(reg.landmark, pts[4].x, pts[4].y - 24, 0.46, t);
+    drawLandmark(reg.landmark, pts[4].x, pts[4].y - 24, clamp((pts[4].y - 24 - 116) / 310, 0.3, 0.46), t);   // sized to stay below the header
     for (var sub = 1; sub <= 5; sub++) {
       var p = sub === 5 ? { x: W / 2 - 74, y: pts[3].y - 74 } : pts[sub - 1], mine = sightsOfStage(reg, sub), side = sub === 5 ? -1 : p.x < W / 2 ? 1 : -1;
       mine.forEach(function (sg, k) {
@@ -4176,42 +4591,48 @@ var Screens = (function () {
     var cp = pts[r.sub - 1];
     drawRider(cp.x + (r.sub === 5 ? 160 : 0) + (r.sub < 5 ? (cp.x < W / 2 ? 58 : -58) : 0), cp.y + (r.sub === 5 ? 30 : -4) + Math.sin(t * 4) * 4, 0.42, PETS[Save.d.pet] || PETS[0], Save.d.vessel, t, { expr: 'happy', look: Math.sin(t) });
     // the selected level
-    var py = H - 350, rec2 = Progress.rec(r.pos, r.sub), recLv = recommendedLevel(r.pos, r.sub), myLv = Progress.playerLevel(), bossLocked = r.sub === STAGES_PER_REGION && !Progress.unlocked(r.pos, r.sub) && Progress.done(r.pos, 4);
-    panel(24, py, W - 48, 326);
+    var py = H - 352, rec2 = Progress.rec(r.pos, r.sub), recLv = recommendedLevel(r.pos, r.sub), myLv = Progress.playerLevel(), bossLocked = r.sub === STAGES_PER_REGION && !Progress.unlocked(r.pos, r.sub) && Progress.done(r.pos, 4);
+    panel(24, py, W - 48, 344);
     var names = sightsOfStage(reg, r.sub).map(function (q) { return q.n; });
-    text(r.sub === 5 ? 'LEVEL 5 • LANDMARK BOSS' : 'LEVEL ' + r.sub + ' OF 5', W / 2, py + 32, 25, { color: r.sub === 5 ? BRAND.colors.berry : BRAND.colors.dark });
-    text(r.sub === 5 ? 'A boss rush to the ' + reg.lname + ' – the toughest stretch of the river!' : 'Coming up: ' + names.join(' • '), W / 2, py + 62, 14, { body: true, color: BRAND.colors.dark, maxW: W - 90 });
+    text(r.sub === 5 ? 'LEVEL 5 • LANDMARK BOSS' : 'LEVEL ' + r.sub + ' OF 5', W / 2, py + 30, 25, { color: r.sub === 5 ? BRAND.colors.berry : BRAND.colors.dark });
+    text(r.sub === 5 ? 'A boss rush to the ' + reg.lname + ' – the toughest stretch of the river!' : 'Coming up: ' + names.join(' • '), W / 2, py + 58, 14, { body: true, color: BRAND.colors.dark, maxW: W - 90 });
     var lvCol = myLv >= recLv ? BRAND.colors.leaf : myLv >= recLv - 3 ? '#E39A12' : '#E2364A';
-    chip(W / 2 - 150, py + 80, 300, 30, rgba(lvCol, 0.15)); text('Recommended Lv ' + recLv + '  •  You: Lv ' + myLv, W / 2, py + 96, 15, { color: lvCol });
-    if (rec2) { for (var k2 = 0; k2 < 3; k2++) starIcon(W / 2 - 110 + k2 * 26, py + 132, 11, k2 < rec2.s); text('Best ' + fmt(rec2.b), W / 2 + 60, py + 133, 18, { color: BRAND.colors.primary }); }
-    else text('Stars: 1 = clear  •  2 = ' + pct(STAR_2) + ' of coins  •  3 = ' + pct(STAR_3), W / 2, py + 133, 13, { body: true, color: '#7A8696', maxW: W - 90 });
+    chip(W / 2 - 150, py + 74, 300, 30, rgba(lvCol, 0.15)); text('Recommended Lv ' + recLv + '  •  You: Lv ' + myLv, W / 2, py + 90, 15, { color: lvCol });
+    if (rec2) { for (var k2 = 0; k2 < 3; k2++) starIcon(W / 2 - 110 + k2 * 26, py + 124, 11, k2 < rec2.s); text('Best ' + fmt(rec2.b), W / 2 + 60, py + 125, 18, { color: BRAND.colors.primary }); }
     if (S.flash) { S.flash.t += S.dt; if (S.flash.t < 2.2) { ctx.globalAlpha = Math.min(1, (2.2 - S.flash.t) * 2); text(S.flash.s, W / 2, py - 26, 24, { color: '#FFE45C', outline: BRAND.colors.dark, ow: 7, maxW: W - 40 }); ctx.globalAlpha = 1; } }
     if (Live.weekend()) { chip(W / 2 - 150, 120, 300, 34, 'rgba(143,108,255,0.9)'); text('WEEKEND: DOUBLE COINS', W / 2, 138, 18, { color: '#FFFFFF' }); }
     if (bossLocked) {
       // the boss needs stars from levels 1–4 – or an ad or coins to open it now
       var need = Progress.bossNeed(r.pos), have = Progress.starsBeforeBoss(r.pos), keyC = Progress.bossKeyCost(r.pos);
-      chip(44, py + 150, W - 88, 70, 'rgba(255,94,142,0.12)');
-      starIcon(80, py + 185, 18, true); text('The boss needs ' + need + ' stars from levels 1–4', 108, py + 172, 17, { align: 'left', color: BRAND.colors.berry, maxW: W - 170 });
-      text('You have ' + have + ' – replay a level for ' + (need - have) + ' more, or open it now:', 108, py + 198, 13, { align: 'left', body: true, color: '#7A4A2E', maxW: W - 170 });
-      button(44, py + 236, 110, 70, '', '#8A96A6', function () { S.run = null; S.mapScroll = null; go('map'); }, { icon: iconMap });
+      chip(44, py + 160, W - 88, 70, 'rgba(255,94,142,0.12)');
+      starIcon(80, py + 195, 18, true); text('The boss needs ' + need + ' stars from levels 1–4', 108, py + 182, 17, { align: 'left', color: BRAND.colors.berry, maxW: W - 170 });
+      text('You have ' + have + ' – replay a level for ' + (need - have) + ' more, or open it now:', 108, py + 208, 13, { align: 'left', body: true, color: '#7A4A2E', maxW: W - 170 });
+      button(44, py + 262, 110, 70, '', '#8A96A6', function () { S.run = null; S.mapScroll = null; go('map'); }, { icon: iconMap });
       var bw2 = (W - 224) / 2;
-      button(168, py + 236, bw2, 70, 'Watch ad', '#8F6CFF', function () { Monetize.rewarded('boss_key', function (ok) { if (ok) Progress.unlockBoss(r.pos); }); }, { icon: iconPlay, size: 18 });
-      button(180 + bw2, py + 236, bw2, 70, fmt(keyC) + ' coins', BRAND.colors.primary, function () { if (Save.d.wallet < keyC) return; Save.d.wallet -= keyC; Progress.unlockBoss(r.pos); }, { size: 18, disabled: Save.d.wallet < keyC });
+      button(168, py + 262, bw2, 70, 'Watch ad', '#8F6CFF', function () { Monetize.rewarded('boss_key', function (ok) { if (ok) Progress.unlockBoss(r.pos); }); }, { icon: iconPlay, size: 18 });
+      button(180 + bw2, py + 262, bw2, 70, fmt(keyC) + ' coins', BRAND.colors.primary, function () { if (Save.d.wallet < keyC) return; Save.d.wallet -= keyC; Progress.unlockBoss(r.pos); }, { size: 18, disabled: Save.d.wallet < keyC });
     } else {
       // helpers to take into the level (each one also makes the level a little kinder)
-      text('HELPERS', 48, py + 160, 12, { align: 'left', body: true, color: '#A07050' });
+      // helpers: optional boosts for this level, bought with coins (your balance is shown beside them)
+      text('HELPERS  •  optional boosts for this level', 48, py + 150, 12, { align: 'left', body: true, color: '#A07050', maxW: W - 250 });
+      var bal = fmt(Save.d.wallet), bw3 = measureW(bal, 16) + 46; chip(W - 48 - bw3, py + 136, bw3, 28, 'rgba(23,56,90,0.85)'); drawCoin(W - 48 - bw3 + 16, py + 150, 10); text(bal, W - 48 - bw3 / 2 + 10, py + 151, 16, { color: '#FFE45C' });
       var hw = (W - 96) / HELPER_ORDER.length;
       HELPER_ORDER.forEach(function (k, i) {
-        var hx = 48 + i * hw, hy = py + 168, on = Helpers.isArmed(k), n = Helpers.inv()[k];
-        rrect(hx + 3, hy, hw - 6, 58, 14); fs(on ? '#FFF0B0' : '#FFFFFF', on ? '#FFB020' : 'rgba(122,74,46,0.25)', on ? 3.5 : 2);
-        Helpers.icon(k, hx + hw / 2, hy + 22, 15);
-        text(n ? '×' + n : fmt(HELPERS[k].coins), hx + hw / 2, hy + 47, 12, { color: n ? BRAND.colors.dark : BRAND.colors.primary, maxW: hw - 12 });
+        var hx = 48 + i * hw, hy = py + 170, on = Helpers.isArmed(k), n = Helpers.inv()[k];
+        rrect(hx + 3, hy, hw - 6, 66, 14); fs(on ? '#FFF0B0' : '#FFFFFF', on ? '#FFB020' : 'rgba(122,74,46,0.25)', on ? 3.5 : 2);
+        Helpers.icon(k, hx + hw / 2, hy + 17, 13);
+        text(HELPERS[k].short, hx + hw / 2, hy + 40, 11, { body: true, color: BRAND.colors.dark, maxW: hw - 12 });
+        if (n) text('×' + n + ' owned', hx + hw / 2, hy + 55, 11, { color: BRAND.colors.leaf, maxW: hw - 12 });
+        else { drawCoin(hx + hw / 2 - measureW(fmt(HELPERS[k].coins), 12) / 2 - 7, hy + 55, 6); text(fmt(HELPERS[k].coins), hx + hw / 2 + 5, hy + 55, 12, { color: BRAND.colors.primary, maxW: hw - 24 }); }
         if (on) { ell(hx + hw - 12, hy + 8, 9, 9); fs(BRAND.colors.leaf); text('✓', hx + hw - 12, hy + 9, 11, { color: '#FFF' }); }
-        hit(hx, hy, hw, 58, function () { var m = Helpers.toggle(k); S.helperMsg = { s: m || (Helpers.isArmed(k) ? HELPERS[k].name + ': ' + HELPERS[k].desc : HELPERS[k].name + ' removed'), t: 0 }; });
+        hit(hx, hy, hw, 66, function () { var m = Helpers.toggle(k); S.helperInfo = k; S.helperMsg = m ? { s: m, t: 0 } : null; });
       });
+      // what the last tapped helper does, or how helpers work
+      var hk = S.helperInfo, info = hk ? HELPERS[hk].name + ': ' + HELPERS[hk].desc + (Helpers.isArmed(hk) ? ' ✓' : '') : 'Tap one to buy it and take it into this level. If you don’t clear the level, you get it back.';
+      text(info, W / 2, py + 252, 13, { body: true, color: '#7A4A2E', maxW: W - 80 });
       if (S.helperMsg) { S.helperMsg.t += S.dt; if (S.helperMsg.t < 2.4) { chip(36, py - 50, W - 72, 40, 'rgba(23,56,90,0.92)'); text(S.helperMsg.s, W / 2, py - 30, 14, { body: true, color: '#FFE45C', maxW: W - 90 }); } }
-      button(44, py + 240, 110, 70, '', '#8A96A6', function () { Helpers.clear(); S.run = null; S.mapScroll = null; go('map'); }, { icon: iconMap });
-      button(168, py + 240, W - 212, 70, rec2 ? 'REPLAY' : 'PLAY', BRAND.colors.leaf, function () { if (Monetize.interstitialDue()) Monetize.interstitial(playStage); else playStage(); }, { icon: iconPlay, size: 32 });
+      button(44, py + 266, 110, 66, '', '#8A96A6', function () { Helpers.clear(); S.run = null; S.mapScroll = null; go('map'); }, { icon: iconMap });
+      button(168, py + 266, W - 212, 66, rec2 ? 'REPLAY' : 'PLAY', BRAND.colors.leaf, function () { if (Monetize.interstitialDue()) Monetize.interstitial(playStage); else playStage(); }, { icon: iconPlay, size: 32 });
     }
 
     muteButton();
@@ -4275,21 +4696,12 @@ var Screens = (function () {
       ctx.restore();
     }
     if (R.tapFx && R.pos <= CFG.tutorialPos) laneGlow(R.tapFx.lane, 0.45 * (1 - R.tapFx.t / 0.35));
-    sliderBar();
     if (R.mode === 'crash') { var s2 = backOut(R.modeT * 3); ctx.save(); ctx.translate(W / 2, H * 0.4); ctx.rotate(-0.08); ctx.scale(s2, s2); text(R.crashKind === 'bank' || R.crashKind === 'pier' ? 'BONK!' : 'SPLASH!', 0, 0, 80, { color: '#FFE45C', outline: '#B8364E', ow: 14 }); ctx.restore(); }
     if (R.mode === 'finish' && R.modeT < 1.5) { var s3 = backOut(R.modeT * 3); ctx.save(); ctx.translate(W / 2, H * 0.3); ctx.scale(s3, s3); text(st.finale ? 'LANDMARK REACHED!' : 'LEVEL CLEAR!', 0, 0, 52, { color: '#FFE45C', outline: BRAND.colors.dark, ow: 12, maxW: W - 40 }); ctx.restore(); }
   }
   function laneGlow(l, a) { if (l < 0) return; ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = vgrad(H * 0.25, H, ['rgba(255,240,150,0)', 'rgba(255,240,150,0.7)']); ctx.fillRect((RX0 + LW * l + 3 + bendAt(R.wy)) * VIEW_K, H * 0.25, (LW - 6) * VIEW_K, H * 0.75); ctx.restore(); }
   /* lane under a finger, allowing for the river's bend at the crew */
   function laneAtX(px) { return Math.floor((px / VIEW_K - bendAt(R.wy) - RX0) / LW); }
-  /* the slider bar: shows the 7 lanes and where the crew is; you can tap or slide anywhere */
-  function sliderBar() {
-    if (Save.d.slider === false || (R.mode !== 'run' && R.mode !== 'ready')) return;
-    var b = bendAt(R.wy), x0 = (RX0 + b) * VIEW_K, x1 = (RX1 + b) * VIEW_K, y = H - 34;
-    rrect(x0, y - 9, x1 - x0, 18, 9); ctx.fillStyle = 'rgba(10,35,70,0.45)'; ctx.fill();
-    for (var l = 0; l < LANES; l++) { ell((laneX(l) + b) * VIEW_K, y, 3, 3); ctx.fillStyle = l === R.lane ? '#FFE45C' : 'rgba(255,255,255,0.6)'; ctx.fill(); }
-    var kx = (R.x + b) * VIEW_K; ell(kx, y, 15, 15); fs('#FFFFFF', BRAND.colors.dark, 3); ell(kx, y, 6, 6); fs(BRAND.colors.primary);
-  }
   function tipIcon(kind, x, y, t) {
     if (kind === 'coin') { drawCoin(x, y, 22, t * 3); return; }
     if (kind === 'token') { drawToken(R.fest ? R.fest.token : 'star', x, y, 24); return; }
@@ -5168,11 +5580,9 @@ var SettingsUI = (function () {
     text('All sound', 44, y + 33, 21, { align: 'left', color: BRAND.colors.dark }); toggle(W - 116, y + 13, !Save.d.muted, function () { Audio2.setMuted(!Save.d.muted); });
     text(Save.d.muted ? 'off' : 'on', W - 128, y + 33, 14, { align: 'right', body: true, color: '#6E7A8A' });
     y += 92; section(y, 'CONTROLS'); y += 16;
-    row(y, 128);
-    text('Slider bar', 44, y + 28, 21, { align: 'left', color: BRAND.colors.dark }); text('Tap a lane or slide your finger – the bar shows the lanes', 44, y + 52, 13, { align: 'left', body: true, color: '#6E7A8A', maxW: W - 200 });
-    toggle(W - 116, y + 14, Save.d.slider !== false, function () { Save.d.slider = Save.d.slider === false; Save.write(); });
-    text('Vibration', 44, y + 98, 21, { align: 'left', color: BRAND.colors.dark }); toggle(W - 116, y + 80, Save.d.vibrate !== false, function () { Save.d.vibrate = Save.d.vibrate === false; Save.write(); if (Save.d.vibrate && navigator.vibrate) try { navigator.vibrate(60); } catch (e) {} });
-    y += 156; section(y, 'PURCHASES & HELP'); y += 16;
+    row(y, 64);
+    text('Vibration', 44, y + 33, 21, { align: 'left', color: BRAND.colors.dark }); toggle(W - 116, y + 13, Save.d.vibrate !== false, function () { Save.d.vibrate = Save.d.vibrate === false; Save.write(); if (Save.d.vibrate && navigator.vibrate) try { navigator.vibrate(60); } catch (e) {} });
+    y += 92; section(y, 'PURCHASES & HELP'); y += 16;
     var bw = (W - 52) / 2;
     button(20, y, bw, 56, 'Restore purchases', '#8F6CFF', function () { S.setMsg = { s: 'Simulated: purchases restored (none to restore on this device)', t: 0 }; }, { size: 17 });
     button(32 + bw, y, bw, 56, 'Contact us', BRAND.colors.secondary, function () { S.setMsg = { s: 'Email ' + LEGAL.contact, t: 0 }; }, { size: 17 });
