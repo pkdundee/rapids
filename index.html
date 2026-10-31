@@ -32,7 +32,7 @@ window.__PWA__ = false;
 var BRAND = {
   name: 'Tumbletail',
   game: 'Rapids',
-  version: '1.0',           // each build is saved as dist/versions/TumbletailRapids-v<version>.html – bump it for every new build
+  version: '1.1',           // each build is saved as dist/versions/TumbletailRapids-v<version>.html – bump it for every new build
   tagline: 'Paddle the great rivers of the world',
   storageKey: 'tumbletail.rapids.v2',
   testMode: true,            // shows the TEST button on the title screen (turn off for release)
@@ -321,6 +321,10 @@ var FLAGS = {
   br: { t: 'br', c: ['#009C3B', '#FFDF00', '#002776'] }, ve: { t: 'h', c: ['#FFCC00', '#00247D', '#CF142B'] }, ar: { t: 'h', c: ['#74ACDF', '#FFFFFF', '#74ACDF'] },
   tx: { t: 'tx', c: ['#002868', '#FFFFFF', '#BF0A30'] },
   no: { t: 'nordic', c: ['#BA0C2F', '#FFFFFF', '#00205B'] }, se: { t: 'nordic', c: ['#006AA7', '#FECC02'] }, kr: { t: 'kr', c: ['#CD2E3A', '#0047A0'] },
+  dk: { t: 'nordic', c: ['#C8102E', '#FFFFFF'] }, ke: { t: 'h', c: ['#000000', '#BB0000', '#006600'] }, pa: { t: 'pa', c: ['#FFFFFF', '#DA121A', '#072357'] },
+  bw: { t: 'h', c: ['#75AADB', '#000000', '#75AADB'] }, pe: { t: 'v', c: ['#D91023', '#FFFFFF', '#D91023'] }, hk: { t: 'star', c: ['#DE2910', '#FFFFFF'] },
+  cd: { t: 'star', c: ['#007FFF', '#F7D618'] }, ae: { t: 'ae', c: ['#00732F', '#FFFFFF', '#000000', '#FF0000'] }, cr: { t: 'h', c: ['#002B7F', '#CE1126', '#002B7F'] },
+  sg: { t: 'h', c: ['#EF3340', '#FFFFFF', '#FFFFFF'] },
   za: { t: 'za', c: ['#E03C31', '#001489', '#007749'] }, nz: { t: 'au', c: ['#012169', '#FFFFFF', '#C8102E'], star: '#C8102E' }, gt: { t: 'v', c: ['#4997D0', '#FFFFFF', '#4997D0'] }
 };
 
@@ -471,7 +475,136 @@ var REGIONS = [
     sights: [SG('Tikal Temple', 'maya', 'b'), SG('Howler Monkeys', 'animals', 'b', { herd: [['howler', -70, 2.1, 1], ['howler', 56, 1.9, -1]] }), SG('Hot Springs Waterfall', 'falls', 'b', { w: 40, h: 110 }),
       SG('Livingston Village', 'houses', 'b', { style: 'stilt' }), SG('Mangrove Isle', 'grove', 'i', { mangrove: true }), SG('Volcán de Agua', 'rock', 'b', { kind: 'volcano' }),
       SG('Toucans', 'animals', 'b', { kind: 'toucan' }), SG('Río Dulce Bridge', 'bridge', 'r', { style: 'steelarch' }), SG('Lake Izabal Isle', 'grove', 'i', { palm: true })],
-    water: { mover: ['dugout', 'riverboat'], moored: ['dugout'], rocks: ['lilyPads', 'heron'], drifter: ['hyacinth'], bridge: 'steelarch' } }
+    water: { mover: ['dugout', 'riverboat'], moored: ['dugout'], rocks: ['lilyPads', 'heron'], drifter: ['hyacinth'], bridge: 'steelarch' } },
+  // ---------- v1.1: the last 30 stages (Chapters 4–14) ----------
+  { id: 'shotover', cont: 'OC', pop: 30, river: 'Shotover River', place: 'Queenstown, New Zealand', biome: 'alpine', landmark: 'shotover', lname: 'Shotover Canyon', flag: 'nz', props: ['flag', 'fern', 'canoe', 'sled'], music: 'pacific',
+    sights: [SG('The Remarkables', 'rock', 'b', { kind: 'cliff', col: '#6E7A8A' }), SG('Skippers Bridge', 'bridge', 'r', { style: 'suspension' }), SG('Arrowtown Cottages', 'houses', 'b', { style: 'cabin' }), SG('Lake Wakatipu Isle', 'grove', 'i'),
+      SG('TSS Earnslaw', 'ship', 'b', { kind: 'paddle' }), SG('Gold Rush Camp', 'houses', 'b', { style: 'camp' }), SG('Merino Sheep', 'animals', 'b', { herd: [['sheep', 0, 1.6, -1, -34], ['sheep', -78, 2.1, 1], ['sheep', 76, 2, -1]], fence: true }),
+      SG('Coronet Peak Ski Jump', 'skijump', 'b'), SG('Kawarau Bridge', 'bridge', 'r', { style: 'steelarch' })],
+    water: { mover: ['jetboat', 'raft'], moored: ['raft'], rocks: ['rocks', 'snag'], drifter: ['log'], bridge: 'suspension' } },
+  { id: 'snake', cont: 'NA', pop: 38, river: 'Snake River', place: 'Grand Teton, USA', biome: 'forest', landmark: 'teton', lname: 'Grand Teton', flag: 'us', props: ['flag', 'cabin', 'canoe'], music: 'frontier',
+    sights: [SG('Mormon Row Barn', 'houses', 'b', { style: 'barn' }), SG('Moose Pond', 'animals', 'b', { kind: 'moose' }), SG('Jenny Lake Isle', 'grove', 'i'), SG('Bison Herd', 'animals', 'b', { kind: 'bison' }),
+      SG('Chapel of the Transfiguration', 'houses', 'b', { style: 'cabin' }), SG('Elk Refuge', 'animals', 'b', { herd: [['elk', 4, 1.3, 1, -30], ['elk', -80, 1.7, 1], ['elk', 78, 1.6, -1]] }), SG('Snake River Overlook', 'rock', 'b', { kind: 'cliff', col: '#6E7A6A' }),
+      SG('Cowboy Bar', 'houses', 'b', { style: 'lodge' }), SG('Teton Pass Bridge', 'bridge', 'r', { style: 'wood' })],
+    water: { mover: ['raft', 'kayak'], moored: ['raft'], rocks: ['moose', 'rocks'], drifter: ['log'], bridge: 'wood' } },
+  { id: 'murray', cont: 'OC', pop: 24, river: 'Murray River', place: 'South Australia', biome: 'savanna', landmark: 'paddlesteamer', lname: 'Murray Paddle Steamer', flag: 'au', props: ['flag', 'acacia', 'canoe', 'umbrella2'],
+    sights: [SG('Red Gum Forest', 'grove', 'b'), SG('Kangaroos', 'animals', 'b', { kind: 'kangaroo' }), SG('Emus', 'animals', 'b', { herd: [['emu', -70, 2.4, 1], ['emu', 60, 2.2, -1]] }), SG('Barossa Vineyards', 'vineyard', 'b'),
+      SG('Paddle Steamer Wharf', 'ship', 'b', { kind: 'paddle' }), SG('Ochre Cliffs', 'rock', 'b', { kind: 'cliff', col: '#D8763E' }), SG('Pelicans', 'animals', 'b', { herd: [['pelican', -70, 2.6, 1], ['pelican', 60, 2.4, -1], ['pelican', -4, 2, 1, -20]] }),
+      SG('Murray Bridge', 'bridge', 'r', { style: 'truss' }), SG('Hindmarsh Island', 'grove', 'i')],
+    water: { mover: ['steamer', 'houseboat'], moored: ['houseboat'], rocks: ['ducks', 'snag'], drifter: ['log'], bridge: 'truss' } },
+  { id: 'alula', cont: 'AS', pop: 30, river: 'AlUla Oasis', place: 'AlUla', biome: 'desert', landmark: 'elephantrock', lname: 'Elephant Rock', flag: null, props: ['palmDate', 'lanternRed'],
+    sights: [SG('Date Palm Oasis', 'grove', 'i', { palm: true }), SG('Camel Caravan', 'animals', 'b', { kind: 'camels' }), SG('Rainbow Rock', 'rock', 'b', { kind: 'tepui', col: '#C9805A' }), SG('Old Town Mud Houses', 'houses', 'b', { style: 'pueblo' }),
+      SG('Desert Dunes', 'rock', 'b', { kind: 'dunes', camel: true }), SG('Harrat Volcano', 'rock', 'b', { kind: 'volcano', col: '#5E4A3A' }), SG('Oasis Farm', 'farm', 'b'), SG('Desert Camp', 'houses', 'b', { style: 'camp' }), SG('Wadi Bridge', 'bridge', 'r', { style: 'stone' })],
+    water: { mover: ['felucca', 'raft'], moored: ['felucca'], rocks: ['rocks', 'sandbank'], drifter: ['log'], bridge: 'stone' } },
+  { id: 'yangtze', cont: 'AS', pop: 52, river: 'Yangtze', place: 'Three Gorges, China', biome: 'karst', landmark: 'threegorges', lname: 'Qutang Gorge', flag: 'cn', props: ['flag', 'lantern', 'conehat'],
+    sights: [SG('Three Gorges Dam', 'dam', 'b'), SG('Giant Pandas', 'animals', 'b', { kind: 'panda' }), SG('Shibaozhai Pagoda', 'pagoda', 'b', { col: '#C9302C', roof: '#2E2E2E', tiers: 9 }), SG('Wushan Peaks', 'rock', 'b', { kind: 'cliff', col: '#7A8A6A' }),
+      SG('Chongqing by Night', 'skyline', 'b', { neon: true }), SG('Rice Terraces', 'farm', 'b', { rice: true }), SG('Chaotianmen Bridge', 'bridge', 'r', { style: 'cable' }), SG('Golden Monkeys', 'animals', 'b', { herd: [['monkey', -60, 2, 1], ['monkey', 60, 1.8, -1]] }), SG('Orange Grove Isle', 'grove', 'i')],
+    water: { mover: ['junk', 'cruiser'], moored: ['sampans'], rocks: ['rocks', 'buoys'], drifter: ['log'], bridge: 'cable' } },
+  { id: 'merced', cont: 'NA', pop: 64, river: 'Merced River', place: 'Yosemite, USA', biome: 'forest', landmark: 'halfdome', lname: 'Half Dome', flag: 'us', props: ['flag', 'cabin', 'canoe'], music: 'frontier',
+    sights: [SG('El Capitan', 'rock', 'b', { kind: 'cliff', col: '#9AA0A8' }), SG('Bridalveil Fall', 'falls', 'b', { w: 30, h: 140 }), SG('Giant Sequoias', 'grove', 'b'), SG('Black Bears', 'animals', 'b', { herd: [['bear', -60, 1.8, 1], ['bear', 60, 1.3, -1]] }),
+      SG('Ahwahnee Hotel', 'houses', 'b', { style: 'lodge' }), SG('Yosemite Falls', 'falls', 'b', { w: 24, h: 170 }), SG('Swinging Bridge', 'bridge', 'r', { style: 'wood' }), SG('Mule Deer', 'animals', 'b', { herd: [['deer', -70, 1.8, 1], ['deer', 64, 1.6, -1]] }), SG('Merced Isle', 'grove', 'i')],
+    water: { mover: ['raft', 'kayak'], moored: ['raft'], rocks: ['rocks', 'bear'], drifter: ['log'], bridge: 'wood' } },
+  { id: 'daintree', cont: 'OC', pop: 36, river: 'Daintree River', place: 'Queensland, Australia', biome: 'rainforest', landmark: 'capetrib', lname: 'Cape Tribulation', flag: 'au', props: ['flag', 'hammock', 'surfboard'],
+    sights: [SG('Cassowaries', 'animals', 'b', { herd: [['cassowary', -60, 2.4, 1], ['cassowary', 60, 2, -1]] }), SG('Saltwater Crocs', 'animals', 'b', { herd: [['croc', -50, 1.8, 1], ['croc', 60, 1.5, -1]] }), SG('Mossman Gorge', 'falls', 'b', { w: 60, h: 80 }),
+      SG('Four Mile Beach', 'beach', 'b'), SG('Fan Palm Forest', 'grove', 'b', { palm: true }), SG('Tree Kangaroos', 'animals', 'b', { kind: 'kangaroo' }), SG('Daintree Ferry', 'ship', 'b', { kind: 'barge' }), SG('Mangrove Isle', 'grove', 'i', { mangrove: true }), SG('Canopy Walk', 'bridge', 'r', { style: 'rope' })],
+    water: { mover: ['safari', 'kayak'], moored: ['dugout'], rocks: ['croc', 'lilyPads'], drifter: ['hyacinth'], bridge: 'rope' } },
+  { id: 'mara', cont: 'AF', pop: 46, river: 'Mara River', place: 'Kenya & Tanzania', biome: 'savanna', landmark: 'migration', lname: 'The Great Migration', flag: 'ke', props: ['flag', 'acacia', 'grassHut', 'drum'],
+    sights: [SG('Wildebeest Herd', 'animals', 'b', { herd: [['wildebeest', 4, 1.5, 1, -30], ['wildebeest', -80, 2, 1], ['wildebeest', 78, 1.9, -1]] }), SG('Zebras', 'animals', 'b', { herd: [['zebra', 4, 1.4, -1, -30], ['zebra', -80, 1.9, 1], ['zebra', 78, 1.8, -1]] }),
+      SG('Maasai Village', 'houses', 'b', { style: 'camp' }), SG('Lions on a Kopje', 'animals', 'b', { kind: 'lion' }), SG('Giraffes', 'animals', 'b', { kind: 'giraffe' }), SG('Elephants', 'animals', 'b', { kind: 'elephants' }),
+      SG('Great Baobab', 'baobab', 'b'), SG('Hippo Pool Isle', 'grove', 'i'), SG('Mara Bridge', 'bridge', 'r', { style: 'wood' })],
+    water: { mover: ['safari'], moored: ['dugout'], rocks: ['hippos', 'croc'], drifter: ['log'], bridge: 'wood' } },
+  { id: 'everglades', cont: 'NA', pop: 54, river: 'Everglades', place: 'Florida, USA', biome: 'tropical', landmark: 'riverofgrass', lname: 'River of Grass', flag: 'us', props: ['flag', 'surfboard', 'umbrella2'],
+    sights: [SG('Airboat Tour', 'ship', 'b', { kind: 'airboat' }), SG('Alligators', 'animals', 'b', { herd: [['croc', -50, 1.8, 1], ['croc', 60, 1.5, -1]] }), SG('Flamingos', 'animals', 'b', { herd: [['flamingo', -60, 2, 1], ['flamingo', 50, 1.8, -1], ['flamingo', -4, 1.5, 1, -20]] }),
+      SG('Mangrove Isle', 'grove', 'i', { mangrove: true }), SG('Fort Lauderdale Canals', 'houses', 'b', { style: 'colourful' }), SG('Cypress Swamp', 'grove', 'b', { cypress: true }),
+      SG('Pelicans', 'animals', 'b', { herd: [['pelican', -70, 2.6, 1], ['pelican', 60, 2.4, -1]] }), SG('Hillsboro Lighthouse', 'lighthouse', 'b', { c1: '#2E2E3A', c2: '#FFFFFF' }), SG('Las Olas Bridge', 'bridge', 'r', { style: 'bascule' })],
+    water: { mover: ['jetboat', 'yacht'], moored: ['yachts'], rocks: ['croc', 'lilyPads'], drifter: ['hyacinth'], bridge: 'bascule' } },
+  { id: 'wailua', cont: 'OC', pop: 50, river: 'Wailua River', place: 'Kauaʻi, Hawaii', biome: 'tropical', landmark: 'wailuafalls', lname: 'Wailua Falls', flag: 'us', props: ['surfboardHI', 'hammock', 'grassHut', 'umbrella2'], music: 'hawaii',
+    sights: [SG('Fern Grotto', 'falls', 'b', { w: 50, h: 80 }), SG('Coconut Coast', 'grove', 'i', { palm: true }), SG('Nā Pali Cliffs', 'rock', 'b', { kind: 'cliff', col: '#4E8A3E' }), SG('Waimea Canyon', 'rock', 'b', { kind: 'cliff', col: '#C9603A' }),
+      SG('Kīlauea Lighthouse', 'lighthouse', 'b', { c1: '#FFFFFF', c2: '#FFFFFF' }), SG('Taro Fields', 'farm', 'b', { rice: true }), SG('Poʻipū Beach', 'beach', 'b'), SG('Sea Turtles', 'animals', 'b', { kind: 'turtles' }), SG('Wailua Bridge', 'bridge', 'r', { style: 'stone' })],
+    water: { mover: ['kayak', 'jetboat'], moored: ['yachts'], rocks: ['rocks', 'buoys'], drifter: ['log'], bridge: 'stone' } },
+  { id: 'seattle', cont: 'NA', pop: 60, river: 'Puget Sound', place: 'Seattle, USA', biome: 'city', landmark: 'spaceneedle', lname: 'Space Needle', flag: 'us', props: ['flagUS', 'cafe', 'bike'],
+    sights: [SG('Pike Place Market', 'sign', 'b', { text: 'PUBLIC MARKET' }), SG('Totem Poles', 'totem', 'b'), SG('Mount Rainier', 'rock', 'b', { kind: 'volcano', snow: true, col: '#6E7A8A' }), SG('Great Wheel', 'wheel', 'b'),
+      SG('Columbia Center', 'tower', 'b', { kind: 'glass' }), SG('Bald Eagles', 'animals', 'b', { herd: [['eagle', -60, 2.4, 1], ['eagle', 60, 2.2, -1]] }), SG('Fremont Bridge', 'bridge', 'r', { style: 'bascule' }), SG('Lake Union Houseboats', 'houses', 'b', { style: 'stilt' }), SG('Bainbridge Isle', 'grove', 'i')],
+    water: { mover: ['ferry', 'yacht'], moored: ['yachts'], rocks: ['buoys', 'ducks'], drifter: ['log'], bridge: 'bascule' } },
+  { id: 'copenhagen', cont: 'EU', pop: 58, river: 'Nyhavn', place: 'Copenhagen, Denmark', biome: 'canal', landmark: 'nyhavn', lname: 'Nyhavn', flag: 'dk', props: ['flag', 'bike', 'cafe', 'rorbu'], music: 'nordic',
+    sights: [SG('The Little Mermaid', 'statue', 'b', { kind: 'mermaid' }), SG('Tivoli Gardens', 'wheel', 'b'), SG('Amalienborg Palace', 'palace', 'b', { col: '#E8DCC0', roof: '#6E7A7A', style: 'classic' }), SG('Rosenborg Castle', 'castle', 'b', { col: '#A4473A', roof: '#3E7A6A', towers: 3 }),
+      SG('Round Tower', 'clock', 'b', { col: '#A4473A', roof: '#3E7A6A', h: 120, round: true }), SG('Christiansborg Palace', 'palace', 'b', { col: '#D8D2C4', roof: '#4E8A6A', style: 'classic' }), SG('Inner Harbour Bridge', 'bridge', 'r', { style: 'cable' }), SG('Kastellet Isle', 'grove', 'i'), SG('Thatched Cottages', 'houses', 'b', { style: 'falu' })],
+    water: { mover: ['canalboat', 'tourboat'], moored: ['canalboat'], rocks: ['swans', 'buoys'], drifter: ['crate'], bridge: 'cable' } },
+  { id: 'panama', cont: 'NA', pop: 62, river: 'Panama Canal', place: 'Panama', biome: 'tropical', landmark: 'miraflores', lname: 'Miraflores Locks', flag: 'pa', props: ['flag', 'hammock', 'macaw'],
+    sights: [SG('Gatún Locks', 'lock', 'b'), SG('Container Ship', 'ship', 'b', { kind: 'container' }), SG('Sloths', 'animals', 'b', { herd: [['sloth', -60, 2, 1], ['sloth', 60, 1.8, -1]] }), SG('Toucans', 'animals', 'b', { kind: 'toucan' }),
+      SG('Casco Viejo', 'houses', 'b', { style: 'colourful' }), SG('Bridge of the Americas', 'bridge', 'r', { style: 'steelarch' }), SG('Gatún Lake Isle', 'grove', 'i', { palm: true }), SG('Panama City Skyline', 'skyline', 'b'), SG('Howler Monkeys', 'animals', 'b', { herd: [['howler', -70, 2.1, 1], ['howler', 56, 1.9, -1]] })],
+    water: { mover: ['freighter', 'cargo'], moored: ['tug'], rocks: ['buoys', 'croc'], drifter: ['log'], bridge: 'steelarch' } },
+  { id: 'sanfrancisco', cont: 'NA', pop: 86, river: 'San Francisco Bay', place: 'California, USA', biome: 'city', landmark: 'goldengate', lname: 'Golden Gate Bridge', flag: 'us', props: ['flagUS', 'tram', 'surfboard'],
+    sights: [SG('Alcatraz', 'lighthouse', 'i', { c1: '#E8E2D4', c2: '#E8E2D4' }), SG('Painted Ladies', 'houses', 'b', { style: 'colourful' }), SG('Pelicans at Pier 39', 'animals', 'b', { herd: [['pelican', -70, 2.6, 1], ['pelican', 60, 2.4, -1], ['pelican', -4, 2, 1, -20]] }),
+      SG('Golden Gate Park', 'grove', 'b'), SG('Transamerica Pyramid', 'tower', 'b', { kind: 'shard' }), SG('Bay Bridge', 'bridge', 'r', { style: 'suspension' }), SG('Fisherman’s Wharf', 'sign', 'b', { text: 'FISHERMAN’S WHARF' }),
+      SG('Chinatown Gate', 'pagoda', 'b', { col: '#C9302C', roof: '#2E8A4A', tiers: 2 }), SG('Ferry Building', 'clock', 'b', { col: '#E8E2D4', roof: '#9AA6B6', h: 150 })],
+    water: { mover: ['ferry', 'yacht'], moored: ['yachts'], rocks: ['buoys', 'ducks'], drifter: ['crate'], bridge: 'suspension' } },
+  { id: 'xochimilco', cont: 'NA', pop: 34, river: 'Xochimilco', place: 'Central America', biome: 'canal', landmark: 'trajineras', lname: 'Trajineras of Xochimilco', flag: null, props: ['papel', 'cafe', 'marigoldstall'], music: 'fiesta',
+    sights: [SG('Chinampa Farms', 'farm', 'b'), SG('Island of the Dolls', 'grove', 'i'), SG('Mariachi Boat', 'ship', 'b', { kind: 'trajinera' }), SG('Flower Market', 'houses', 'b', { style: 'mercado' }), SG('Water Lilies', 'lilies', 'b'),
+      SG('Pyramid of the Sun', 'maya', 'b'), SG('Colourful Houses', 'houses', 'b', { style: 'colourful' }), SG('Cuemanco Bridge', 'bridge', 'r', { style: 'stone' }), SG('San Bernardino Church', 'mission', 'b', { tower: true })],
+    water: { mover: ['flowerbarge', 'canalboat'], moored: ['flowerbarge'], rocks: ['lilyPads', 'ducks'], drifter: ['petals'], bridge: 'stone' } },
+  { id: 'chicago', cont: 'NA', pop: 72, river: 'Chicago River', place: 'Illinois, USA', biome: 'city', landmark: 'chicago', lname: 'Willis Tower & Marina City', flag: 'us', props: ['flagUS', 'hotdog', 'bus'], music: 'jazz',
+    sights: [SG('Cloud Gate', 'sphere', 'b'), SG('Navy Pier Wheel', 'wheel', 'b'), SG('Wrigley Building', 'clock', 'b', { col: '#F2F0EA', roof: '#9AA6B6', h: 170 }), SG('Michigan Avenue Bridge', 'bridge', 'r', { style: 'bascule' }),
+      SG('Hancock Center', 'tower', 'b', { kind: 'glass' }), SG('Wrigley Field', 'stadium', 'b'), SG('Lakefront Beach', 'beach', 'b'), SG('Northerly Island', 'grove', 'i'), SG('Chicago Skyline', 'skyline', 'b')],
+    water: { mover: ['tourboat', 'taxi'], moored: ['yachts'], rocks: ['buoys', 'ducks'], drifter: ['crate'], bridge: 'bascule' } },
+  { id: 'mesopotamia', cont: 'AS', pop: 26, river: 'Tigris & Euphrates', place: 'Mesopotamia', biome: 'plains', landmark: 'mudhif', lname: 'Reed Houses of the Marshes', flag: null, props: ['palmDate', 'canoe'],
+    sights: [SG('Date Palm Groves', 'grove', 'b', { palm: true }), SG('Water Buffalo', 'animals', 'b', { herd: [['buffalo', -70, 1.8, 1], ['buffalo', 64, 1.6, -1]] }), SG('Reed Island', 'grove', 'i'), SG('Marsh Village', 'mudhif', 'b'),
+      SG('Wheat Fields', 'farm', 'b'), SG('Pelicans', 'animals', 'b', { herd: [['pelican', -70, 2.6, 1], ['pelican', 60, 2.4, -1]] }), SG('Camel Herders', 'animals', 'b', { kind: 'camels' }), SG('Old Canal Bridge', 'bridge', 'r', { style: 'stone' }),
+      SG('Flamingos', 'animals', 'b', { herd: [['flamingo', -60, 2, 1], ['flamingo', 50, 1.8, -1]] })],
+    water: { mover: ['felucca', 'dugout'], moored: ['dugout'], rocks: ['papyrus', 'ducks'], drifter: ['log'], bridge: 'stone' } },
+  { id: 'okavango', cont: 'AF', pop: 32, river: 'Okavango Delta', place: 'Botswana', biome: 'savanna', landmark: 'okavango', lname: 'Okavango Delta', flag: 'bw', props: ['flag', 'acacia', 'grassHut'],
+    sights: [SG('Elephant Herd', 'animals', 'b', { kind: 'elephants' }), SG('Mokoro Station', 'houses', 'b', { style: 'camp' }), SG('Hippo Pool', 'animals', 'b', { herd: [['hippo', -60, 1.8, 1], ['hippo', 60, 1.6, -1]] }), SG('Baobab Tree', 'baobab', 'b'),
+      SG('Lions', 'animals', 'b', { kind: 'lion' }), SG('Zebras', 'animals', 'b', { herd: [['zebra', 4, 1.4, -1, -30], ['zebra', -80, 1.9, 1], ['zebra', 78, 1.8, -1]] }), SG('Papyrus Isle', 'grove', 'i', { palm: true }), SG('Giraffes', 'animals', 'b', { kind: 'giraffe' }), SG('Wooden Bridge', 'bridge', 'r', { style: 'wood' })],
+    water: { mover: ['dugout', 'safari'], moored: ['dugout'], rocks: ['hippos', 'lilyPads'], drifter: ['log'], bridge: 'wood' } },
+  { id: 'riogrande', cont: 'NA', pop: 40, river: 'Rio Grande', place: 'Big Bend, USA', biome: 'canyon', landmark: 'santaelena', lname: 'Santa Elena Canyon', flag: 'tx', props: ['flagTX', 'cactus', 'pickup'], music: 'country',
+    sights: [SG('Chisos Mountains', 'rock', 'b', { kind: 'buttes' }), SG('Hot Springs Ruins', 'houses', 'b', { style: 'pueblo' }), SG('Longhorns', 'animals', 'b', { kind: 'longhorn' }), SG('Prickly Pear Isle', 'grove', 'i'),
+      SG('Mariscal Canyon', 'rock', 'b', { kind: 'cliff', col: '#C9805A' }), SG('Terlingua Ghost Town', 'houses', 'b', { style: 'camp' }), SG('Mule Ears Mesa', 'rock', 'b', { kind: 'tepui', col: '#B8643A' }), SG('Boquillas Crossing', 'bridge', 'r', { style: 'wood' }),
+      SG('Armadillos', 'animals', 'b', { herd: [['armadillo', -50, 2.4, 1], ['armadillo', 50, 2.2, -1]] })],
+    water: { mover: ['raft', 'kayak'], moored: ['raft'], rocks: ['rocks', 'snag'], drifter: ['log'], bridge: 'wood' } },
+  { id: 'urubamba', cont: 'SA', pop: 66, river: 'Urubamba', place: 'Machu Picchu, Peru', biome: 'alpine', landmark: 'machupicchu', lname: 'Machu Picchu', flag: 'pe', props: ['flag', 'grassHut'],
+    sights: [SG('Llamas', 'animals', 'b', { herd: [['llama', -70, 1.9, 1], ['llama', 64, 1.7, -1]] }), SG('Moray Terraces', 'farm', 'b', { rice: true }), SG('Ollantaytambo', 'houses', 'b', { style: 'pueblo' }), SG('Maras Salt Pans', 'hotspring', 'b', { kind: 'terraces' }),
+      SG('Rainbow Mountain', 'rock', 'b', { kind: 'cliff', col: '#C9603A' }), SG('Inca Rope Bridge', 'bridge', 'r', { style: 'rope' }), SG('Sacred Valley Isle', 'grove', 'i'), SG('Cusco Cathedral', 'cathedral', 'b', { col: '#C9A86A', twin: true }), SG('Andean Peaks', 'rock', 'b', { kind: 'volcano', snow: true, col: '#6E7A6A' })],
+    water: { mover: ['raft', 'kayak'], moored: ['raft'], rocks: ['rocks', 'snag'], drifter: ['log'], bridge: 'rope' } },
+  { id: 'hongkong', cont: 'AS', pop: 74, river: 'Victoria Harbour', place: 'Hong Kong', biome: 'city', landmark: 'victoriaharbour', lname: 'Victoria Harbour', flag: 'hk', props: ['flag', 'lanternRed', 'tram', 'vending'],
+    sights: [SG('Tian Tan Buddha', 'statue', 'b', { kind: 'buddha' }), SG('Bank of China Tower', 'tower', 'b', { kind: 'shard' }), SG('IFC Tower', 'tower', 'b', { kind: 'glass' }), SG('Man Mo Temple', 'pagoda', 'b', { col: '#C9302C', roof: '#2E8A4A', tiers: 2 }),
+      SG('Symphony of Lights', 'skyline', 'b', { neon: true }), SG('Tsing Ma Bridge', 'bridge', 'r', { style: 'suspension' }), SG('Lamma Isle', 'grove', 'i'), SG('Tai O Stilt Village', 'houses', 'b', { style: 'stilt' }), SG('Nathan Road', 'sign', 'b', { text: 'NATHAN ROAD' })],
+    water: { mover: ['junk', 'ferry'], moored: ['sampans'], rocks: ['buoys', 'dolphinPink'], drifter: ['crate'], bridge: 'suspension' } },
+  { id: 'congo', cont: 'AF', pop: 28, river: 'Congo River', place: 'Central Africa', biome: 'rainforest', landmark: 'congo', lname: 'Congo Rainforest', flag: 'cd', props: ['flag', 'drum', 'grassHut'],
+    sights: [SG('Gorilla Family', 'animals', 'b', { herd: [['gorilla', -60, 2.2, 1], ['gorilla', 60, 1.8, -1], ['gorilla', 0, 1.2, -1]] }), SG('Boyoma Falls', 'falls', 'b', { w: 90, h: 70 }), SG('Fishing Village', 'houses', 'b', { style: 'stilt' }), SG('Forest Elephants', 'animals', 'b', { kind: 'elephants' }),
+      SG('Chimpanzees', 'animals', 'b', { herd: [['monkey', -60, 2, 1], ['monkey', 60, 1.8, -1]] }), SG('Rapids Isle', 'grove', 'i'), SG('Kinshasa Skyline', 'skyline', 'b'), SG('Parrots', 'animals', 'b', { herd: [['macaw', -50, 2.4, 1], ['macaw', 50, 2.2, -1]] }), SG('Matadi Bridge', 'bridge', 'r', { style: 'suspension' })],
+    water: { mover: ['riverboat', 'dugout'], moored: ['dugout'], rocks: ['hippos', 'hyacinthIsle'], drifter: ['hyacinth'], bridge: 'suspension' } },
+  { id: 'nashville', cont: 'NA', pop: 56, river: 'Cumberland River', place: 'Nashville, USA', biome: 'city', landmark: 'ryman', lname: 'Ryman Auditorium', flag: 'us', props: ['flagUS', 'guitar', 'pickup'], music: 'country',
+    sights: [SG('The Parthenon', 'columns', 'b'), SG('Grand Ole Opry', 'sign', 'b', { text: 'GRAND OLE OPRY' }), SG('Honky-Tonk Row', 'houses', 'b', { style: 'colourful' }), SG('General Jackson Showboat', 'ship', 'b', { kind: 'sternwheeler' }),
+      SG('Bluegrass Farm', 'farm', 'b'), SG('Pedestrian Bridge', 'bridge', 'r', { style: 'truss' }), SG('AT&T Tower', 'tower', 'b', { kind: 'empire' }), SG('Shelby Isle', 'grove', 'i'), SG('Nissan Stadium', 'stadium', 'b')],
+    water: { mover: ['steamer', 'riverboat'], moored: ['riverboat'], rocks: ['ducks', 'snag'], drifter: ['log'], bridge: 'truss' } },
+  { id: 'dubai', cont: 'AS', pop: 78, river: 'Dubai Creek', place: 'Dubai', biome: 'desert', landmark: 'burj', lname: 'Burj Khalifa', flag: 'ae', props: ['flag', 'palmDate', 'lanternRed'],
+    sights: [SG('Burj Al Arab', 'tower', 'b', { kind: 'shard' }), SG('Al Fahidi Old Town', 'houses', 'b', { style: 'pueblo' }), SG('Camel Racing', 'animals', 'b', { kind: 'camels' }), SG('Desert Dunes', 'rock', 'b', { kind: 'dunes', camel: true }),
+      SG('Palm Jumeirah', 'grove', 'i', { palm: true }), SG('Jumeirah Mosque', 'dome', 'b', { minarets: true, col: '#F2EAD8' }), SG('Dubai Marina', 'skyline', 'b', { neon: true }), SG('Floating Bridge', 'bridge', 'r', { style: 'cable' }), SG('Cayan Tower', 'tower', 'b', { kind: 'twist' })],
+    water: { mover: ['felucca', 'taxi'], moored: ['felucca'], rocks: ['buoys', 'sandbank'], drifter: ['crate'], bridge: 'cable' } },
+  { id: 'yarra', cont: 'OC', pop: 60, river: 'Yarra River', place: 'Melbourne, Australia', biome: 'city', landmark: 'flinders', lname: 'Flinders Street Station', flag: 'au', props: ['flag', 'tram', 'cafe', 'surfboard'],
+    sights: [SG('Eureka Tower', 'tower', 'b', { kind: 'glass' }), SG('The MCG', 'stadium', 'b'), SG('Koalas', 'animals', 'b', { kind: 'koala' }), SG('Arts Centre Spire', 'tower', 'b', { kind: 'lattice' }),
+      SG('Princes Bridge', 'bridge', 'r', { style: 'stone' }), SG('Hosier Lane', 'houses', 'b', { style: 'colourful' }), SG('Kangaroos', 'animals', 'b', { kind: 'kangaroo' }), SG('Herring Isle', 'grove', 'i'), SG('Shrine of Remembrance', 'columns', 'b')],
+    water: { mover: ['ferry', 'kayak'], moored: ['yachts'], rocks: ['ducks', 'buoys'], drifter: ['crate'], bridge: 'stone' } },
+  { id: 'tortuguero', cont: 'NA', pop: 34, river: 'Tortuguero Canals', place: 'Costa Rica', biome: 'rainforest', landmark: 'turtlebeach', lname: 'Turtle Beach', flag: 'cr', props: ['flag', 'hammock', 'macaw'],
+    sights: [SG('Sea Turtles', 'animals', 'b', { kind: 'turtles' }), SG('Sloths', 'animals', 'b', { herd: [['sloth', -60, 2, 1], ['sloth', 60, 1.8, -1]] }), SG('Arenal Volcano', 'rock', 'b', { kind: 'volcano' }), SG('Toucans', 'animals', 'b', { kind: 'toucan' }),
+      SG('Howler Monkeys', 'animals', 'b', { herd: [['howler', -70, 2.1, 1], ['howler', 56, 1.9, -1]] }), SG('Canal Village', 'houses', 'b', { style: 'stilt' }), SG('La Fortuna Falls', 'falls', 'b', { w: 30, h: 150 }), SG('Mangrove Isle', 'grove', 'i', { mangrove: true }), SG('Hanging Bridge', 'bridge', 'r', { style: 'rope' })],
+    water: { mover: ['dugout', 'riverboat'], moored: ['dugout'], rocks: ['caiman', 'lilyPads'], drifter: ['hyacinth'], bridge: 'rope' } },
+  { id: 'charles', cont: 'NA', pop: 68, river: 'Charles River', place: 'Boston, USA', biome: 'city', landmark: 'zakim', lname: 'Zakim Bridge', flag: 'us', props: ['flagUS', 'bike', 'hotdog'],
+    sights: [SG('MIT Great Dome', 'dome', 'b', { col: '#E8E2D4' }), SG('Harvard Yard', 'houses', 'b', { style: 'brick' }), SG('Old North Church', 'cathedral', 'b', { col: '#A4473A', spireCol: '#F2F0EA' }), SG('USS Constitution', 'ship', 'b', { kind: 'galleon' }),
+      SG('Fenway Park', 'stadium', 'b'), SG('Beacon Hill', 'houses', 'b', { style: 'canal' }), SG('Longfellow Bridge', 'bridge', 'r', { style: 'stone' }), SG('Esplanade Isle', 'grove', 'i'), SG('Prudential Tower', 'tower', 'b', { kind: 'glass' })],
+    water: { mover: ['yacht', 'kayak'], moored: ['yachts'], rocks: ['ducks', 'swans'], drifter: ['crate'], bridge: 'stone' } },
+  { id: 'plata', cont: 'SA', pop: 64, river: 'Río de la Plata', place: 'Buenos Aires, Argentina', biome: 'city', landmark: 'puentemujer', lname: 'Puente de la Mujer', flag: 'ar', props: ['flag', 'cafe', 'bus'], music: 'tango',
+    sights: [SG('Obelisco', 'obelisk', 'b', { flag: 'ar' }), SG('La Boca', 'houses', 'b', { style: 'colourful' }), SG('Casa Rosada', 'palace', 'b', { col: '#F2B8B8', roof: '#8A96A6', style: 'classic' }), SG('Teatro Colón', 'palace', 'b', { col: '#F2EAD8', roof: '#6E7A8A', style: 'classic' }),
+      SG('Pampas Cattle', 'animals', 'b', { herd: [['cow', -70, 1.8, 1], ['cow', 64, 1.6, -1]], fence: true }), SG('Tigre Delta Isle', 'grove', 'i'), SG('Colonia Lighthouse', 'lighthouse', 'b', { c1: '#FFFFFF', c2: '#FFFFFF' }), SG('Puerto Madero', 'skyline', 'b'), SG('Palermo Woods', 'grove', 'b')],
+    water: { mover: ['ferry', 'yacht'], moored: ['yachts'], rocks: ['buoys', 'ducks'], drifter: ['crate'], bridge: 'stone' } },
+  { id: 'larive', cont: 'NA', pop: 90, river: 'LA River', place: 'Los Angeles, USA', biome: 'desert', landmark: 'hollywood', lname: 'Hollywood Sign', flag: 'us', props: ['flagUS', 'palmDate', 'surfboard', 'pickup'],
+    sights: [SG('Griffith Observatory', 'dome', 'b', { col: '#F2F0EA' }), SG('Santa Monica Pier', 'wheel', 'b'), SG('Walk of Fame', 'sign', 'b', { text: 'WALK OF FAME' }), SG('Venice Beach', 'beach', 'b'),
+      SG('Downtown LA', 'skyline', 'b'), SG('Getty Center', 'palace', 'b', { col: '#F2F0EA', roof: '#C9CDD4', style: 'classic' }), SG('Sixth Street Viaduct', 'bridge', 'r', { style: 'steelarch' }), SG('Palm Isle', 'grove', 'i', { palm: true }), SG('Mulholland Hills', 'rock', 'b', { kind: 'cliff', col: '#B8A06A' })],
+    water: { mover: ['kayak', 'raft'], moored: ['raft'], rocks: ['ducks', 'heron'], drifter: ['crate'], bridge: 'steelarch' } },
+  { id: 'singapore', cont: 'AS', pop: 84, river: 'Singapore River', place: 'Singapore', biome: 'city', landmark: 'marinabay', lname: 'Marina Bay Sands', flag: 'sg', props: ['flag', 'lanternRed', 'umbrella2'],
+    sights: [SG('The Merlion', 'statue', 'b', { kind: 'merlion' }), SG('Supertree Grove', 'grove', 'b'), SG('Singapore Flyer', 'wheel', 'b'), SG('Esplanade Theatres', 'sphere', 'b'),
+      SG('Clarke Quay', 'houses', 'b', { style: 'colourful' }), SG('Sri Mariamman Temple', 'temple', 'b', { kind: 'gopuram' }), SG('Raffles Hotel', 'palace', 'b', { col: '#FFFFFF', roof: '#C9302C', style: 'classic' }), SG('Helix Bridge', 'bridge', 'r', { style: 'cable' }), SG('Sentosa Isle', 'grove', 'i', { palm: true })],
+    water: { mover: ['taxi', 'tourboat'], moored: ['sampans'], rocks: ['buoys', 'lamps'], drifter: ['crate'], bridge: 'cable' } }
 ];
 var REGION_BY_ID = {}; REGIONS.forEach(function (r) { REGION_BY_ID[r.id] = r; });
 /* ---------- World Tour chapters: 14 themes × 5 stages (the agreed 70-stage plan), mixing continents and scenery,
@@ -495,16 +628,7 @@ var CHAPTERS = [
   { name: 'Wonders of the World', col: '#B08A2E', stages: ['plata', 'larive', 'singapore', 'iguazu', 'nile'] }
 ];
 /* stages planned but not built yet: river, place */
-var COMING_SOON = { shotover: ['Shotover', 'Queenstown, New Zealand'], snake: ['Snake River', 'Grand Teton, USA'],
-  murray: ['Murray', 'South Australia'], alula: ['AlUla Oasis', 'AlUla'], yangtze: ['Yangtze', 'Three Gorges, China'], merced: ['Merced', 'Yosemite, USA'],
-  daintree: ['Daintree', 'Queensland, Australia'], mara: ['Mara River', 'Kenya & Tanzania'], everglades: ['Everglades', 'Florida, USA'],
-  wailua: ['Wailua', 'Kauaʻi, Hawaii'], seattle: ['Puget Sound', 'Seattle, USA'], copenhagen: ['Nyhavn', 'Copenhagen, Denmark'], panama: ['Panama Canal', 'Panama'], sanfrancisco: ['San Francisco Bay', 'California, USA'],
-  xochimilco: ['Xochimilco', 'Central America'], chicago: ['Chicago River', 'Illinois, USA'],
-  mesopotamia: ['Tigris & Euphrates', 'Mesopotamia'], okavango: ['Okavango Delta', 'Botswana'], riogrande: ['Rio Grande', 'Big Bend, USA'], urubamba: ['Urubamba', 'Machu Picchu, Peru'],
-  hongkong: ['Victoria Harbour', 'Hong Kong'], congo: ['Congo', 'Central Africa'], nashville: ['Cumberland', 'Nashville, USA'], dubai: ['Dubai Creek', 'Dubai'],
-  yarra: ['Yarra', 'Melbourne, Australia'], tortuguero: ['Tortuguero Canals', 'Costa Rica'], charles: ['Charles River', 'Boston, USA'],
-  plata: ['Río de la Plata', 'Buenos Aires, Argentina'], larive: ['LA River', 'Los Angeles, USA'], singapore: ['Singapore River', 'Singapore']
-};
+var COMING_SOON = {};
 function chapterOf(id) { for (var c = 0; c < CHAPTERS.length; c++) if (CHAPTERS[c].stages.indexOf(id) >= 0) return c; return -1; }
 /* every stop on the World Tour map in chapter order: { ch, id, reg (built) or soon: [river, place], pos (tour position, built only) } */
 var _tourSlots = null;
@@ -561,7 +685,7 @@ function sightsOfLevel(reg, sub) { var n = reg.sights.length; return reg.sights.
 /* ---------- level generation ---------- */
 /* Layouts that a near-perfect bot couldn't clear are re-rolled: FAIR_FIX maps 'river|level' to a layout variant.
    Regenerate it with __tt.fairCheck() in the browser console after changing the generator. */
-var FAIR_FIX = { 'niagara|1': 1, 'rhine|5': 1, 'li|5': 1, 'fuji|5': 1, 'amstel|5': 1, 'venice|2': 1, 'venice|5': 1, 'churun|5': 1, 'mississippi|5': 1, 'chaophraya|3': 1, 'chaophraya|5': 1, 'bosphorus|5': 1, 'ganges|3': 1, 'yamuna|2': 1, 'huangpu|5': 2, 'hudson|5': 1, 'sumida|1': 1, 'sumida|3': 2, 'sumida|5': 1, 'seine|4': 1, 'iguazu|3': 1, 'iguazu|4': 2, 'nile|1': 1, 'nile|5': 1 }, FAIR_OVERRIDE = null;
+var FAIR_FIX = { 'riodulce|5': 1, 'daintree|3': 1, 'mara|5': 1, 'zambezi|4': 1, 'amstel|3': 1, 'riogrande|4': 2, 'churun|4': 1, 'churun|5': 1, 'urubamba|5': 1, 'hongkong|5': 2, 'chaophraya|5': 2, 'tiber|4': 1, 'nashville|5': 1, 'dubai|2': 1, 'ganges|2': 1, 'ganges|5': 1, 'yamuna|5': 1, 'yarra|3': 1, 'yarra|5': 1, 'hudson|5': 2, 'tortuguero|3': 3, 'tortuguero|4': 4, 'tortuguero|5': 4, 'sumida|1': 1, 'sumida|5': 3, 'seine|1': 1, 'seine|5': 2, 'singapore|2': 1, 'singapore|3': 1, 'singapore|5': 2, 'iguazu|4': 2, 'iguazu|5': 1 }, FAIR_OVERRIDE = null;
 function buildStage(ri, sub, d, variant) {
   if (variant === undefined) variant = FAIR_OVERRIDE !== null ? FAIR_OVERRIDE : FAIR_FIX[REGIONS[ri].id + '|' + sub] || 0;
   var reg = REGIONS[ri], biome = BIOMES[reg.biome], rng = RNG(ri * 7919 + sub * 131 + Math.round(d * 1000) * 7 + 17 + variant * 7777);
@@ -688,7 +812,9 @@ function coinTrail(st, rng, d, trapAt) {
    shifted sideways by bendAt(wy). Each river's MEANDER (0 = straight, 1 = very twisty) follows the real
    river, and every level picks its own mix of straights, bends and meanders. The start, the end and the
    stretches beside named sights stay straight. */
-var MEANDER = { orange: 0.6, waikato: 0.7, oslofjord: 0.25, han: 0.3, stockholm: 0.2, potomac: 0.5, riodulce: 0.75, kerala: 0.55, sanantonio: 0.7, yellowstone: 0.6, yukon: 0.8, stlawrence: 0.3, mississippi: 0.95, colorado: 0.9, niagara: 0.35, hudson: 0.12, rhine: 0.7, loire: 0.65, vltava: 0.55, danube: 0.45,
+var MEANDER = { shotover: 0.85, snake: 0.8, murray: 0.9, alula: 0.3, yangtze: 0.7, merced: 0.6, daintree: 0.8, mara: 0.75, everglades: 0.5, wailua: 0.6, seattle: 0.25, copenhagen: 0.1, panama: 0.15, sanfrancisco: 0.3,
+  xochimilco: 0.4, chicago: 0.15, mesopotamia: 0.7, okavango: 0.85, riogrande: 0.8, urubamba: 0.85, hongkong: 0.2, congo: 0.9, nashville: 0.6, dubai: 0.3, yarra: 0.6, tortuguero: 0.65, charles: 0.35, plata: 0.2, larive: 0.3, singapore: 0.35,
+  orange: 0.6, waikato: 0.7, oslofjord: 0.25, han: 0.3, stockholm: 0.2, potomac: 0.5, riodulce: 0.75, kerala: 0.55, sanantonio: 0.7, yellowstone: 0.6, yukon: 0.8, stlawrence: 0.3, mississippi: 0.95, colorado: 0.9, niagara: 0.35, hudson: 0.12, rhine: 0.7, loire: 0.65, vltava: 0.55, danube: 0.45,
   amstel: 0.12, bosphorus: 0.5, venice: 0.7, tiber: 0.75, thames: 0.7, seine: 0.6, sydney: 0.4, mekong: 0.85, li: 0.9, ganges: 0.55, chaophraya: 0.85,
   huangpu: 0.6, sumida: 0.4, fuji: 0.6, yamuna: 0.6, zambezi: 0.75, nile: 0.35, amazon: 1, churun: 0.9, iguazu: 0.8 };
 var BEND_STEP = 100, BEND_MAX = 80, BEND_SLOPE = 0.16;
@@ -1425,6 +1551,8 @@ var Scenery = (function () {
     else if (f.t === 'nordic') { c.fillStyle = col[0]; c.fillRect(fx, fy, fw, fh); c.fillStyle = col[1]; c.fillRect(fx + 7, fy, 5, fh); c.fillRect(fx, fy + 6, fw, 5); if (col[2]) { c.fillStyle = col[2]; c.fillRect(fx + 8.5, fy, 2, fh); c.fillRect(fx, fy + 7.5, fw, 2); } }
     else if (f.t === 'kr') { c.fillStyle = '#FFFFFF'; c.fillRect(fx, fy, fw, fh); ell(fx + 13, fy + 8.5, 4.5, 4.5, 0, c); c.fillStyle = col[1]; c.fill(); c.beginPath(); c.ellipse(fx + 13, fy + 8.5, 4.5, 4.5, 0, Math.PI, TAU); c.fillStyle = col[0]; c.fill(); c.fillStyle = '#1E1E22'; [[4, 3], [20, 3], [4, 12], [20, 12]].forEach(function (q) { c.fillRect(fx + q[0], fy + q[1], 3, 3); }); }
     else if (f.t === 'za') { c.fillStyle = col[0]; c.fillRect(fx, fy, fw, fh / 2); c.fillStyle = col[1]; c.fillRect(fx, fy + fh / 2, fw, fh / 2); c.fillStyle = '#FFFFFF'; poly([fx, fy, fx + 11, fy + 6, fw + fx, fy + 6, fw + fx, fy + 11, fx + 11, fy + 11, fx, fy + fh], c); c.fill(); c.fillStyle = col[2]; poly([fx, fy + 1.5, fx + 10, fy + 7.5, fw + fx, fy + 7.5, fw + fx, fy + 9.5, fx + 10, fy + 9.5, fx, fy + fh - 1.5], c); c.fill(); c.fillStyle = '#FFB81C'; poly([fx, fy + 3, fx + 7, fy + 8.5, fx, fy + 14], c); c.fill(); c.fillStyle = '#1E1E22'; poly([fx, fy + 4.5, fx + 5, fy + 8.5, fx, fy + 12.5], c); c.fill(); }
+    else if (f.t === 'pa') { c.fillStyle = '#FFFFFF'; c.fillRect(fx, fy, fw, fh); c.fillStyle = col[1]; c.fillRect(fx + fw / 2, fy, fw / 2, fh / 2); c.fillStyle = col[2]; c.fillRect(fx, fy + fh / 2, fw / 2, fh / 2); star(fx + 6.5, fy + 4.5, 2.5, c); c.fill(); c.fillStyle = col[1]; star(fx + 19.5, fy + 12.5, 2.5, c); c.fill(); }
+    else if (f.t === 'ae') { [1, 0, 2].forEach(function (k, i) { c.fillStyle = col[k]; c.fillRect(fx, fy + i * fh / 3, fw, fh / 3 + 1); }); c.fillStyle = col[3]; c.fillRect(fx, fy, 7, fh); }
     else if (f.t === 'th') { [0, 1, 2, 2, 1, 0].forEach(function (k, i) { c.fillStyle = col[k === 2 ? 2 : k]; c.fillRect(fx, fy + i * fh / 6, fw, fh / 6 + 1); }); }
     c.restore(); c.strokeStyle = 'rgba(0,0,0,0.25)'; c.lineWidth = 1; c.strokeRect(fx, fy, fw, fh);
   }
@@ -1556,6 +1684,16 @@ var ANIMAL_DEFS = {
   reindeer: { t: 'quad', col: '#8A6A4E', size: 1.15, neck: 0.35, antlers: 'deer', rump: '#E8DCC8' },
   kiwi: { t: 'bird', col: '#7A5A3A', size: 0.6, beak: '#E8D8B8' },
   magpie: { t: 'bird', col: '#22222A', size: 0.65, wing: '#FFFFFF', beak: '#2A2A2A' },
+  // v1.1 (the last 30 stages)
+  zebra: { t: 'quad', col: '#FFFFFF', size: 1.2, neck: 0.35, bands: '#1E1E22' },
+  wildebeest: { t: 'quad', col: '#6E6A64', size: 1.25, neck: 0.2, horns: 'buffalo', beard: true, hump: true },
+  llama: { t: 'quad', col: '#F2E6CC', size: 1.1, neck: 0.9 },
+  gorilla: { t: 'sit', fur: '#2A2A2E', belly: '#4A4A52', ear: 'monkey', tail: 'tuft', muzzle: '#4A4A52', size: 1.3 },
+  pelican: { t: 'bird', col: '#F4F4F0', size: 0.9, beak: '#F2A33A' },
+  emu: { t: 'bird', col: '#6E5A4A', size: 1.0, neck: '#4E6E9A', beak: '#2A2A2A' },
+  eagle: { t: 'bird', col: '#5E3A20', size: 0.95, neck: '#FFFFFF', beak: '#F2C230' },
+  sloth: { t: 'sit', fur: '#9A8468', belly: '#C9B898', ear: 'round', tail: 'tuft', mask: '#5E4A3A', size: 0.9 },
+  cassowary: { t: 'bird', col: '#1E1E22', size: 1.1, neck: '#2F6FD1', beak: '#2A2A2A' },
   howler: { t: 'sit', fur: '#3A2A22', belly: '#5E4A3A', ear: 'monkey', tail: 'long', muzzle: '#2A1E18', size: 0.9 }
 };
 var REGION_ANIMALS = {
@@ -1573,6 +1711,14 @@ var REGION_ANIMALS = {
   orange: ['springbok', 'meerkat', 'giraffe', 'lion', 'goat'], waikato: ['sheep', 'kiwi', 'cow', 'sheep'], oslofjord: ['reindeer', 'moose', 'fox', 'pigeon'],
   han: ['magpie', 'straycat', 'pigeon', 'spotdog'], stockholm: ['moose', 'pigeon', 'fox', 'straycat'], potomac: ['squirrel', 'deer', 'raccoon', 'pigeon'],
   riodulce: ['howler', 'toucan', 'jaguar', 'macaw', 'croc'],
+  shotover: ['sheep', 'kiwi', 'deer', 'goat'], snake: ['moose', 'bison', 'elk', 'bear', 'wolf'], murray: ['kangaroo', 'emu', 'pelican', 'koala'], alula: ['camel', 'goat', 'fox', 'camel'],
+  yangtze: ['panda', 'monkey', 'buffalo', 'pigeon'], merced: ['bear', 'deer', 'squirrel', 'raccoon'], daintree: ['cassowary', 'croc', 'kangaroo', 'toucan'], mara: ['wildebeest', 'zebra', 'lion', 'giraffe', 'elephant'],
+  everglades: ['croc', 'flamingo', 'pelican', 'raccoon'], wailua: ['pigeon', 'gingercat', 'goat', 'pelican'], seattle: ['eagle', 'pigeon', 'raccoon', 'straycat'], copenhagen: ['pigeon', 'straycat', 'spotdog', 'fox'],
+  panama: ['sloth', 'howler', 'toucan', 'croc'], sanfrancisco: ['pelican', 'pigeon', 'straydog', 'raccoon'], xochimilco: ['straydog', 'pigeon', 'gingercat', 'armadillo'], chicago: ['pigeon', 'squirrel', 'rat', 'straydog'],
+  mesopotamia: ['buffalo', 'camel', 'pelican', 'flamingo'], okavango: ['elephant', 'zebra', 'hippo', 'lion', 'giraffe'], riogrande: ['longhorn', 'armadillo', 'fox', 'goat'], urubamba: ['llama', 'goat', 'cow', 'llama'],
+  hongkong: ['straycat', 'pigeon', 'monkey', 'straydog'], congo: ['gorilla', 'elephant', 'monkey', 'hippo', 'macaw'], nashville: ['straydog', 'pigeon', 'raccoon', 'squirrel'], dubai: ['camel', 'flamingo', 'straycat', 'pigeon'],
+  yarra: ['kangaroo', 'koala', 'pigeon', 'emu'], tortuguero: ['sloth', 'howler', 'toucan', 'macaw', 'croc'], charles: ['squirrel', 'pigeon', 'raccoon', 'spotdog'], plata: ['straydog', 'pigeon', 'cow', 'straycat'],
+  larive: ['straydog', 'raccoon', 'pigeon', 'fox'], singapore: ['straycat', 'pigeon', 'monkey', 'macaw'],
   amazon: ['jaguar', 'capybara', 'monkey', 'toucan', 'macaw'], churun: ['capybara', 'toucan', 'jaguar', 'monkey'], iguazu: ['raccoon', 'toucan', 'capybara', 'macaw']
 };
 
@@ -3304,7 +3450,7 @@ LANDMARKS.sanfelipe = function (t) {
     if (p.kind === 'dunes') {   // Kalahari red dunes
       [['#E8925A', -130, 60, 110], ['#D8763E', -20, 80, 150], ['#E8A06A', 60, 70, 110]].forEach(function (d) { ctx.beginPath(); ctx.moveTo(d[1] - d[3] / 2, 0); ctx.quadraticCurveTo(d[1] - 10, -d[2] * 1.6, d[1] + d[3] / 2 + 30, 0); ctx.closePath(); fs(lit(d[1] - d[3] / 2, d[1] + d[3] / 2, d[0]), shade(d[0], -0.4), 2); });
       ctx.strokeStyle = 'rgba(160,80,40,0.4)'; ctx.lineWidth = 1.5; for (var r = 0; r < 4; r++) { ctx.beginPath(); ctx.moveTo(-60 + r * 14, -20 - r * 14); ctx.quadraticCurveTo(-20 + r * 10, -30 - r * 16, 20 + r * 6, -10 - r * 10); ctx.stroke(); }
-      drawAnimal('meerkat', 96, -6, 1.4, t, { look: -1 }); drawAnimal('meerkat', 116, -4, 1.2, t, { look: -1, phase: 2 });
+      if (p.camel) drawAnimal('camel', 90, -4, 1.6, t, { look: -1 }); else { drawAnimal('meerkat', 96, -6, 1.4, t, { look: -1 }); drawAnimal('meerkat', 116, -4, 1.2, t, { look: -1, phase: 2 }); }
       return;
     }
     return false;
@@ -3383,13 +3529,13 @@ LANDMARKS.sanfelipe = function (t) {
     ctx.save(); ctx.translate(0, -264); ctx.transform(1, Math.sin(t * 3) * 0.05, 0, 1, 0, 0); ctx.fillStyle = '#006AA7'; ctx.fillRect(0, -2, 26, 12); ctx.fillStyle = '#FECC02'; ctx.fillRect(7, -2, 4, 12); ctx.fillRect(0, 2, 26, 4); ctx.restore();
   });
   wrap('obelisk', function (p, t) {
-    if (!p.dc) return false;   // the Washington Monument: plain white marble, ringed with US flags on the grass
+    if (!p.dc && !p.flag) return false;   // the Washington Monument (dc) or any plain white obelisk ringed with flags (flag: FLAGS id)
     ell(0, -4, 130, 12); fs('#7FB86A', '#4E8A3E', 2);
     poly([-18, -6, -13, -228, 13, -228, 18, -6]); fs(lit(-18, 18, '#F4F1E8'), '#8A867A', 2);
     poly([-13, -228, 0, -252, 13, -228]); fs(lit(-13, 13, '#FBF9F2'), '#8A867A', 2);
     ctx.fillStyle = 'rgba(200,190,170,0.6)'; ctx.fillRect(-15, -84, 30, 3);   // where the marble colour changes
     windows(-6, -220, 2, 1, 8, 0, 4, 6, '#5E6A7A');
-    [-110, -80, -50, 50, 80, 110].forEach(function (x, i) { ctx.fillStyle = '#6E7A8A'; ctx.fillRect(x - 1, -50, 2, 44); Scenery.drawFlag(ctx, x, -6, FLAGS.us, t + i); });
+    [-110, -80, -50, 50, 80, 110].forEach(function (x, i) { ctx.fillStyle = '#6E7A8A'; ctx.fillRect(x - 1, -50, 2, 44); Scenery.drawFlag(ctx, x, -6, FLAGS[p.flag || 'us'], t + i); });
   });
   wrap('animals', function (p, t) {
     if (!p.herd) return false;   // a little group of any ANIMAL_DEFS animal: [kind, x, scale, look]
@@ -3410,6 +3556,418 @@ LANDMARKS.sanfelipe = function (t) {
   P.quiverProp = function (c, x, y) { c.fillStyle = '#C9B46A'; c.fillRect(x - 2, y - 22, 4, 22); [[-8, -30], [8, -32], [0, -36]].forEach(function (q) { ell(x + q[0], y + q[1], 6, 4, 0, c); fs('#8AA67A', '#3E5A34', 1, c); }); };
   P.cherrytree = P.cherry;
   P.mayaStone = function (c, x, y) { shadowAt(c, x, y, 9); rrect(x - 7, y - 30, 14, 30, 3, c); fs('#B0A58C', '#5E5440', 1.5, c); c.fillStyle = '#7A6E56'; c.fillRect(x - 4, y - 24, 8, 3); c.fillRect(x - 4, y - 16, 8, 3); };   // stela
+})();
+
+/* =====================================================================
+   CHAPTERS 4–14 ART – the last 30 stages, added in v1.1 to complete the
+   70-stage World Tour. Landmarks (≈300 units tall), sight kits and wraps
+   (≈200 tall, base centred at (0,0), lit from the left) and bank props.
+   Same conventions as 06_zstages1.js / 06_zstages2.js; opaque fills only.
+   ===================================================================== */
+
+/* ---------- shared landmark helpers ---------- */
+function lmPeaks(pts, col, snow) {   // a mountain ridge from [x, y] points, base at 0, optional snow caps on peaks above y = snow
+  ctx.beginPath(); ctx.moveTo(pts[0][0], 0); pts.forEach(function (p) { ctx.lineTo(p[0], p[1]); }); ctx.lineTo(pts[pts.length - 1][0], 0); ctx.closePath();
+  fs(vgrad(Math.min.apply(null, pts.map(function (p) { return p[1]; })), 0, [shade(col, 0.2), col]), shade(col, -0.45), 2.5);
+  if (snow) for (var i = 1; i < pts.length - 1; i++) { var p = pts[i]; if (p[1] > snow) continue; var a = pts[i - 1], b = pts[i + 1], k = 26;
+    var ax = p[0] + (a[0] - p[0]) * k / Math.abs(a[1] - p[1] || 1), bx = p[0] + (b[0] - p[0]) * k / Math.abs(b[1] - p[1] || 1);
+    poly([p[0], p[1], bx, p[1] + k, p[0] + 4, p[1] + k - 8, ax, p[1] + k]); fs('#FFFFFF', '#9AA6B6', 1.5); }
+}
+function lmTower(x, w, h, col, win) { box(x - w / 2, -h, w, h, col, shade(col, -0.45), 2); if (win) windows(x - w / 2 + 4, -h + 8, Math.max(1, Math.floor((w - 6) / 9)), Math.floor((h - 12) / 12), 9, 12, 5, 7, win); }
+function lmPerson(x, y, col) { ell(x, y - 13, 4, 4); fs('#F2D9B8', '#7A5A3A', 1); rrect(x - 4, y - 9, 8, 10, 3); fs(col, shade(col, -0.4), 1); }
+
+/* ---------- landmarks ---------- */
+LANDMARKS.shotover = function (t) {
+  // Shotover Canyon below the Remarkables: a jet boat spinning through the narrow gorge
+  lmPeaks([[-180, -150], [-120, -250], [-80, -200], [-30, -290], [30, -210], [80, -270], [140, -190], [180, -220]], '#6E7A8A', -230);
+  ctx.beginPath(); ctx.moveTo(-180, 0); ctx.lineTo(-180, -130); ctx.lineTo(-90, -150); ctx.lineTo(-40, -100); ctx.lineTo(-56, 0); ctx.closePath(); fs(vgrad(-150, 0, ['#B8A27A', '#7A6A4E']), '#4A3E2A', 2.5);
+  ctx.beginPath(); ctx.moveTo(180, 0); ctx.lineTo(180, -140); ctx.lineTo(90, -146); ctx.lineTo(42, -96); ctx.lineTo(56, 0); ctx.closePath(); fs(vgrad(-146, 0, ['#A8926A', '#6E5E42']), '#4A3E2A', 2.5);
+  [[-150, -140], [-110, -152], [140, -150], [104, -150]].forEach(function (p) { ctx.save(); ctx.translate(p[0], p[1]); ctx.scale(1.2, 1.2); Scenery.pine(ctx, 0, 0, 0.6); ctx.restore(); });
+  poly([-40, -100, 42, -96, 56, 0, -56, 0]); fs(vgrad(-100, 0, ['#5ECFE0', '#2E9AB8']), '#1E6A8A', 2);
+  var a = t * 2.2; ctx.save(); ctx.translate(Math.sin(t * 0.8) * 10, -34); ctx.rotate(Math.sin(a) * 0.6);
+  ctx.beginPath(); ctx.moveTo(-30, -6); ctx.lineTo(26, -6); ctx.quadraticCurveTo(36, 0, 26, 8); ctx.lineTo(-30, 8); ctx.closePath(); fs('#D8302A', '#6E1A10', 2); box(-14, -16, 24, 10, '#2B3440', '#111', 1); ctx.restore();
+  for (var s = 0; s < 4; s++) cloudPuff(-30 + s * 14 + Math.sin(t * 3 + s) * 6, -20, 0.35, 1);
+  box(-100, -152, 200, 7, '#7A8A9A', '#3E4A5A', 1.5);   // the old suspension bridge across the top
+};
+LANDMARKS.teton = function (t) {
+  // the jagged Teton Range with a weathered Mormon Row barn on the sage flats
+  lmPeaks([[-180, -140], [-130, -200], [-90, -170], [-40, -290], [-10, -240], [20, -270], [60, -200], [110, -230], [180, -150]], '#5E6A82', -190);
+  ctx.beginPath(); ctx.moveTo(-180, -60); ctx.quadraticCurveTo(0, -90, 180, -60); ctx.lineTo(180, 0); ctx.lineTo(-180, 0); ctx.closePath(); fs(vgrad(-90, 0, ['#B8B47A', '#8A8A5A']), '#5E5E3A', 2);
+  [[-160, -70], [-140, -76], [150, -72], [170, -68], [-120, -80]].forEach(function (p) { ctx.save(); ctx.translate(p[0], p[1]); ctx.scale(1.1, 1.1); Scenery.pine(ctx, 0, 0, 0.6); ctx.restore(); });
+  box(-40, -76, 90, 62, '#8A5A3A', '#4A2E18', 2); ctx.strokeStyle = 'rgba(60,30,15,0.5)'; ctx.lineWidth = 1; for (var v = -34; v < 50; v += 8) { ctx.beginPath(); ctx.moveTo(v, -74); ctx.lineTo(v, -16); ctx.stroke(); }
+  poly([-52, -74, -20, -116, 30, -116, 62, -74]); fs(lit(-52, 62, '#6E6A64'), '#3A3834', 2);
+  box(-6, -50, 22, 36, '#5E3A22', '#2E1A0E', 1.5); drawAnimal('bison', 120, -8, 1.4, t, { look: -1 }); drawAnimal('elk', -120, -6, 1.2, t, { look: 1, phase: 2 });
+};
+LANDMARKS.paddlesteamer = function (t) {
+  // the Murray: ochre cliffs and a big white paddle steamer with its red wheel turning
+  ctx.beginPath(); ctx.moveTo(-180, 0); ctx.lineTo(-180, -170); ctx.quadraticCurveTo(-60, -186, 60, -160); ctx.quadraticCurveTo(130, -150, 180, -170); ctx.lineTo(180, 0); ctx.closePath(); fs(vgrad(-186, 0, ['#E8A25A', '#B8643A']), '#6E3A1E', 2.5);
+  ctx.strokeStyle = 'rgba(110,58,30,0.4)'; ctx.lineWidth = 2; for (var r = 1; r < 6; r++) { ctx.beginPath(); ctx.moveTo(-180, -r * 28); ctx.quadraticCurveTo(0, -r * 28 - 10, 180, -r * 28); ctx.stroke(); }
+  [[-150, -170, 24], [-100, -178, 20], [140, -168, 24]].forEach(function (p) { lmTree(p[0], p[1], p[2], '#7A9A5A'); });
+  water(-180, -22, 360, 26);
+  ctx.save(); ctx.translate(-10, -16);
+  ctx.beginPath(); ctx.moveTo(-130, -30); ctx.lineTo(110, -30); ctx.lineTo(96, 0); ctx.lineTo(-120, 0); ctx.closePath(); fs(lit(-130, 110, '#FFFFFF'), '#6E7A8C', 2);
+  box(-110, -74, 190, 44, '#FFFFFF', '#6E7A8C', 2); windows(-102, -64, 11, 1, 16, 0, 9, 12, '#4E6E9A'); box(-80, -104, 120, 30, '#FFFFFF', '#6E7A8C', 2); windows(-74, -96, 7, 1, 16, 0, 9, 10, '#4E6E9A');
+  box(-20, -150, 14, 46, '#2D3B4A', '#111', 1.5); box(-24, -154, 22, 6, '#C9302C', '#6E1A10', 1);
+  ctx.save(); ctx.translate(124, -24); ctx.rotate(t * 1.5); ell(0, 0, 30, 30); fs('#C9302C', '#6E1A10', 2.5); for (var i = 0; i < 8; i++) { ctx.rotate(TAU / 8); ctx.fillStyle = '#FFFFFF'; ctx.fillRect(-2, 6, 4, 22); } ctx.restore();
+  for (var s = 0; s < 3; s++) { var ph = (t * 0.4 + s / 3) % 1; cloudPuff(-14 + ph * 40, -160 - ph * 60, 0.5 * (1 - ph) + 0.15, 1); }
+  ctx.restore();
+  Scenery.drawFlag(ctx, -150, -186, FLAGS.au, t);
+};
+LANDMARKS.elephantrock = function (t) {
+  // AlUla's Elephant Rock (Jabal AlFil): a sandstone outcrop shaped like an elephant with its trunk in the sand
+  ell(0, 0, 182, 14); fs('#E8C48A', '#B8945A', 2);
+  ctx.beginPath(); ctx.moveTo(-160, 0); ctx.quadraticCurveTo(-170, -150, -80, -200); ctx.quadraticCurveTo(10, -236, 70, -190); ctx.quadraticCurveTo(110, -160, 112, -100);
+  ctx.quadraticCurveTo(110, -60, 96, -30); ctx.lineTo(96, 0); ctx.lineTo(60, 0); ctx.quadraticCurveTo(60, -60, 30, -80); ctx.quadraticCurveTo(-10, -96, -30, -60); ctx.lineTo(-40, 0); ctx.closePath();
+  fs(vgrad(-236, 0, ['#D9925A', '#A85A32']), '#5E2E18', 3);
+  ctx.strokeStyle = 'rgba(94,46,24,0.4)'; ctx.lineWidth = 2; [[-130, -150, -110, -20], [-90, -190, -80, -40], [40, -200, 70, -120]].forEach(function (c) { ctx.beginPath(); ctx.moveTo(c[0], c[1]); ctx.quadraticCurveTo(c[0] + 16, (c[1] + c[3]) / 2, c[2], c[3]); ctx.stroke(); });
+  ell(70, -150, 6, 4); fs('#5E2E18');   // eye
+  lmPalm(-160, -10, 90, 0.7);
+  drawAnimal('camel', 150, 4, 1.4, t, { look: -1 });
+};
+LANDMARKS.threegorges = function (t) {
+  // Qutang Gorge on the Yangtze: sheer karst walls closing in, Baidi temple on the left cliff
+  ctx.beginPath(); ctx.moveTo(-180, 0); ctx.lineTo(-180, -290); ctx.lineTo(-120, -300); ctx.lineTo(-70, -220); ctx.lineTo(-40, -120); ctx.lineTo(-56, 0); ctx.closePath(); fs(vgrad(-300, 0, ['#8A9A7A', '#5E6A52']), '#3A4232', 2.5);
+  ctx.beginPath(); ctx.moveTo(180, 0); ctx.lineTo(180, -280); ctx.lineTo(110, -296); ctx.lineTo(64, -210); ctx.lineTo(40, -110); ctx.lineTo(56, 0); ctx.closePath(); fs(vgrad(-296, 0, ['#7A8A6A', '#4E5A44']), '#3A4232', 2.5);
+  ctx.strokeStyle = 'rgba(58,66,50,0.45)'; ctx.lineWidth = 2; [[-150, -260, -120, -60], [-100, -250, -70, -80], [140, -250, 120, -60], [90, -240, 80, -90]].forEach(function (c) { ctx.beginPath(); ctx.moveTo(c[0], c[1]); ctx.quadraticCurveTo(c[0] + 14, (c[1] + c[3]) / 2, c[2], c[3]); ctx.stroke(); });
+  [[-150, -290], [-130, -296], [150, -280], [124, -290]].forEach(function (p) { lmTree(p[0], p[1], 16, '#4E8A3E'); });
+  ctx.save(); ctx.translate(-120, -300); box(-20, -26, 40, 26, '#C9302C', '#6E1A10', 1.5); poly([-28, -24, -10, -40, 10, -40, 28, -24]); fs('#3E4250', '#1E2026', 1.5); ctx.restore();
+  poly([-40, -120, 40, -110, 56, 0, -56, 0]); fs(vgrad(-120, 0, ['#8AB0A6', '#5E8A80']), '#3E6A62', 2);
+  for (var m = 0; m < 4; m++) cloudPuff(-30 + m * 20 + Math.sin(t * 0.4 + m) * 6, -180 - m * 10, 0.55, 0.95);
+  ctx.save(); ctx.translate(0, -30); ctx.beginPath(); ctx.moveTo(-34, 0); ctx.lineTo(30, 0); ctx.lineTo(24, 10); ctx.lineTo(-28, 10); ctx.closePath(); fs('#FFFFFF', '#6E7A8C', 1.5); box(-20, -14, 36, 14, '#FFFFFF', '#6E7A8C', 1.5); ctx.restore();   // cruise boat
+};
+LANDMARKS.halfdome = function (t) {
+  // Yosemite Valley: Half Dome's sheared granite face, El Capitan, Yosemite Falls, pines below
+  lmPeaks([[-180, -150], [-150, -230], [-120, -236], [-90, -150]], '#9AA0A8', null);   // El Capitan
+  ctx.beginPath(); ctx.moveTo(-30, 0); ctx.lineTo(-30, -250); ctx.lineTo(-14, -292); ctx.bezierCurveTo(70, -300, 150, -230, 180, -110); ctx.lineTo(180, 0); ctx.closePath(); fs(vgrad(-300, 0, ['#C9CDD4', '#8A909A']), '#4E5460', 2.5);   // Half Dome: sheer face to the left, rounded back
+  poly([-30, 0, -30, -250, -14, -292, 4, -292, -6, -240, -8, 0]); fs(vgrad(-292, 0, ['#9AA0A8', '#6E747E']), '#4E5460', 2);
+  ctx.strokeStyle = 'rgba(78,84,96,0.4)'; ctx.lineWidth = 2; for (var r = 0; r < 5; r++) { ctx.beginPath(); ctx.moveTo(20 + r * 30, -280 + r * 30); ctx.quadraticCurveTo(40 + r * 30, -140, 30 + r * 30, -20); ctx.stroke(); }
+  rrect(-84, -210, 10, 160, 5); fs(hgrad(-84, -74, ['#CFEFFA', '#FFFFFF', '#CFEFFA']), '#7AB6D0', 1.5);   // Yosemite Falls
+  cloudPuff(-79, -50, 0.4, 1);
+  [[-170, -10], [-140, -6], [-110, -12], [-20, -6], [10, -10], [150, -8], [176, -6]].forEach(function (p) { ctx.save(); ctx.translate(p[0], p[1]); ctx.scale(1.4, 1.4); Scenery.pine(ctx, 0, 0, 0.6); ctx.restore(); });
+};
+LANDMARKS.capetrib = function (t) {
+  // Cape Tribulation: rainforest-covered headland running down to a white beach, a cassowary on the sand
+  ctx.beginPath(); ctx.moveTo(-180, 0); ctx.lineTo(-180, -200); ctx.quadraticCurveTo(-80, -260, 20, -170); ctx.quadraticCurveTo(80, -110, 140, -60); ctx.lineTo(180, -40); ctx.lineTo(180, 0); ctx.closePath(); fs('#2E7A3A', '#1E4A24', 2.5);
+  [[-160, -200, 34], [-110, -230, 36], [-60, -224, 32], [-10, -190, 30], [40, -150, 28], [90, -110, 26], [-130, -150, 30], [-60, -160, 30], [0, -120, 28]].forEach(function (p, i) { lmTree(p[0], p[1], p[2], ['#3E8A3A', '#2E7A32', '#4E9A44'][i % 3]); });
+  ctx.beginPath(); ctx.moveTo(-60, 0); ctx.quadraticCurveTo(60, -40, 180, -30); ctx.lineTo(180, 0); ctx.closePath(); fs(vgrad(-40, 0, ['#FBF2D8', '#E8D2A0']), '#B8A06A', 2);
+  lmPalm(120, -30, 140, 0.9); lmPalm(150, -26, 110, 0.8);
+  ctx.save(); ctx.translate(40, -12); ell(0, -30, 18, 22); fs('#1E1E22', '#000', 2); ctx.strokeStyle = '#3A4A6A'; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(10, -44); ctx.quadraticCurveTo(18, -64, 16, -76); ctx.stroke();
+  ell(17, -80, 7, 6); fs('#2F6FD1', '#1E3A6A', 1.5); poly([12, -84, 17, -100, 22, -84]); fs('#8A6A3A', '#4A3A1E', 1); ell(14, -66, 3, 5); fs('#D8302A'); ctx.fillStyle = '#6E5A3A'; ctx.fillRect(-6, -10, 4, 12); ctx.fillRect(4, -10, 4, 12); ctx.restore();
+  water(-180, -6, 360, 12);
+};
+LANDMARKS.migration = function (t) {
+  // the Great Migration: wildebeest and zebras plunge down the Mara riverbank, crocodiles waiting below
+  ctx.beginPath(); ctx.moveTo(-180, -110); ctx.quadraticCurveTo(-60, -130, 20, -100); ctx.lineTo(60, -40); ctx.lineTo(180, -40); ctx.lineTo(180, 0); ctx.lineTo(-180, 0); ctx.closePath(); fs(vgrad(-130, 0, ['#C9A86A', '#8A6A42']), '#5E4428', 2.5);
+  // acacia
+  ctx.fillStyle = '#5E4428'; ctx.fillRect(-142, -200, 6, 90); ell(-139, -206, 54, 14); fs('#6E8A3A', '#3E5A24', 2);
+  water(-180, -40, 360, 46);
+  for (var i = 0; i < 4; i++) drawAnimal(i % 2 ? 'zebra' : 'wildebeest', -150 + i * 40, -110 + i * 4, 1.25, t, { look: 1, phase: i });
+  [[30, -60], [70, -34], [110, -30], [146, -32]].forEach(function (p, i) { ctx.save(); ctx.translate(p[0], p[1] + Math.sin(t * 3 + i) * 2); ell(0, 0, 14, 7); fs('#6E6A64', '#3A3834', 1.5); ell(10, -6, 6, 5); fs('#6E6A64', '#3A3834', 1.5); ctx.strokeStyle = '#E8E2D4'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(8, -10); ctx.lineTo(12, -16); ctx.stroke(); ctx.restore(); });   // heads swimming
+  ctx.save(); ctx.translate(-60, -12); ell(0, 0, 30, 6); fs('#5E6A3A', '#2E3A1E', 1.5); ell(28, -2, 10, 4); fs('#5E6A3A', '#2E3A1E', 1.5); ell(26, -5, 2, 2); fs('#FFE45C'); ctx.restore();   // crocodile
+  Scenery.drawFlag(ctx, 160, -40, FLAGS.ke, t);
+};
+LANDMARKS.riverofgrass = function (t) {
+  // the Everglades: sawgrass to the horizon, a hammock of trees, an airboat skimming past, a gator and a heron
+  ctx.fillStyle = '#9AC27A'; ctx.fillRect(-180, -80, 360, 80);
+  ctx.strokeStyle = '#6E9A4E'; ctx.lineWidth = 2; for (var g = -176; g < 180; g += 7) { ctx.beginPath(); ctx.moveTo(g, -40); ctx.lineTo(g + Math.sin(t + g) * 3, -86 - (g * 13 % 18)); ctx.stroke(); }
+  [[-120, -110, 40], [-80, -120, 36], [-150, -100, 30]].forEach(function (p) { lmTree(p[0], p[1], p[2], '#4E7A3A'); });
+  lmPalm(130, -70, 150, 0.9); lmPalm(160, -70, 120, 0.8);
+  water(-180, -40, 360, 46);
+  ctx.save(); ctx.translate(-10 + Math.sin(t * 0.7) * 30, -26);
+  ctx.beginPath(); ctx.moveTo(-50, -6); ctx.lineTo(46, -6); ctx.quadraticCurveTo(56, 0, 46, 6); ctx.lineTo(-50, 6); ctx.closePath(); fs('#E8E2D4', '#6E6A64', 2);
+  box(-44, -50, 6, 44, '#6E7A8A', '#3E4A5A', 1); ell(-48, -42, 4, 26); fs('#C9D2DE', '#5E6A7A', 2); ctx.save(); ctx.translate(-48, -42); ctx.rotate(t * 20); ctx.fillStyle = '#3A3F4A'; ctx.fillRect(-1.5, -22, 3, 44); ctx.restore();
+  lmPerson(0, -6, '#2F6FD1'); lmPerson(20, -6, '#E2364A'); ctx.restore();
+  ctx.save(); ctx.translate(110, -14); ell(0, 0, 34, 6); fs('#4E5A3A', '#2E3A1E', 1.5); ell(30, -2, 12, 4); fs('#4E5A3A', '#2E3A1E', 1.5); ell(26, -5, 2, 2); fs('#FFE45C'); ctx.restore();
+  ctx.save(); ctx.translate(60, -60); ctx.fillStyle = '#3A3A3A'; ctx.fillRect(-1, 0, 2, 24); ell(0, -6, 7, 10); fs('#F4F4F0', '#8A8A84', 1.5); ell(4, -20, 4, 4); fs('#F4F4F0', '#8A8A84', 1); poly([7, -21, 20, -19, 7, -18]); fs('#F2C230'); ctx.restore();
+};
+LANDMARKS.wailuafalls = function (t) {
+  // Wailua Falls on Kauaʻi: twin falls dropping over a lush green cliff into a pool, a rainbow in the spray
+  ctx.beginPath(); ctx.moveTo(-180, 0); ctx.lineTo(-180, -230); ctx.quadraticCurveTo(0, -260, 180, -230); ctx.lineTo(180, 0); ctx.closePath(); fs(vgrad(-260, 0, ['#4E8A3E', '#2E5A2A']), '#1E3A1A', 2.5);
+  [[-150, -230], [-100, -244], [100, -244], [150, -232], [-160, -150], [160, -140], [-150, -80], [150, -70]].forEach(function (p) { lmTree(p[0], p[1], 26, '#3E8A3A'); });
+  poly([-60, -240, 60, -240, 60, -200, -60, -200]); fs('#6E5A4A', '#3A2E24', 2);
+  [[-34, 22], [30, 26]].forEach(function (f) { rrect(f[0] - f[1] / 2, -244, f[1], 210, 8); fs(hgrad(f[0] - f[1] / 2, f[0] + f[1] / 2, ['#BFE6F2', '#FFFFFF', '#BFE6F2']), '#6EA6BE', 2); ctx.save(); ctx.clip(); ctx.strokeStyle = '#9AD3EE'; ctx.lineWidth = 2; for (var s = 0; s < 5; s++) { var o = (t * 120 + s * 44) % 220; ctx.beginPath(); ctx.moveTo(f[0] - 4 + s * 2, -244 + o); ctx.lineTo(f[0] - 4 + s * 2, -224 + o); ctx.stroke(); } ctx.restore(); });
+  ctx.lineWidth = 5; ['#E2364A', '#FF9A2A', '#FFE45C', '#4CC36A', '#2F6FD1', '#8F6CFF'].forEach(function (c, i) { ctx.strokeStyle = c; ctx.beginPath(); ctx.arc(0, -40, 120 - i * 5, Math.PI * 1.1, Math.PI * 1.9); ctx.stroke(); });
+  water(-180, -40, 360, 46);
+  for (var m = 0; m < 6; m++) cloudPuff(-60 + m * 24 + Math.sin(t + m) * 4, -42, 0.5, 1);
+};
+LANDMARKS.spaceneedle = function (t) {
+  // the Space Needle: three-legged waist, the flying-saucer top, Mount Rainier behind
+  lmPeaks([[60, -60], [130, -150], [180, -60]], '#8A96A6', -120);
+  lmTower(-150, 34, 110, '#9AA6B6', '#DCEEFA'); lmTower(-112, 28, 80, '#B8C4D2', '#DCEEFA'); lmTower(120, 30, 70, '#9AA6B6', '#DCEEFA');
+  ctx.strokeStyle = '#E8E6E0'; ctx.lineWidth = 7; ctx.lineCap = 'round';
+  [[-30, 0, -6, -200], [30, 0, 6, -200], [0, 0, 0, -200]].forEach(function (l) { ctx.beginPath(); ctx.moveTo(l[0], l[1]); ctx.quadraticCurveTo(l[2] * 0.2, -110, l[2], l[3]); ctx.strokeStyle = '#8A8A84'; ctx.lineWidth = 9; ctx.stroke(); ctx.strokeStyle = '#F2F0EA'; ctx.lineWidth = 6; ctx.stroke(); });
+  ctx.beginPath(); ctx.moveTo(-70, -214); ctx.lineTo(70, -214); ctx.lineTo(40, -196); ctx.lineTo(-40, -196); ctx.closePath(); fs(lit(-70, 70, '#F2F0EA'), '#8A8A84', 2);
+  ctx.beginPath(); ctx.moveTo(-60, -214); ctx.lineTo(-40, -238); ctx.lineTo(40, -238); ctx.lineTo(60, -214); ctx.closePath(); fs('#3E5A7A', '#1E2E3E', 2); ctx.fillStyle = '#FFE8A0'; for (var w = -36; w < 40; w += 10) ctx.fillRect(w, -232, 5, 10);
+  ell(0, -242, 46, 8); fs('#F2A33A', '#8A5A1E', 2); poly([-8, -248, 0, -290, 8, -248]); fs('#E8E6E0', '#8A8A84', 1.5);
+  ell(0, -112, 30, 5); fs('#F2F0EA', '#8A8A84', 1.5);
+  ell(0, 0, 60, 6); fs('#7FB86A', '#4E8A3E', 1.5);
+};
+LANDMARKS.nyhavn = function (t) {
+  // Nyhavn: the colourful 17th-century gabled houses of Copenhagen's canal, tall ships moored in front
+  var cols = ['#E8B83A', '#3E6A9A', '#C9502E', '#F2E2C2', '#2E8A6A', '#E86A4A', '#F2D25A'];
+  cols.forEach(function (c, i) { var x = -180 + i * 51.4, h = 150 + (i % 3) * 24; box(x, -h, 50, h, c, shade(c, -0.45), 1.5);
+    if (i % 2) poly([x, -h, x + 25, -h - 30, x + 50, -h]); else { box(x + 10, -h - 20, 30, 20, c, shade(c, -0.45), 1.2); poly([x + 10, -h - 20, x + 25, -h - 32, x + 40, -h - 20]); }
+    fs(shade(c, -0.25), shade(c, -0.5), 1.2); windows(x + 7, -h + 12, 3, Math.floor((h - 30) / 26), 13, 26, 8, 14, '#FFFFFF'); });
+  rrect(-180, -16, 360, 16, 3); fs('#B9B2A2', '#6E685E', 1.5);
+  [-110, 40].forEach(function (x, i) { ctx.save(); ctx.translate(x, -4); ctx.beginPath(); ctx.moveTo(-50, -14); ctx.lineTo(50, -14); ctx.lineTo(40, 6); ctx.lineTo(-44, 6); ctx.closePath(); fs(i ? '#2E2E3A' : '#8A3A2A', '#111', 2); ctx.fillStyle = '#4A2E18'; ctx.fillRect(-2, -150, 4, 136); ctx.fillRect(28, -110, 3, 96);
+    ctx.strokeStyle = '#4A2E18'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(-50, -14); ctx.lineTo(0, -150); ctx.lineTo(50, -14); ctx.stroke(); ctx.restore(); });
+  water(-180, -6, 360, 12);
+  Scenery.drawFlag(ctx, 160, -150, FLAGS.dk, t);
+};
+LANDMARKS.miraflores = function (t) {
+  // the Panama Canal's Miraflores Locks: a huge cargo ship rising in a concrete lock, mitre gates, a mule locomotive
+  box(-180, -110, 360, 110, '#B9B2A2', '#6E685E', 2);
+  poly([-170, -100, 170, -100, 170, -10, -170, -10]); fs(vgrad(-100, -10, ['#5EAFC9', '#2E86A8']), '#1E5A7A', 2);
+  var rise = Math.sin(t * 0.3) * 12;
+  ctx.save(); ctx.translate(0, rise);
+  ctx.beginPath(); ctx.moveTo(-160, -120); ctx.lineTo(140, -120); ctx.lineTo(160, -90); ctx.lineTo(130, -60); ctx.lineTo(-150, -60); ctx.closePath(); fs(lit(-160, 160, '#2E4A6A'), '#111', 2); ctx.fillStyle = '#C9302C'; ctx.fillRect(-150, -72, 290, 8);
+  var cc = ['#E2364A', '#2F6FD1', '#FFD23F', '#4CC36A', '#FF8A3D', '#8F6CFF'];
+  for (var i = 0; i < 18; i++) box(-140 + (i % 9) * 26, -150 - Math.floor(i / 9) * 22, 24, 22, cc[i % 6], shade(cc[i % 6], -0.4), 1);
+  box(100, -196, 40, 76, '#FFFFFF', '#6E7A8C', 2); windows(106, -188, 3, 3, 11, 18, 7, 10, '#4E6E9A'); box(108, -210, 14, 14, '#2D3B4A', '#111', 1);
+  ctx.restore();
+  [-1, 1].forEach(function (sd) { poly([sd * 176, -100, sd * 130, -60, sd * 130, -10, sd * 176, -10]); fs('#6E6A64', '#3A3834', 2); });
+  box(-176, -126, 40, 16, '#C9D2DE', '#5E6A7A', 1.5); ell(-166, -108, 4, 4); ell(-146, -108, 4, 4); ctx.fillStyle = '#2A2A2A'; ctx.fill();   // mule
+  Scenery.drawFlag(ctx, 160, -110, FLAGS.pa, t);
+};
+LANDMARKS.goldengate = function (t) {
+  // the Golden Gate Bridge in International Orange, fog rolling in under the deck, Marin hills behind
+  ctx.beginPath(); ctx.moveTo(-180, -60); ctx.quadraticCurveTo(-60, -130, 60, -90); ctx.quadraticCurveTo(130, -70, 180, -100); ctx.lineTo(180, 0); ctx.lineTo(-180, 0); ctx.closePath(); fs('#7A9A5A', '#4E6A3A', 2);
+  water(-180, -30, 360, 36);
+  var col = '#C0362C', line = '#6E1A14';
+  ctx.strokeStyle = line; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(-180, -104); ctx.quadraticCurveTo(-130, -150, -100, -270); ctx.quadraticCurveTo(0, -100, 100, -270); ctx.quadraticCurveTo(130, -150, 180, -104); ctx.stroke();
+  ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.stroke();
+  function cableY(h) { var a = Math.abs(h); return a <= 100 ? -185 - 85 * Math.pow(a / 100, 2) : -270 + 166 * Math.pow((a - 100) / 80, 0.7); }
+  ctx.strokeStyle = col; ctx.lineWidth = 1.2; for (var h = -172; h <= 172; h += 12) { ctx.beginPath(); ctx.moveTo(h, -96); ctx.lineTo(h, cableY(h)); ctx.stroke(); }
+  box(-180, -100, 360, 10, col, line, 2);
+  [-100, 100].forEach(function (x) { box(x - 10, -280, 20, 280, col, line, 2); [-260, -210, -150].forEach(function (y) { box(x - 12, y, 24, 7, shade(col, -0.1), line, 1.2); }); ctx.fillStyle = '#4A1A14'; ctx.fillRect(x - 5, -250, 10, 34); ctx.fillRect(x - 5, -200, 10, 44); });
+  for (var f = 0; f < 7; f++) cloudPuff(-170 + f * 56 + ((t * 8) % 56), -70 - (f % 2) * 10, 0.7, 1);
+};
+LANDMARKS.trajineras = function (t) {
+  // Xochimilco: bright trajinera boats with painted name arches, flower stalls and papel picado on the canal
+  ctx.fillStyle = '#7FB86A'; ctx.fillRect(-180, -60, 360, 60);
+  [[-160, -80, 30], [-120, -90, 26], [150, -84, 30], [120, -96, 26]].forEach(function (p) { lmTree(p[0], p[1], p[2], '#4E8A3E'); });
+  water(-180, -40, 360, 46);
+  var boats = [['#E2364A', '#FFD23F', 'LUPITA'], ['#2F6FD1', '#FF5E8E', 'XOCHITL'], ['#4CC36A', '#FF8A3D', 'ROSITA']];
+  boats.forEach(function (b, i) {
+    ctx.save(); ctx.translate(-110 + i * 110, -30 - i * 8 + Math.sin(t * 1.5 + i) * 2);
+    ctx.beginPath(); ctx.moveTo(-54, -14); ctx.lineTo(54, -14); ctx.lineTo(46, 4); ctx.lineTo(-46, 4); ctx.closePath(); fs(b[0], shade(b[0], -0.4), 2);
+    [-46, 46].forEach(function (x) { ctx.fillStyle = '#6E4A2A'; ctx.fillRect(x - 2, -60, 4, 46); }); box(-50, -66, 100, 8, b[0], shade(b[0], -0.4), 1.5);
+    ctx.beginPath(); ctx.moveTo(-40, -66); ctx.quadraticCurveTo(0, -112, 40, -66); ctx.closePath(); fs(b[1], shade(b[1], -0.4), 2); text(b[2], 0, -78, 11, { color: '#FFFFFF', outline: shade(b[1], -0.5), ow: 3 });
+    for (var f = 0; f < 6; f++) { ell(-36 + f * 14, -70, 4, 4); fs(['#FF5E8E', '#FFFFFF', '#FFD23F'][f % 3]); }
+    lmPerson(-10, -14, '#FFFFFF'); lmPerson(14, -14, '#8F6CFF'); ctx.restore();
+  });
+};
+LANDMARKS.chicago = function (t) {
+  // the Chicago River: Willis Tower, the corncob towers of Marina City and a bascule bridge, the river dyed green
+  lmTower(-130, 50, 200, '#5E6A7A', '#DCEEFA'); lmTower(-80, 40, 150, '#C9B48A', '#FFF2C8'); lmTower(150, 40, 170, '#8A96A6', '#DCEEFA');
+  box(20, -300, 50, 300, '#2E3440', '#111', 2); box(30, -330, 34, 30, '#2E3440', '#111', 2); [36, 56].forEach(function (x) { ctx.fillStyle = '#C9D2DE'; ctx.fillRect(x - 1.5, -360, 3, 30); }); windows(24, -292, 4, 24, 12, 12, 6, 6, '#8AA2B8');   // Willis
+  [-20, 96].forEach(function (x) { rrect(x - 18, -180, 36, 180, 18); fs(lit(x - 18, x + 18, '#F2F0EA'), '#8A8A84', 2); for (var y = -170; y < -10; y += 12) { ctx.fillStyle = '#5E6A7A'; ctx.fillRect(x - 15, y, 30, 4); } });   // Marina City
+  box(-180, -40, 360, 10, '#3E4A5A', '#1E2430', 2); box(-150, -70, 16, 30, '#C9B48A', '#6E5E42', 1.5); box(134, -70, 16, 30, '#C9B48A', '#6E5E42', 1.5);
+  rrect(-180, -30, 360, 30, 8); fs(vgrad(-30, 0, ['#4CC36A', '#2E8A4A']), '#1E5A2E', 2);
+  Scenery.drawFlag(ctx, -160, -40, FLAGS.us, t);
+};
+LANDMARKS.mudhif = function (t) {
+  // the Mesopotamian marshes: an arched reed guesthouse (mudhif) on the water, reed beds and a canoe
+  ctx.strokeStyle = '#B8A45A'; ctx.lineWidth = 2; for (var r = -180; r < 180; r += 6) { ctx.beginPath(); ctx.moveTo(r, -20); ctx.lineTo(r + Math.sin(t + r) * 3, -70 - (r * 7 % 30)); ctx.stroke(); }
+  ctx.beginPath(); ctx.moveTo(-130, -30); ctx.lineTo(-130, -110); ctx.bezierCurveTo(-130, -200, 130, -200, 130, -110); ctx.lineTo(130, -30); ctx.closePath(); fs(vgrad(-180, -30, ['#E8D49A', '#C9A86A']), '#7A6438', 2.5);
+  ctx.strokeStyle = 'rgba(122,100,56,0.7)'; ctx.lineWidth = 2; for (var a = -110; a <= 110; a += 22) { ctx.beginPath(); ctx.moveTo(a, -30); ctx.lineTo(a, -110 - (1 - Math.pow(a / 130, 2)) * 60); ctx.stroke(); }
+  ctx.beginPath(); ctx.moveTo(-130, -30); ctx.lineTo(-130, -110); ctx.bezierCurveTo(-130, -200, 130, -200, 130, -110); ctx.lineTo(130, -30); fs(null, '#7A6438', 3);
+  [-150, 150].forEach(function (x) { rrect(x - 10, -140, 20, 110, 10); fs('#D8C080', '#7A6438', 2); ell(x, -146, 12, 10); fs('#E8D49A', '#7A6438', 2); });   // reed-bundle pillars
+  archWin(-20, -100, 40, 70, '#4A3A20');
+  water(-180, -36, 360, 42);
+  ctx.save(); ctx.translate(80, -20); ctx.beginPath(); ctx.moveTo(-50, -6); ctx.quadraticCurveTo(0, 6, 54, -10); ctx.lineTo(48, 0); ctx.quadraticCurveTo(0, 10, -46, 2); ctx.closePath(); fs('#3A2A1E', '#111', 1.5); lmPerson(0, -2, '#2F6FD1'); ctx.strokeStyle = '#5E3A20'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(6, -14); ctx.lineTo(30, 14); ctx.stroke(); ctx.restore();
+  drawAnimal('buffalo', -110, -18, 1.3, t, { look: 1 });
+};
+LANDMARKS.okavango = function (t) {
+  // the Okavango Delta: palm islands, papyrus, a poler in a mokoro and elephants wading across
+  ell(-110, -40, 90, 26); fs('#9AB86A', '#5E7A3A', 2); ell(120, -46, 80, 22); fs('#9AB86A', '#5E7A3A', 2);
+  lmPalm(-130, -50, 150, 0.9); lmPalm(-90, -50, 120, 0.8); lmPalm(130, -56, 140, 0.9);
+  water(-180, -30, 360, 36);
+  drawAnimal('elephant', -10, -18, 1.9, t, { look: 1 }); drawAnimal('elephant', 60, -14, 1.4, t, { look: 1, phase: 2 });
+  ctx.save(); ctx.translate(-110, -6); ctx.beginPath(); ctx.moveTo(-46, -6); ctx.quadraticCurveTo(0, 6, 50, -8); ctx.lineTo(44, 2); ctx.quadraticCurveTo(0, 10, -40, 2); ctx.closePath(); fs('#6E4A2A', '#2E1A0E', 1.5);
+  lmPerson(10, -2, '#E2364A'); ctx.strokeStyle = '#5E3A20'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(14, -60); ctx.lineTo(20, 14); ctx.stroke(); ctx.restore();
+  ctx.strokeStyle = '#4E8A3E'; ctx.lineWidth = 2; [150, 160, 170].forEach(function (x) { ctx.beginPath(); ctx.moveTo(x, -10); ctx.lineTo(x - 4, -60); ctx.stroke(); ell(x - 4, -64, 8, 6); fs('#7FB86A', '#3E6A2E', 1.2); });   // papyrus
+  Scenery.drawFlag(ctx, 160, -70, FLAGS.bw, t);
+};
+LANDMARKS.santaelena = function (t) {
+  // Santa Elena Canyon in Big Bend: 1,500-foot walls split by the Rio Grande, desert scrub in front
+  ctx.beginPath(); ctx.moveTo(-180, 0); ctx.lineTo(-180, -260); ctx.lineTo(-22, -270); ctx.lineTo(-22, -40); ctx.lineTo(-40, 0); ctx.closePath(); fs(vgrad(-270, 0, ['#D8A070', '#9A5A3A']), '#5E3020', 2.5);
+  ctx.beginPath(); ctx.moveTo(180, 0); ctx.lineTo(180, -250); ctx.lineTo(22, -266); ctx.lineTo(22, -40); ctx.lineTo(40, 0); ctx.closePath(); fs(vgrad(-266, 0, ['#C9905E', '#8A4A2E']), '#5E3020', 2.5);
+  ctx.strokeStyle = 'rgba(94,48,32,0.4)'; ctx.lineWidth = 2; for (var r = 1; r < 9; r++) { ctx.beginPath(); ctx.moveTo(-180, -r * 30); ctx.lineTo(-22, -r * 30 - 4); ctx.moveTo(22, -r * 30 - 6); ctx.lineTo(180, -r * 29); ctx.stroke(); }
+  poly([-22, -270, 22, -266, 22, -40, -22, -40]); fs(vgrad(-270, -40, ['#9AD3EE', '#5E9A8A']), null, 0);
+  water(-180, -30, 360, 36);
+  [[-150, -10], [-110, -6], [140, -10]].forEach(function (p) { ctx.save(); ctx.translate(p[0], p[1]); ctx.strokeStyle = '#4E8A3E'; ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, -40); ctx.moveTo(0, -20); ctx.lineTo(-10, -30); ctx.lineTo(-10, -38); ctx.moveTo(0, -24); ctx.lineTo(10, -32); ctx.lineTo(10, -40); ctx.stroke(); ctx.restore(); });   // cacti
+  Scenery.drawFlag(ctx, 110, -24, FLAGS.tx, t);
+};
+LANDMARKS.machupicchu = function (t) {
+  // Machu Picchu: stone terraces and ruins on the saddle below the sugarloaf peak of Huayna Picchu
+  lmPeaks([[-40, -120], [30, -300], [70, -280], [110, -150], [180, -120]], '#4E7A4A', null);
+  lmPeaks([[-180, -140], [-140, -200], [-100, -150]], '#5E8A5A', null);
+  ctx.fillStyle = '#7FB86A'; ctx.fillRect(-180, -110, 360, 110);
+  for (var i = 0; i < 6; i++) { var w = 320 - i * 30, y = -i * 18; poly([-w / 2, y, -w / 2 + 6, y - 18, w / 2 - 6, y - 18, w / 2, y]); fs(i % 2 ? '#8AC46A' : '#7AB45A', '#4E7A3A', 1.5); ctx.fillStyle = '#9A948A'; ctx.fillRect(-w / 2 + 6, y - 4, w - 12, 4); }
+  [[-110, -130, 40], [-60, -150, 34], [-10, -140, 46], [50, -150, 36], [100, -130, 40]].forEach(function (b) { box(b[0] - b[2] / 2, b[1], b[2], 26, '#B9B2A2', '#6E685E', 1.5); poly([b[0] - b[2] / 2, b[1], b[0], b[1] - 16, b[0] + b[2] / 2, b[1]]); fs('#B9B2A2', '#6E685E', 1.5); archWin(b[0] - 5, b[1] + 6, 10, 14, '#4A443A'); });
+  drawAnimal('llama', 120, -110, 1.4, t, { look: -1 });
+  for (var m = 0; m < 3; m++) cloudPuff(-150 + m * 60 + Math.sin(t * 0.3 + m) * 10, -210 - m * 12, 0.6, 0.95);
+  Scenery.drawFlag(ctx, -150, -110, FLAGS.pe, t);
+};
+LANDMARKS.victoriaharbour = function (t) {
+  // Victoria Harbour: Hong Kong's towers in front of Victoria Peak, a red-sailed junk crossing
+  lmPeaks([[-180, -170], [-100, -230], [-20, -200], [60, -240], [180, -170]], '#4E7A4A', null);
+  [[-170, 26, 150], [-140, 30, 200], [-104, 26, 170], [-70, 34, 230], [-30, 28, 180], [4, 36, 290], [44, 30, 210], [80, 26, 160], [112, 34, 260], [150, 30, 180]].forEach(function (b, i) { lmTower(b[0] + b[1] / 2, b[1], b[2], ['#5E7A9A', '#8AA2B8', '#3E4A5A', '#B8CCDC'][i % 4], '#FFE8A0'); });
+  poly([2, -290, 22, -320, 42, -290]); fs('#8AA2B8', '#3E4A5A', 1.5);   // Bank of China point
+  water(-180, -40, 360, 46);
+  ctx.save(); ctx.translate(-50 + Math.sin(t * 0.4) * 20, -26);
+  ctx.beginPath(); ctx.moveTo(-50, -10); ctx.quadraticCurveTo(0, 6, 50, -16); ctx.lineTo(44, 4); ctx.lineTo(-44, 4); ctx.closePath(); fs('#6E3A1E', '#2E1A0E', 2);
+  [[-14, 80], [18, 96]].forEach(function (m) { ctx.fillStyle = '#4A2E18'; ctx.fillRect(m[0] - 1.5, -10 - m[1], 3, m[1]); ctx.beginPath(); ctx.moveTo(m[0], -12 - m[1]); ctx.quadraticCurveTo(m[0] + 38, -10 - m[1] / 2, m[0] + 4, -14); ctx.closePath(); fs('#C9302C', '#6E1A10', 1.5); ctx.strokeStyle = '#6E1A10'; ctx.lineWidth = 1; for (var b = 1; b < 5; b++) { ctx.beginPath(); ctx.moveTo(m[0], -12 - m[1] + b * m[1] / 5); ctx.lineTo(m[0] + 24, -12 - m[1] + b * m[1] / 5 + 4); ctx.stroke(); } });
+  ctx.restore();
+  Scenery.drawFlag(ctx, 160, -40, FLAGS.hk, t);
+};
+LANDMARKS.congo = function (t) {
+  // the Congo rainforest: a gorilla family in a clearing below giant trees and a misty waterfall
+  ctx.fillStyle = '#2E6A32'; ctx.fillRect(-180, -260, 360, 260);
+  [[-150, -240, 56], [-80, -250, 50], [90, -250, 54], [150, -230, 50], [0, -270, 44]].forEach(function (p) { lmTree(p[0], p[1], p[2], '#3E8A3A'); });
+  [-120, 120].forEach(function (x) { box(x - 10, -200, 20, 200, '#6E5A3A', '#3A2E1E', 2); });
+  rrect(-20, -200, 40, 150, 10); fs(hgrad(-20, 20, ['#BFE6F2', '#FFFFFF', '#BFE6F2']), '#6EA6BE', 2);
+  for (var m = 0; m < 4; m++) cloudPuff(-30 + m * 20, -50, 0.45, 1);
+  ctx.beginPath(); ctx.moveTo(-180, -40); ctx.quadraticCurveTo(0, -70, 180, -40); ctx.lineTo(180, 0); ctx.lineTo(-180, 0); ctx.closePath(); fs('#5E8A3A', '#2E5A1E', 2);
+  drawAnimal('gorilla', -80, -20, 2.2, t, { look: 1 }); drawAnimal('gorilla', 70, -18, 1.8, t, { look: -1, phase: 2 }); drawAnimal('gorilla', 20, -16, 1.2, t, { look: -1, phase: 4 });
+  Scenery.drawFlag(ctx, 160, -40, FLAGS.cd, t);
+};
+LANDMARKS.ryman = function (t) {
+  // Nashville: the red-brick Ryman Auditorium with its gothic windows, the "Batman" tower behind, a giant guitar
+  box(60, -270, 60, 270, '#5E6A7A', '#2E3440', 2); [70, 108].forEach(function (x) { poly([x - 8, -270, x, -310, x + 8, -270]); fs('#5E6A7A', '#2E3440', 2); }); windows(66, -260, 4, 20, 13, 12, 7, 6, '#DCEEFA');   // AT&T "Batman"
+  box(-150, -150, 220, 150, '#A4473A', '#5E2218', 2);
+  poly([-160, -150, -40, -210, 80, -150]); fs(lit(-160, 80, '#A4473A'), '#5E2218', 2);
+  [[-120, -120], [-80, -120], [0, -120], [40, -120]].forEach(function (w) { archWin(w[0] - 12, w[1], 24, 60, '#E8C46A'); ctx.strokeStyle = '#5E2218'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(w[0], w[1]); ctx.lineTo(w[0], w[1] + 60); ctx.stroke(); });
+  ell(-40, -170, 16, 16); fs('#E8C46A', '#5E2218', 2); archWin(-56, -100, 32, 100, '#6E3A2A');
+  rrect(-110, -30, 140, 22, 6); fs('#FFF7EC', '#5E2218', 2); text('RYMAN', -40, -19, 15, { color: '#A4473A' });
+  ctx.save(); ctx.translate(150, -10); ctx.rotate(-0.2); ell(0, -34, 22, 26); fs('#E8A23A', '#7A4A1E', 2); ell(0, -70, 16, 18); fs('#E8A23A', '#7A4A1E', 2); ell(0, -50, 7, 7); fs('#3A2416'); box(-4, -150, 8, 84, '#5E3A20', '#2E1A0E', 1.5); box(-7, -160, 14, 14, '#3A2416', '#111', 1); ctx.restore();
+  Scenery.drawFlag(ctx, -140, -150, FLAGS.us, t);
+};
+LANDMARKS.burj = function (t) {
+  // Dubai Creek: the Burj Khalifa soaring over the city, wooden abras crossing the creek
+  [[-170, 30, 120], [-130, 26, 150], [-96, 30, 110], [80, 28, 140], [116, 34, 170], [154, 28, 120]].forEach(function (b, i) { lmTower(b[0] + b[1] / 2, b[1], b[2], ['#B8CCDC', '#8AA2B8', '#D8D2C4'][i % 3], '#5E7A9A'); });
+  var tiers = [[-30, 0], [-26, -80], [-22, -140], [-18, -190], [-14, -230], [-10, -264], [-6, -290], [-3, -310]];
+  for (var i = 0; i < tiers.length - 1; i++) { var a = tiers[i], b = tiers[i + 1]; poly([a[0], a[1], b[0], b[1], -b[0], b[1], -a[0], a[1]]); fs(hgrad(a[0], -a[0], ['#E8F2FA', '#B8CCDC', '#8AA2B8']), '#5E6E82', 1.5); }
+  ctx.strokeStyle = '#5E6E82'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(0, -310); ctx.lineTo(0, -350); ctx.stroke();
+  water(-180, -36, 360, 42);
+  [-90, 70].forEach(function (x, i) { ctx.save(); ctx.translate(x + Math.sin(t * 0.6 + i) * 14, -22); ctx.beginPath(); ctx.moveTo(-34, -6); ctx.lineTo(34, -6); ctx.lineTo(28, 6); ctx.lineTo(-28, 6); ctx.closePath(); fs('#8A5A32', '#3A2416', 1.5); box(-24, -24, 48, 6, '#C9A46A', '#6E4A2A', 1); [-20, 20].forEach(function (p) { ctx.fillStyle = '#6E4A2A'; ctx.fillRect(p - 1.5, -20, 3, 14); }); lmPerson(-6, -6, '#FFFFFF'); lmPerson(8, -6, '#2F6FD1'); ctx.restore(); });
+  Scenery.drawFlag(ctx, -160, -36, FLAGS.ae, t);
+};
+LANDMARKS.flinders = function (t) {
+  // Melbourne: Flinders Street Station's yellow facade, green dome and clock row, a tram out front
+  box(-180, -130, 360, 130, '#E8B86A', '#8A5A2A', 2);
+  windows(-170, -116, 16, 2, 22, 34, 12, 20, '#8A4A2A');
+  box(-40, -180, 80, 60, '#E8B86A', '#8A5A2A', 2); archWin(-24, -170, 48, 50, '#C96A3A');
+  ctx.beginPath(); ctx.moveTo(-40, -180); ctx.bezierCurveTo(-40, -250, 40, -250, 40, -180); ctx.closePath(); fs(lit(-40, 40, '#4E8A6A'), '#1E4A3E', 2); box(-6, -248, 12, 18, '#4E8A6A', '#1E4A3E', 1.5);
+  box(140, -220, 30, 90, '#E8B86A', '#8A5A2A', 2); poly([136, -220, 155, -250, 174, -220]); fs('#4E8A6A', '#1E4A3E', 2); ell(155, -196, 8, 8); fs('#FFFFFF', '#3A3A3A', 1.5);
+  for (var c = 0; c < 6; c++) { ell(-50 + c * 20, -60, 7, 7); fs('#FFFFFF', '#3A3A3A', 1.5); ctx.strokeStyle = '#3A3A3A'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(-50 + c * 20, -60); ctx.lineTo(-50 + c * 20, -65); ctx.moveTo(-50 + c * 20, -60); ctx.lineTo(-46 + c * 20, -60); ctx.stroke(); }   // the famous row of clocks
+  box(-170, -34, 110, 30, '#2E8A4A', '#1E5A2E', 2); windows(-164, -30, 6, 1, 17, 0, 12, 12, '#DCEEFA'); ctx.fillStyle = '#FFD23F'; ctx.fillRect(-170, -12, 110, 4); ctx.strokeStyle = '#2A2A2A'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(-115, -34); ctx.lineTo(-105, -60); ctx.stroke();   // tram
+  Scenery.drawFlag(ctx, 160, -130, FLAGS.au, t);
+};
+LANDMARKS.turtlebeach = function (t) {
+  // Tortuguero: green sea turtles hauling up a black-sand beach at dusk, the rainforest behind
+  ctx.fillStyle = '#2E6A32'; ctx.fillRect(-180, -200, 360, 120);
+  [[-150, -190, 40], [-90, -200, 36], [-30, -190, 40], [40, -200, 36], [100, -194, 40], [160, -186, 36]].forEach(function (p) { lmTree(p[0], p[1], p[2], '#3E8A3A'); });
+  lmPalm(-120, -80, 150, 0.9); lmPalm(130, -80, 140, 0.9);
+  ctx.beginPath(); ctx.moveTo(-180, -90); ctx.quadraticCurveTo(0, -110, 180, -90); ctx.lineTo(180, 0); ctx.lineTo(-180, 0); ctx.closePath(); fs(vgrad(-110, 0, ['#6E6A64', '#4A4640']), '#2E2A26', 2);
+  water(-180, -16, 360, 22);
+  [[-90, -50, 1.3, 0.2], [20, -70, 1, -0.3], [100, -36, 1.4, 0.1]].forEach(function (p, i) {
+    ctx.save(); ctx.translate(p[0], p[1]); ctx.scale(p[2], p[2]); ctx.rotate(p[3] + Math.sin(t + i) * 0.05);
+    [[-20, -10], [20, -10], [-18, 12], [18, 12]].forEach(function (f) { ell(f[0], f[1], 12, 5, f[0] > 0 ? 0.4 : -0.4); fs('#5E7A4A', '#2E3A1E', 1.5); });
+    ell(0, 0, 24, 18); fs(lit(-24, 24, '#6E8A4A'), '#2E3A1E', 2); ctx.strokeStyle = 'rgba(46,58,30,0.6)'; ctx.lineWidth = 1.2; [-8, 8].forEach(function (x) { ctx.beginPath(); ctx.moveTo(x, -16); ctx.lineTo(x, 16); ctx.stroke(); });
+    ell(0, -22, 8, 8); fs('#7A9A5A', '#2E3A1E', 1.5); ctx.restore();
+  });
+  Scenery.drawFlag(ctx, 160, -96, FLAGS.cr, t);
+};
+LANDMARKS.zakim = function (t) {
+  // Boston: the Zakim Bridge's two obelisk towers and fans of white cables, the skyline behind
+  [[-170, 30, 150], [-130, 26, 190], [-96, 30, 120], [110, 30, 170], [146, 28, 140]].forEach(function (b, i) { lmTower(b[0] + b[1] / 2, b[1], b[2], ['#8AA2B8', '#C9B48A', '#5E7A9A'][i % 3], '#FFF2C8'); });
+  water(-180, -30, 360, 36);
+  box(-180, -80, 360, 10, '#9AA6B6', '#3E4A5A', 2);
+  [-70, 70].forEach(function (x) { poly([x - 10, -70, x - 4, -280, x + 4, -280, x + 10, -70]); fs(lit(x - 10, x + 10, '#E8E6E0'), '#6E6A64', 2); poly([x - 4, -280, x, -294, x + 4, -280]); fs('#E8E6E0', '#6E6A64', 1.5);
+    ctx.strokeStyle = '#F2F0EA'; ctx.lineWidth = 1.5; for (var k = 1; k <= 9; k++) { var y = -270 + k * 18; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - k * 12, -80); ctx.moveTo(x, y); ctx.lineTo(x + k * 12, -80); ctx.stroke(); } });
+  [[-10, -24], [40, -22]].forEach(function (s, i) { ctx.save(); ctx.translate(s[0] + Math.sin(t * 0.5 + i) * 10, s[1]); ctx.beginPath(); ctx.moveTo(-16, 0); ctx.lineTo(16, 0); ctx.lineTo(12, 6); ctx.lineTo(-12, 6); ctx.closePath(); fs('#FFFFFF', '#6E7A8C', 1.2); ctx.fillStyle = '#6E7A8C'; ctx.fillRect(-1, -40, 2, 40); poly([1, -38, 18, -4, 1, -4]); fs('#FFFFFF', '#9AA6B6', 1); ctx.restore(); });   // sailboats
+  Scenery.drawFlag(ctx, 160, -80, FLAGS.us, t);
+};
+LANDMARKS.puentemujer = function (t) {
+  // Buenos Aires: the white Puente de la Mujer in Puerto Madero, its leaning mast and cables; La Boca colours behind
+  ['#E2364A', '#FFD23F', '#2F6FD1', '#4CC36A', '#FF8A3D', '#8F6CFF', '#22B5C9'].forEach(function (c, i) { var x = -180 + i * 52, h = 80 + (i % 3) * 20; box(x, -h, 50, h, c, shade(c, -0.45), 1.5); windows(x + 8, -h + 10, 2, 2, 22, 26, 12, 14, '#FFFFFF'); poly([x - 2, -h, x + 25, -h - 16, x + 52, -h]); fs('#9AA6B6', '#5E6A7A', 1.2); });
+  water(-180, -30, 360, 36);
+  box(-170, -50, 340, 10, '#F2F0EA', '#8A8A84', 2);
+  poly([0, -40, 70, -270, 82, -266, 16, -40]); fs(lit(0, 82, '#FBFAF6'), '#8A8A84', 2);
+  ctx.strokeStyle = '#8A8A84'; ctx.lineWidth = 1.2; for (var k = 1; k <= 10; k++) { var u = k / 10; ctx.beginPath(); ctx.moveTo(8 + 70 * u, -40 - 226 * u); ctx.lineTo(-160 + k * 15, -50); ctx.stroke(); }
+  [[60, '#E2364A'], [100, '#2F6FD1']].forEach(function (d, i) { ctx.save(); ctx.translate(d[0] + i * 10, -50); lmPerson(0, 0, d[1]); lmPerson(10, 0, i ? '#FFFFFF' : '#1E1E22'); ctx.restore(); });   // tango dancers
+  Scenery.drawFlag(ctx, -160, -50, FLAGS.ar, t);
+};
+LANDMARKS.hollywood = function (t) {
+  // the LA River: the Hollywood Sign on the hills above the concrete channel and the Sixth Street Viaduct
+  ctx.beginPath(); ctx.moveTo(-180, -80); ctx.quadraticCurveTo(-100, -220, 0, -200); ctx.quadraticCurveTo(100, -230, 180, -120); ctx.lineTo(180, 0); ctx.lineTo(-180, 0); ctx.closePath(); fs(vgrad(-230, 0, ['#B8A06A', '#8A7A4A']), '#5E5030', 2.5);
+  'HOLLYWOOD'.split('').forEach(function (ch, i) { var x = -120 + i * 28, y = -188 + Math.abs(i - 4) * 3; ctx.fillStyle = '#5E5030'; ctx.fillRect(x - 1, y + 10, 2, 14); text(ch, x, y, 30, { color: '#FFFFFF', outline: '#5E5030', ow: 3 }); });
+  [[-160, -90, 20], [150, -110, 22], [120, -100, 18]].forEach(function (p) { lmTree(p[0], p[1], p[2], '#6E8A4A'); });
+  lmPalm(-140, -60, 170, 0.8); lmPalm(150, -60, 150, 0.8);
+  poly([-180, -60, 180, -60, 140, 0, -140, 0]); fs('#C9C4B8', '#7A766A', 2); rrect(-30, -12, 60, 10, 4); fs('#5EAFC9', '#2E86A8', 1.5);
+  ctx.strokeStyle = '#F2F0EA'; ctx.lineWidth = 5; for (var a = 0; a < 4; a++) { ctx.beginPath(); ctx.arc(-120 + a * 80, -60, 40, Math.PI, 0); ctx.stroke(); } box(-180, -104, 360, 8, '#F2F0EA', '#8A8A84', 1.5);   // viaduct arches
+  Scenery.drawFlag(ctx, -160, -104, FLAGS.us, t);
+};
+LANDMARKS.marinabay = function (t) {
+  // Marina Bay Sands: three towers carrying the SkyPark "ship" on top, the Merlion spouting in front
+  [-110, -10, 90].forEach(function (x) { poly([x - 30, 0, x - 18, -250, x + 18, -250, x + 30, 0]); fs(lit(x - 30, x + 30, '#D8E2EA'), '#6E7A8A', 2); ctx.strokeStyle = 'rgba(110,122,138,0.5)'; ctx.lineWidth = 1; for (var y = -240; y < 0; y += 14) { ctx.beginPath(); ctx.moveTo(x - 28, y); ctx.lineTo(x + 28, y); ctx.stroke(); } });
+  ctx.beginPath(); ctx.moveTo(-160, -262); ctx.lineTo(150, -262); ctx.quadraticCurveTo(170, -258, 176, -250); ctx.lineTo(-150, -250); ctx.closePath(); fs(lit(-160, 176, '#E8F2FA'), '#5E6E82', 2); lmTree(-120, -266, 8, '#4E8A3E'); lmTree(0, -266, 8, '#4E8A3E');
+  water(-180, -30, 360, 36);
+  ctx.save(); ctx.translate(140, -30); box(-14, -60, 28, 60, '#F2F0EA', '#8A8A84', 2); ell(0, -74, 18, 16); fs('#F2F0EA', '#8A8A84', 2); poly([-16, -82, 0, -96, 16, -82]); fs('#F2F0EA', '#8A8A84', 1.5); ell(-10, -76, 2, 2); fs('#3A3A3A');
+  ctx.strokeStyle = '#BFE6F2'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(-16, -70); ctx.quadraticCurveTo(-50, -80, -70, -30 + Math.sin(t * 4) * 2); ctx.stroke(); ctx.restore();   // Merlion
+  Scenery.drawFlag(ctx, -170, -30, FLAGS.sg, t);
+};
+
+/* ---------- sight kits and wraps ---------- */
+(function () {
+  var K = SIGHT_KITS;
+  function wrap(name, fn) { var base = K[name]; K[name] = function (p, t) { if (fn(p || {}, t) !== false) return; base(p || {}, t); }; }
+  wrap('statue', function (p, t) {
+    if (p.kind === 'mermaid') { ell(0, -20, 60, 22); fs('#8A847A', '#4E4A44', 2); ctx.save(); ctx.translate(0, -40); ctx.beginPath(); ctx.moveTo(-20, 0); ctx.quadraticCurveTo(-30, -30, -6, -50); ctx.lineTo(10, -50); ctx.quadraticCurveTo(20, -20, 34, -6); ctx.quadraticCurveTo(10, 4, -20, 0); fs(lit(-30, 34, '#5E9A8A'), '#2E5A4E', 2); ell(0, -62, 10, 12); fs('#5E9A8A', '#2E5A4E', 2); ctx.restore(); return; }
+    if (p.kind === 'merlion') { box(-30, -40, 60, 40, '#D8D2C4', '#7A766A', 2); box(-16, -120, 32, 80, '#F2F0EA', '#8A8A84', 2); ell(0, -140, 26, 24); fs('#F2F0EA', '#8A8A84', 2); ctx.strokeStyle = '#9AD3EE'; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(-24, -136); ctx.quadraticCurveTo(-80, -150, -110, -40); ctx.stroke(); return; }
+    if (p.kind === 'cowboy') { box(-30, -50, 60, 50, '#8A847A', '#4E4A44', 2); ctx.save(); ctx.translate(0, -50); drawAnimal('longhorn', 0, 0, 1.6, t, { look: 1 }); ctx.restore(); return; }
+    return false;
+  });
+  wrap('houses', function (p, t) {
+    if (p.style === 'barn') { box(-70, -90, 140, 90, '#8A5A3A', '#4A2E18', 2); poly([-84, -88, -40, -140, 40, -140, 84, -88]); fs('#6E6A64', '#3A3834', 2); box(-20, -60, 40, 60, '#5E3A22', '#2E1A0E', 1.5); ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(-20, -60); ctx.lineTo(20, 0); ctx.moveTo(20, -60); ctx.lineTo(-20, 0); ctx.stroke(); lmTree(110, -30, 26, '#5E8A3A'); return; }
+    if (p.style === 'pueblo') { [[-110, 70, 60, '#D8A070'], [-40, 90, 90, '#E8B888'], [50, 70, 60, '#C9905E']].forEach(function (h) { box(h[0], -h[2], h[1], h[2], h[3], shade(h[3], -0.45), 2); for (var v = h[0] + 8; v < h[0] + h[1]; v += 16) { ctx.fillStyle = '#6E4A2A'; ctx.fillRect(v, -h[2] + 6, 4, 4); } box(h[0] + h[1] / 2 - 9, -30, 18, 30, '#5E3A22', '#2E1A0E', 1.2); }); return; }
+    if (p.style === 'colourful') { ['#E2364A', '#FFD23F', '#2F6FD1', '#4CC36A', '#FF8A3D'].forEach(function (c, i) { var x = -120 + i * 48, h = 90 + (i % 2) * 30; box(x, -h, 46, h, c, shade(c, -0.45), 1.5); windows(x + 8, -h + 12, 2, Math.floor(h / 30), 18, 28, 10, 14, '#FFFFFF'); poly([x - 2, -h, x + 23, -h - 18, x + 48, -h]); fs('#9AA6B6', '#5E6A7A', 1.2); }); return; }
+    return false;
+  });
+  wrap('ship', function (p, t) {
+    if (p.kind === 'trajinera') { ctx.save(); ctx.scale(0.72, 0.72); LANDMARKS.trajineras.call(null, t); ctx.restore(); return; }
+    if (p.kind === 'airboat') { ctx.save(); ctx.translate(0, -10); ctx.beginPath(); ctx.moveTo(-100, -12); ctx.lineTo(90, -12); ctx.quadraticCurveTo(110, 0, 90, 12); ctx.lineTo(-100, 12); ctx.closePath(); fs('#E8E2D4', '#6E6A64', 2); ell(-80, -60, 8, 48); fs('#C9D2DE', '#5E6A7A', 2); ctx.save(); ctx.translate(-80, -60); ctx.rotate(t * 20); ctx.fillStyle = '#3A3F4A'; ctx.fillRect(-3, -44, 6, 88); ctx.restore(); lmPerson(0, -12, '#2F6FD1'); lmPerson(30, -12, '#E2364A'); ctx.restore(); return; }
+    if (p.kind === 'container') { ctx.beginPath(); ctx.moveTo(-130, -40); ctx.lineTo(120, -40); ctx.lineTo(130, -10); ctx.lineTo(110, 0); ctx.lineTo(-120, 0); ctx.closePath(); fs('#2E4A6A', '#111', 2); var cc = ['#E2364A', '#2F6FD1', '#FFD23F', '#4CC36A', '#FF8A3D']; for (var i = 0; i < 24; i++) box(-120 + (i % 8) * 24, -62 - Math.floor(i / 8) * 20, 22, 20, cc[i % 5], shade(cc[i % 5], -0.4), 1); box(80, -120, 34, 80, '#FFFFFF', '#6E7A8C', 2); windows(86, -112, 2, 4, 12, 16, 7, 9, '#4E6E9A'); return; }
+    return false;
+  });
+  wrap('animals', function (p, t) {
+    if (p.kind !== 'turtles') return false;
+    ctx.beginPath(); ctx.moveTo(-130, 0); ctx.quadraticCurveTo(0, -30, 130, 0); ctx.closePath(); fs('#6E6A64', '#2E2A26', 2);
+    [[-60, -12, 1.6], [50, -14, 1.3]].forEach(function (q) { ctx.save(); ctx.translate(q[0], q[1]); ctx.scale(q[2], q[2]); ell(0, 0, 24, 14); fs(lit(-24, 24, '#6E8A4A'), '#2E3A1E', 2); ell(26, -2, 8, 6); fs('#7A9A5A', '#2E3A1E', 1.5); ctx.restore(); });
+  });
+  /* a ziggurat-free Mesopotamian reed house for sights */
+  K.mudhif = function (p, t) { ctx.save(); ctx.scale(0.75, 0.75); LANDMARKS.mudhif.call(null, t); ctx.restore(); };
+  /* a Hollywood-style sign on a hill, any text */
+  K.hillsign = function (p, t) { ctx.beginPath(); ctx.moveTo(-130, 0); ctx.quadraticCurveTo(0, -150, 130, 0); ctx.closePath(); fs(vgrad(-110, 0, ['#B8A06A', '#8A7A4A']), '#5E5030', 2); var s = p.text || 'HOLLYWOOD'; s.split('').forEach(function (ch, i) { text(ch, -((s.length - 1) * 12) + i * 24, -86 + Math.abs(i - (s.length - 1) / 2) * 4, 26, { color: '#FFFFFF', outline: '#5E5030', ow: 3 }); }); };
+  /* Mount Rushmore-style carved cliff is not used; Space Needle-style towers use tower kind needle */
+  /* Miraflores-style canal lock */
+  K.lock = function (p, t) { box(-130, -70, 260, 70, '#B9B2A2', '#6E685E', 2); poly([-120, -60, 120, -60, 120, -6, -120, -6]); fs(vgrad(-60, -6, ['#5EAFC9', '#2E86A8']), '#1E5A7A', 2); [-1, 1].forEach(function (sd) { poly([sd * 20, -60, sd * 4, -30, sd * 20, -6]); fs('#6E6A64', '#3A3834', 2); }); box(-120, -90, 40, 20, '#C9D2DE', '#5E6A7A', 1.5); box(80, -110, 30, 40, '#FFFFFF', '#6E7A8C', 1.5); windows(84, -104, 2, 2, 12, 14, 6, 8, '#4E6E9A'); };
+  /* a stilt-legged water tower / lighthouse for harbours is the lighthouse kit */
+})();
+
+/* ---------- bank props ---------- */
+(function () {
+  var P = Scenery.PROPS();
+  function shadowAt(c, x, y, r) { ell(x + 2, y + 2, r, r * 0.35, 0, c); c.fillStyle = 'rgba(20,40,20,0.25)'; c.fill(); }
+  P.cactus = function (c, x, y) { shadowAt(c, x, y, 9); c.strokeStyle = '#4E8A3E'; c.lineWidth = 6; c.lineCap = 'round'; c.beginPath(); c.moveTo(x, y); c.lineTo(x, y - 30); c.moveTo(x, y - 14); c.lineTo(x - 8, y - 20); c.lineTo(x - 8, y - 26); c.moveTo(x, y - 18); c.lineTo(x + 8, y - 24); c.lineTo(x + 8, y - 30); c.stroke(); };
+  P.guitar = function (c, x, y) { shadowAt(c, x, y, 9); ell(x, y - 8, 8, 9, 0, c); fs('#E8A23A', '#7A4A1E', 1.5, c); ell(x, y - 20, 6, 7, 0, c); fs('#E8A23A', '#7A4A1E', 1.5, c); c.fillStyle = '#5E3A20'; c.fillRect(x - 1.5, y - 44, 3, 22); };
+  P.surfboardHI = function (c, x, y) { ell(x, y - 18, 5, 18, 0, c); fs('#22B5C9', '#1E6A7A', 1.5, c); c.fillStyle = '#FFFFFF'; c.fillRect(x - 1, y - 34, 2, 32); };
+  P.bike = function (c, x, y) { [-7, 7].forEach(function (d) { ell(x + d, y - 6, 6, 6, 0, c); c.strokeStyle = '#2A2A2A'; c.lineWidth = 1.5; c.stroke(); }); c.strokeStyle = '#E2364A'; c.lineWidth = 2; c.beginPath(); c.moveTo(x - 7, y - 6); c.lineTo(x, y - 14); c.lineTo(x + 7, y - 6); c.stroke(); };
+  P.acacia = function (c, x, y) { c.fillStyle = '#5E4428'; c.fillRect(x - 1.5, y - 26, 3, 26); ell(x, y - 28, 16, 5, 0, c); fs('#6E8A3A', '#3E5A24', 1.2, c); };
+  P.lanternRed = function (c, x, y) { c.fillStyle = '#6E7A8A'; c.fillRect(x - 1, y - 34, 2, 34); ell(x, y - 30, 6, 8, 0, c); fs('#E2364A', '#7A1E2A', 1.2, c); };
+  P.palmDate = function (c, x, y) { c.strokeStyle = '#8A6A42'; c.lineWidth = 3; c.beginPath(); c.moveTo(x, y); c.quadraticCurveTo(x + 2, y - 20, x, y - 36); c.stroke(); for (var i = 0; i < 5; i++) { var a = -Math.PI / 2 + (i - 2) * 0.6; c.strokeStyle = '#4E8A3E'; c.lineWidth = 3; c.beginPath(); c.moveTo(x, y - 36); c.quadraticCurveTo(x + Math.cos(a) * 12, y - 36 + Math.sin(a) * 12 - 4, x + Math.cos(a) * 18, y - 36 + Math.sin(a) * 18 + 6); c.stroke(); } };
 })();
 
 /* =====================================================================
@@ -3465,6 +4023,7 @@ var Audio2 = (function () {
     // per-river flavours (REGIONS[].music): Tex-Mex fiesta, Kerala temple-boat song, Wild West frontier
     fiesta: ['major', 'sawtooth', 132], kerala: ['hijaz', 'marimba', 104], frontier: ['major', 'triangle', 108],
     // v1.0: Kalahari (Orange), Polynesian (Waikato), Nordic folk (Oslo, Stockholm), Korean pentatonic (Han), Americana march (Potomac), Garífuna (Río Dulce)
+    country: ['major', 'triangle', 126], hawaii: ['major', 'bell', 96], tango: ['minorP', 'sawtooth', 112], jazz: ['dorian', 'square', 118],
     kalahari: ['penta', 'marimba', 120], pacific: ['penta', 'triangle', 100], nordic: ['dorian', 'bell', 112], seoul: ['penta', 'square', 118], capital: ['major', 'square', 120], garifuna: ['penta', 'marimba', 128],
     forest: ['dorian', 'triangle', 116], alpine: ['penta', 'triangle', 110], arctic: ['lydian', 'bell', 100], karst: ['penta', 'bell', 104], plains: ['major', 'square', 120]
   };
